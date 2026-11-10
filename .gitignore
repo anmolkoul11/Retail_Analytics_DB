@@ -1,0 +1,10 @@
+.cache/
+.venv/
+__pycache__/
+*.pyc
+.databricks/
+.env
+*.share
+*credentials*.json
+artifacts/
+.tools/

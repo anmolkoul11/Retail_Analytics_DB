@@ -1,0 +1,126 @@
+{
+  "version": 2,
+  "config": {
+    "sample_questions": [
+      {
+        "id": "00000000000000000000000000000001",
+        "question": [
+          "What is total completed-sales revenue?"
+        ]
+      },
+      {
+        "id": "00000000000000000000000000000002",
+        "question": [
+          "Which three products generated the most revenue?"
+        ]
+      },
+      {
+        "id": "00000000000000000000000000000003",
+        "question": [
+          "Which region had the most revenue?"
+        ]
+      }
+    ]
+  },
+  "data_sources": {
+    "tables": [
+      {
+        "identifier": "retail_demo.gold.category_revenue"
+      },
+      {
+        "identifier": "retail_demo.gold.daily_revenue"
+      },
+      {
+        "identifier": "retail_demo.gold.product_metrics"
+      },
+      {
+        "identifier": "retail_demo.gold.regional_revenue"
+      }
+    ]
+  },
+  "instructions": {
+    "text_instructions": [
+      {
+        "id": "00000000000000000000000000000100",
+        "content": [
+          "Revenue means completed-sales revenue in USD after discounts and rounding per line. Cancelled and returned lines are excluded; tax, shipping and refund accounting are not modeled. daily_revenue is daily; category_revenue and regional_revenue add their respective dimension. product_metrics is all-time per product/name/category/currency. Never join these aggregate tables on date alone: this multiplies revenue. Use one suitable table. AOV is SUM(revenue)/SUM(order_count) from daily_revenue, not AVG(average_order_value). Active customers cannot be summed across days as period distinct customers. Product and region order counts may not be additive. Explain unavailable metrics instead of inventing fields. All records are fictional data from the Databricks Marketplace Simulated Retail Customer Data listing. The adapter assumes source purchase orders are completed because no order status is supplied. Region is latest-known customer region. Category uses provider sales.product_category mapped by product name; unmatched names are Unknown. Orders whose declared line count disagrees with their JSON array are quarantined."
+        ]
+      }
+    ],
+    "example_question_sqls": [
+      {
+        "id": "00000000000000000000000000000200",
+        "question": [
+          "What is total completed-sales revenue?"
+        ],
+        "sql": [
+          "SELECT SUM(revenue) AS revenue FROM retail_demo.gold.daily_revenue"
+        ]
+      },
+      {
+        "id": "00000000000000000000000000000201",
+        "question": [
+          "Which three products generated the most revenue?"
+        ],
+        "sql": [
+          "SELECT product_id, product_name, revenue FROM retail_demo.gold.product_metrics ORDER BY revenue DESC, product_id LIMIT 3"
+        ]
+      },
+      {
+        "id": "00000000000000000000000000000202",
+        "question": [
+          "Which region had the most revenue?"
+        ],
+        "sql": [
+          "SELECT region, SUM(revenue) AS revenue FROM retail_demo.gold.regional_revenue GROUP BY region ORDER BY revenue DESC, region LIMIT 1"
+        ]
+      }
+    ]
+  },
+  "benchmarks": {
+    "questions": [
+      {
+        "id": "00000000000000000000000000000400",
+        "question": [
+          "What is total completed-sales revenue?"
+        ],
+        "answer": [
+          {
+            "format": "SQL",
+            "content": [
+              "SELECT SUM(revenue) AS revenue FROM retail_demo.gold.daily_revenue"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "00000000000000000000000000000401",
+        "question": [
+          "Which three products generated the most revenue?"
+        ],
+        "answer": [
+          {
+            "format": "SQL",
+            "content": [
+              "SELECT product_id, product_name, revenue FROM retail_demo.gold.product_metrics ORDER BY revenue DESC, product_id LIMIT 3"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "00000000000000000000000000000402",
+        "question": [
+          "Which region had the most revenue?"
+        ],
+        "answer": [
+          {
+            "format": "SQL",
+            "content": [
+              "SELECT region, SUM(revenue) AS revenue FROM retail_demo.gold.regional_revenue GROUP BY region ORDER BY revenue DESC, region LIMIT 1"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

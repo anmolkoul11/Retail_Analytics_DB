@@ -1,0 +1,57 @@
+bundle:
+  name: retail-orders-demo
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    default: retail_demo
+  fallback_catalog:
+    default: retail_demo_notebooks
+  source_mode:
+    default: sample
+  source_table:
+    default: ""
+  provider_catalog:
+    default: retail_provider
+  source_path:
+    default: ""
+  column_mapping:
+    default: "{}"
+  reader_principal:
+    description: Account group or user email; blank grants current user only.
+    default: ""
+  pii_group:
+    description: Verified account group allowed to see email; blank masks everyone.
+    default: ""
+
+sync:
+  include:
+    - data/*.csv
+    - retail/*.py
+    - notebooks/*.py
+    - pipelines/*.py
+    - reporting/*.sql
+    - reporting/*.json
+    - docs/*.md
+    - docs/*.json
+    - README.md
+  exclude:
+    - .cache/**
+    - .venv/**
+    - .tools/**
+    - tests/**
+    - tools/**
+    - '**/__pycache__/**'
+
+targets:
+  dev:
+    default: true
+    mode: development
+    variables:
+      source_mode: marketplace
+    workspace:
+      host: https://dbc-52ad64ac-9d22.cloud.databricks.com
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+      file_path: /Workspace/Users/${workspace.current_user.userName}/Databricks_Demo

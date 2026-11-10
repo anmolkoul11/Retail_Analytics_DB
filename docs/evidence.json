@@ -1,0 +1,62 @@
+{
+  "verified_date": "2026-11-10",
+  "source": {
+    "listing_id": "a82597f6-5ada-49d5-b934-d6c9dece16a1",
+    "catalog": "retail_provider",
+    "mode": "marketplace",
+    "license": "CC BY 4.0",
+    "fictional_records": true,
+    "actual_delta_sharing": true
+  },
+  "runs": {
+    "sample": {
+      "run_id": 421584245088319,
+      "result": "SUCCESS"
+    },
+    "marketplace": {
+      "run_id": 89815997261296,
+      "result": "SUCCESS"
+    }
+  },
+  "metrics": {
+    "bronze_rows": "8138",
+    "silver_rows": "7643",
+    "quarantine_rows": "355",
+    "revenue_usd": "10062538.04",
+    "completed_orders": "3808",
+    "first_day": "2019-08-01",
+    "last_day": "2019-11-14",
+    "category_revenue": "10062538.04",
+    "product_revenue": "10062538.04",
+    "regional_revenue": "10062538.04",
+    "customer_revenue": "10062538.04",
+    "masking_violations": "0",
+    "source_kind": "marketplace"
+  },
+  "genie": {
+    "total_status": "COMPLETED",
+    "total_sql": [
+      "SELECT SUM(`revenue`) AS revenue FROM `retail_demo`.`gold`.`daily_revenue`"
+    ],
+    "total_answer": [
+      "The total completed-sales revenue is **$10,062,538.04**. This value represents all completed sales after discounts and rounding, excluding cancelled and returned lines."
+    ],
+    "shipping_status": "COMPLETED",
+    "shipping_answer": [
+      "Shipping revenue is not tracked in any of the available tables; only completed-sales revenue is modeled, excluding shipping. Therefore, I cannot provide shipping revenue data."
+    ]
+  },
+  "outbound_share": {
+    "name": "retail_demo_gold_share",
+    "asset": "retail_demo.gold.daily_revenue",
+    "type": "MATERIALIZED_VIEW",
+    "status": "ACTIVE",
+    "recipient_grants_created": 0
+  },
+  "limitations": [
+    "No Catalog Explorer lineage screenshot captured: console explicitly rejects automated browser control.",
+    "No separate-reader identity test.",
+    "No outbound recipient consumption test.",
+    "Notebook fallback full job not run; setup task and shared transformations verified."
+  ]
+}

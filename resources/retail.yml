@@ -1,0 +1,112 @@
+resources:
+  pipelines:
+    retail_pipeline:
+      name: retail-orders-medallion
+      catalog: ${var.catalog}
+      schema: silver
+      serverless: true
+      continuous: false
+      edition: ADVANCED
+      channel: CURRENT
+      libraries:
+        - file:
+            path: ../pipelines/retail_pipeline.py
+      configuration:
+        retail.catalog: ${var.catalog}
+        retail.project_root: ${workspace.file_path}
+
+  jobs:
+    retail_demo:
+      name: retail-orders-daily
+      max_concurrent_runs: 1
+      timeout_seconds: 3600
+      schedule:
+        quartz_cron_expression: '0 0 8 * * ?'
+        timezone_id: America/New_York
+        pause_status: PAUSED
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+        - name: project_root
+          default: ${workspace.file_path}
+      tasks:
+        - task_key: setup
+          notebook_task:
+            notebook_path: ../notebooks/00_setup.py
+          max_retries: 0
+        - task_key: ingest
+          depends_on:
+            - task_key: setup
+          notebook_task:
+            notebook_path: ../notebooks/01_ingest.py
+            base_parameters:
+              source_mode: ${var.source_mode}
+              provider_catalog: ${var.provider_catalog}
+              source_table: ${var.source_table}
+              source_path: ${var.source_path}
+              column_mapping: ${var.column_mapping}
+          max_retries: 0
+        - task_key: medallion
+          depends_on:
+            - task_key: ingest
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.retail_pipeline.id}
+          max_retries: 0
+        - task_key: governance
+          depends_on:
+            - task_key: medallion
+          notebook_task:
+            notebook_path: ../notebooks/03_governance.py
+            base_parameters:
+              reader_principal: ${var.reader_principal}
+              pii_group: ${var.pii_group}
+          max_retries: 0
+        - task_key: validate
+          depends_on:
+            - task_key: governance
+          notebook_task:
+            notebook_path: ../notebooks/04_validate.py
+          max_retries: 0
+
+    retail_notebooks:
+      name: retail-orders-notebook-fallback
+      max_concurrent_runs: 1
+      timeout_seconds: 3600
+      parameters:
+        - name: catalog
+          default: ${var.fallback_catalog}
+        - name: project_root
+          default: ${workspace.file_path}
+      tasks:
+        - task_key: setup
+          notebook_task:
+            notebook_path: ../notebooks/00_setup.py
+        - task_key: ingest
+          depends_on:
+            - task_key: setup
+          notebook_task:
+            notebook_path: ../notebooks/01_ingest.py
+            base_parameters:
+              source_mode: ${var.source_mode}
+              provider_catalog: ${var.provider_catalog}
+              source_table: ${var.source_table}
+              source_path: ${var.source_path}
+              column_mapping: ${var.column_mapping}
+        - task_key: transform
+          depends_on:
+            - task_key: ingest
+          notebook_task:
+            notebook_path: ../notebooks/02_transform.py
+        - task_key: governance
+          depends_on:
+            - task_key: transform
+          notebook_task:
+            notebook_path: ../notebooks/03_governance.py
+            base_parameters:
+              reader_principal: ${var.reader_principal}
+              pii_group: ${var.pii_group}
+        - task_key: validate
+          depends_on:
+            - task_key: governance
+          notebook_task:
+            notebook_path: ../notebooks/04_validate.py

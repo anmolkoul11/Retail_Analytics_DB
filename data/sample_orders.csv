@@ -1,0 +1,1212 @@
+order_id,line_id,order_ts,customer_id,customer_email,product_id,product_name,category,region,quantity,unit_price,discount_pct,status,updated_at,currency
+O00000,1,2026-01-01 12:00:00,C000,c000@example.invalid,P01,Desk lamp,Home,East,1,24.50,0.1000,cancelled,2026-01-01 12:00:00,USD
+O00000,2,2026-01-01 12:00:00,C000,c000@example.invalid,P02,Notebook,Stationery,East,2,5.00,0.1000,cancelled,2026-01-01 12:00:00,USD
+O00001,1,2026-01-02 12:00:00,C001,c001@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-02 12:00:00,USD
+O00001,2,2026-01-02 12:00:00,C001,c001@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-02 12:00:00,USD
+O00002,1,2026-01-03 12:00:00,C002,c002@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-03 12:00:00,USD
+O00002,2,2026-01-03 12:00:00,C002,c002@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-03 12:00:00,USD
+O00003,1,2026-01-04 12:00:00,C003,c003@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-04 12:00:00,USD
+O00003,2,2026-01-04 12:00:00,C003,c003@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-04 12:00:00,USD
+O00004,1,2026-01-05 12:00:00,C004,c004@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-05 12:00:00,USD
+O00004,2,2026-01-05 12:00:00,C004,c004@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-05 12:00:00,USD
+O00005,1,2026-01-06 12:00:00,C005,c005@example.invalid,P02,Notebook,Stationery,West,2,5.00,0.1000,completed,2026-01-06 12:00:00,USD
+O00005,2,2026-01-06 12:00:00,C005,c005@example.invalid,P03,Headphones,Electronics,West,3,49.95,0.1000,completed,2026-01-06 12:00:00,USD
+O00006,1,2026-01-07 12:00:00,C006,c006@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-07 12:00:00,USD
+O00006,2,2026-01-07 12:00:00,C006,c006@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-07 12:00:00,USD
+O00007,1,2026-01-08 12:00:00,C007,c007@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-08 12:00:00,USD
+O00007,2,2026-01-08 12:00:00,C007,c007@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-08 12:00:00,USD
+O00008,1,2026-01-09 12:00:00,C008,c008@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-01-09 12:00:00,USD
+O00008,2,2026-01-09 12:00:00,C008,c008@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-01-09 12:00:00,USD
+O00009,1,2026-01-10 12:00:00,C009,c009@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-10 12:00:00,USD
+O00009,2,2026-01-10 12:00:00,C009,c009@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-10 12:00:00,USD
+O00010,1,2026-01-11 12:00:00,C010,c010@example.invalid,P03,Headphones,Electronics,North,3,49.95,0.1000,completed,2026-01-11 12:00:00,USD
+O00010,2,2026-01-11 12:00:00,C010,c010@example.invalid,P04,Travel mug,Home,North,1,12.00,0.1000,completed,2026-01-11 12:00:00,USD
+O00011,1,2026-01-12 12:00:00,C011,c011@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-12 12:00:00,USD
+O00011,2,2026-01-12 12:00:00,C011,c011@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-12 12:00:00,USD
+O00012,1,2026-01-13 12:00:00,C012,c012@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-13 12:00:00,USD
+O00012,2,2026-01-13 12:00:00,C012,c012@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-13 12:00:00,USD
+O00013,1,2026-01-14 12:00:00,C013,c013@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-14 12:00:00,USD
+O00013,2,2026-01-14 12:00:00,C013,c013@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-14 12:00:00,USD
+O00014,1,2026-01-15 12:00:00,C014,c014@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-15 12:00:00,USD
+O00014,2,2026-01-15 12:00:00,C014,c014@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-15 12:00:00,USD
+O00015,1,2026-01-16 12:00:00,C015,c015@example.invalid,P04,Travel mug,Home,South,1,12.00,0.1000,completed,2026-01-16 12:00:00,USD
+O00015,2,2026-01-16 12:00:00,C015,c015@example.invalid,P01,Desk lamp,Home,South,2,24.50,0.1000,completed,2026-01-16 12:00:00,USD
+O00016,1,2026-01-17 12:00:00,C016,c016@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-17 12:00:00,USD
+O00016,2,2026-01-17 12:00:00,C016,c016@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-17 12:00:00,USD
+O00017,1,2026-01-18 12:00:00,C017,c017@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,cancelled,2026-01-18 12:00:00,USD
+O00017,2,2026-01-18 12:00:00,C017,c017@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,cancelled,2026-01-18 12:00:00,USD
+O00018,1,2026-01-19 12:00:00,C018,c018@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-19 12:00:00,USD
+O00018,2,2026-01-19 12:00:00,C018,c018@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-19 12:00:00,USD
+O00019,1,2026-01-20 12:00:00,C019,c019@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-20 12:00:00,USD
+O00019,2,2026-01-20 12:00:00,C019,c019@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-20 12:00:00,USD
+O00020,1,2026-01-21 12:00:00,C020,c020@example.invalid,P01,Desk lamp,Home,East,2,24.50,0.1000,completed,2026-01-21 12:00:00,USD
+O00020,2,2026-01-21 12:00:00,C020,c020@example.invalid,P02,Notebook,Stationery,East,3,5.00,0.1000,completed,2026-01-21 12:00:00,USD
+O00021,1,2026-01-22 12:00:00,C021,c021@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-22 12:00:00,USD
+O00021,2,2026-01-22 12:00:00,C021,c021@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-22 12:00:00,USD
+O00022,1,2026-01-23 12:00:00,C022,c022@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-01-23 12:00:00,USD
+O00022,2,2026-01-23 12:00:00,C022,c022@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-01-23 12:00:00,USD
+O00023,1,2026-01-24 12:00:00,C023,c023@example.invalid,P04,Travel mug,Home,South,2,12.00,0,returned,2026-01-24 12:00:00,USD
+O00023,2,2026-01-24 12:00:00,C023,c023@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,returned,2026-01-24 12:00:00,USD
+O00024,1,2026-01-25 12:00:00,C024,c024@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-25 12:00:00,USD
+O00024,2,2026-01-25 12:00:00,C024,c024@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-25 12:00:00,USD
+O00025,1,2026-01-26 12:00:00,C025,c025@example.invalid,P02,Notebook,Stationery,West,3,5.00,0.1000,completed,2026-01-26 12:00:00,USD
+O00025,2,2026-01-26 12:00:00,C025,c025@example.invalid,P03,Headphones,Electronics,West,1,49.95,0.1000,completed,2026-01-26 12:00:00,USD
+O00026,1,2026-01-27 12:00:00,C026,c026@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-27 12:00:00,USD
+O00026,2,2026-01-27 12:00:00,C026,c026@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-27 12:00:00,USD
+O00027,1,2026-01-28 12:00:00,C027,c027@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-28 12:00:00,USD
+O00027,2,2026-01-28 12:00:00,C027,c027@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-28 12:00:00,USD
+O00028,1,2026-01-29 12:00:00,C028,c028@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-29 12:00:00,USD
+O00028,2,2026-01-29 12:00:00,C028,c028@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-29 12:00:00,USD
+O00029,1,2026-01-30 12:00:00,C029,c029@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-30 12:00:00,USD
+O00029,2,2026-01-30 12:00:00,C029,c029@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-30 12:00:00,USD
+O00030,1,2026-01-31 12:00:00,C030,c030@example.invalid,P03,Headphones,Electronics,North,1,49.95,0.1000,completed,2026-01-31 12:00:00,USD
+O00030,2,2026-01-31 12:00:00,C030,c030@example.invalid,P04,Travel mug,Home,North,2,12.00,0.1000,completed,2026-01-31 12:00:00,USD
+O00031,1,2026-02-01 12:00:00,C031,c031@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-01 12:00:00,USD
+O00031,2,2026-02-01 12:00:00,C031,c031@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-01 12:00:00,USD
+O00032,1,2026-02-02 12:00:00,C032,c032@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-02 12:00:00,USD
+O00032,2,2026-02-02 12:00:00,C032,c032@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-02 12:00:00,USD
+O00033,1,2026-02-03 12:00:00,C033,c033@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-03 12:00:00,USD
+O00033,2,2026-02-03 12:00:00,C033,c033@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-03 12:00:00,USD
+O00034,1,2026-02-04 12:00:00,C034,c034@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,cancelled,2026-02-04 12:00:00,USD
+O00034,2,2026-02-04 12:00:00,C034,c034@example.invalid,P04,Travel mug,Home,North,1,12.00,0,cancelled,2026-02-04 12:00:00,USD
+O00035,1,2026-02-05 12:00:00,C035,c035@example.invalid,P04,Travel mug,Home,South,2,12.00,0.1000,completed,2026-02-05 12:00:00,USD
+O00035,2,2026-02-05 12:00:00,C035,c035@example.invalid,P01,Desk lamp,Home,South,3,24.50,0.1000,completed,2026-02-05 12:00:00,USD
+O00036,1,2026-02-06 12:00:00,C036,c036@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-06 12:00:00,USD
+O00036,2,2026-02-06 12:00:00,C036,c036@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-06 12:00:00,USD
+O00037,1,2026-02-07 12:00:00,C037,c037@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-07 12:00:00,USD
+O00037,2,2026-02-07 12:00:00,C037,c037@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-07 12:00:00,USD
+O00038,1,2026-02-08 12:00:00,C038,c038@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-02-08 12:00:00,USD
+O00038,2,2026-02-08 12:00:00,C038,c038@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-02-08 12:00:00,USD
+O00039,1,2026-02-09 12:00:00,C039,c039@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-09 12:00:00,USD
+O00039,2,2026-02-09 12:00:00,C039,c039@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-09 12:00:00,USD
+O00040,1,2026-02-10 12:00:00,C040,c040@example.invalid,P01,Desk lamp,Home,East,3,24.50,0.1000,completed,2026-02-10 12:00:00,USD
+O00040,2,2026-02-10 12:00:00,C040,c040@example.invalid,P02,Notebook,Stationery,East,1,5.00,0.1000,completed,2026-02-10 12:00:00,USD
+O00041,1,2026-02-11 12:00:00,C041,c041@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-11 12:00:00,USD
+O00041,2,2026-02-11 12:00:00,C041,c041@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-11 12:00:00,USD
+O00042,1,2026-02-12 12:00:00,C042,c042@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-12 12:00:00,USD
+O00042,2,2026-02-12 12:00:00,C042,c042@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-12 12:00:00,USD
+O00043,1,2026-02-13 12:00:00,C043,c043@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-13 12:00:00,USD
+O00043,2,2026-02-13 12:00:00,C043,c043@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-13 12:00:00,USD
+O00044,1,2026-02-14 12:00:00,C044,c044@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-14 12:00:00,USD
+O00044,2,2026-02-14 12:00:00,C044,c044@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-14 12:00:00,USD
+O00045,1,2026-02-15 12:00:00,C045,c045@example.invalid,P02,Notebook,Stationery,West,1,5.00,0.1000,completed,2026-02-15 12:00:00,USD
+O00045,2,2026-02-15 12:00:00,C045,c045@example.invalid,P03,Headphones,Electronics,West,2,49.95,0.1000,completed,2026-02-15 12:00:00,USD
+O00046,1,2026-02-16 12:00:00,C046,c046@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,returned,2026-02-16 12:00:00,USD
+O00046,2,2026-02-16 12:00:00,C046,c046@example.invalid,P04,Travel mug,Home,North,1,12.00,0,returned,2026-02-16 12:00:00,USD
+O00047,1,2026-02-17 12:00:00,C047,c047@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-02-17 12:00:00,USD
+O00047,2,2026-02-17 12:00:00,C047,c047@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-02-17 12:00:00,USD
+O00048,1,2026-02-18 12:00:00,C048,c048@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-18 12:00:00,USD
+O00048,2,2026-02-18 12:00:00,C048,c048@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-18 12:00:00,USD
+O00049,1,2026-02-19 12:00:00,C049,c049@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-19 12:00:00,USD
+O00049,2,2026-02-19 12:00:00,C049,c049@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-19 12:00:00,USD
+O00050,1,2026-02-20 12:00:00,C050,c050@example.invalid,P03,Headphones,Electronics,North,2,49.95,0.1000,completed,2026-02-20 12:00:00,USD
+O00050,2,2026-02-20 12:00:00,C050,c050@example.invalid,P04,Travel mug,Home,North,3,12.00,0.1000,completed,2026-02-20 12:00:00,USD
+O00051,1,2026-02-21 12:00:00,C051,c051@example.invalid,P04,Travel mug,Home,South,1,12.00,0,cancelled,2026-02-21 12:00:00,USD
+O00051,2,2026-02-21 12:00:00,C051,c051@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,cancelled,2026-02-21 12:00:00,USD
+O00052,1,2026-02-22 12:00:00,C052,c052@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-02-22 12:00:00,USD
+O00052,2,2026-02-22 12:00:00,C052,c052@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-02-22 12:00:00,USD
+O00053,1,2026-02-23 12:00:00,C053,c053@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-23 12:00:00,USD
+O00053,2,2026-02-23 12:00:00,C053,c053@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-23 12:00:00,USD
+O00054,1,2026-02-24 12:00:00,C054,c054@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-24 12:00:00,USD
+O00054,2,2026-02-24 12:00:00,C054,c054@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-24 12:00:00,USD
+O00055,1,2026-02-25 12:00:00,C055,c055@example.invalid,P04,Travel mug,Home,South,3,12.00,0.1000,completed,2026-02-25 12:00:00,USD
+O00055,2,2026-02-25 12:00:00,C055,c055@example.invalid,P01,Desk lamp,Home,South,1,24.50,0.1000,completed,2026-02-25 12:00:00,USD
+O00056,1,2026-02-26 12:00:00,C056,c056@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-26 12:00:00,USD
+O00056,2,2026-02-26 12:00:00,C056,c056@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-26 12:00:00,USD
+O00057,1,2026-02-27 12:00:00,C057,c057@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-27 12:00:00,USD
+O00057,2,2026-02-27 12:00:00,C057,c057@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-27 12:00:00,USD
+O00058,1,2026-02-28 12:00:00,C058,c058@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-28 12:00:00,USD
+O00058,2,2026-02-28 12:00:00,C058,c058@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-28 12:00:00,USD
+O00059,1,2026-03-01 12:00:00,C059,c059@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-03-01 12:00:00,USD
+O00059,2,2026-03-01 12:00:00,C059,c059@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-03-01 12:00:00,USD
+O00060,1,2026-01-01 12:00:00,C060,c060@example.invalid,P01,Desk lamp,Home,East,1,24.50,0.1000,completed,2026-01-01 12:00:00,USD
+O00060,2,2026-01-01 12:00:00,C060,c060@example.invalid,P02,Notebook,Stationery,East,2,5.00,0.1000,completed,2026-01-01 12:00:00,USD
+O00061,1,2026-01-02 12:00:00,C061,c061@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-02 12:00:00,USD
+O00061,2,2026-01-02 12:00:00,C061,c061@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-02 12:00:00,USD
+O00062,1,2026-01-03 12:00:00,C062,c062@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-03 12:00:00,USD
+O00062,2,2026-01-03 12:00:00,C062,c062@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-03 12:00:00,USD
+O00063,1,2026-01-04 12:00:00,C063,c063@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-04 12:00:00,USD
+O00063,2,2026-01-04 12:00:00,C063,c063@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-04 12:00:00,USD
+O00064,1,2026-01-05 12:00:00,C064,c064@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-05 12:00:00,USD
+O00064,2,2026-01-05 12:00:00,C064,c064@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-05 12:00:00,USD
+O00065,1,2026-01-06 12:00:00,C065,c065@example.invalid,P02,Notebook,Stationery,West,2,5.00,0.1000,completed,2026-01-06 12:00:00,USD
+O00065,2,2026-01-06 12:00:00,C065,c065@example.invalid,P03,Headphones,Electronics,West,3,49.95,0.1000,completed,2026-01-06 12:00:00,USD
+O00066,1,2026-01-07 12:00:00,C066,c066@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-07 12:00:00,USD
+O00066,2,2026-01-07 12:00:00,C066,c066@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-07 12:00:00,USD
+O00067,1,2026-01-08 12:00:00,C067,c067@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-08 12:00:00,USD
+O00067,2,2026-01-08 12:00:00,C067,c067@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-08 12:00:00,USD
+O00068,1,2026-01-09 12:00:00,C068,c068@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,cancelled,2026-01-09 12:00:00,USD
+O00068,2,2026-01-09 12:00:00,C068,c068@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,cancelled,2026-01-09 12:00:00,USD
+O00069,1,2026-01-10 12:00:00,C069,c069@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,returned,2026-01-10 12:00:00,USD
+O00069,2,2026-01-10 12:00:00,C069,c069@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,returned,2026-01-10 12:00:00,USD
+O00070,1,2026-01-11 12:00:00,C070,c070@example.invalid,P03,Headphones,Electronics,North,3,49.95,0.1000,completed,2026-01-11 12:00:00,USD
+O00070,2,2026-01-11 12:00:00,C070,c070@example.invalid,P04,Travel mug,Home,North,1,12.00,0.1000,completed,2026-01-11 12:00:00,USD
+O00071,1,2026-01-12 12:00:00,C071,c071@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-12 12:00:00,USD
+O00071,2,2026-01-12 12:00:00,C071,c071@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-12 12:00:00,USD
+O00072,1,2026-01-13 12:00:00,C072,c072@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-13 12:00:00,USD
+O00072,2,2026-01-13 12:00:00,C072,c072@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-13 12:00:00,USD
+O00073,1,2026-01-14 12:00:00,C073,c073@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-14 12:00:00,USD
+O00073,2,2026-01-14 12:00:00,C073,c073@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-14 12:00:00,USD
+O00074,1,2026-01-15 12:00:00,C074,c074@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-15 12:00:00,USD
+O00074,2,2026-01-15 12:00:00,C074,c074@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-15 12:00:00,USD
+O00075,1,2026-01-16 12:00:00,C075,c075@example.invalid,P04,Travel mug,Home,South,1,12.00,0.1000,completed,2026-01-16 12:00:00,USD
+O00075,2,2026-01-16 12:00:00,C075,c075@example.invalid,P01,Desk lamp,Home,South,2,24.50,0.1000,completed,2026-01-16 12:00:00,USD
+O00076,1,2026-01-17 12:00:00,C076,c076@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-17 12:00:00,USD
+O00076,2,2026-01-17 12:00:00,C076,c076@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-17 12:00:00,USD
+O00077,1,2026-01-18 12:00:00,C077,c077@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-18 12:00:00,USD
+O00077,2,2026-01-18 12:00:00,C077,c077@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-18 12:00:00,USD
+O00078,1,2026-01-19 12:00:00,C078,c078@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-19 12:00:00,USD
+O00078,2,2026-01-19 12:00:00,C078,c078@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-19 12:00:00,USD
+O00079,1,2026-01-20 12:00:00,C079,c079@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-20 12:00:00,USD
+O00079,2,2026-01-20 12:00:00,C079,c079@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-20 12:00:00,USD
+O00080,1,2026-01-21 12:00:00,C000,c000@example.invalid,P01,Desk lamp,Home,East,2,24.50,0.1000,completed,2026-01-21 12:00:00,USD
+O00080,2,2026-01-21 12:00:00,C000,c000@example.invalid,P02,Notebook,Stationery,East,3,5.00,0.1000,completed,2026-01-21 12:00:00,USD
+O00081,1,2026-01-22 12:00:00,C001,c001@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-22 12:00:00,USD
+O00081,2,2026-01-22 12:00:00,C001,c001@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-22 12:00:00,USD
+O00082,1,2026-01-23 12:00:00,C002,c002@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-01-23 12:00:00,USD
+O00082,2,2026-01-23 12:00:00,C002,c002@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-01-23 12:00:00,USD
+O00083,1,2026-01-24 12:00:00,C003,c003@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-24 12:00:00,USD
+O00083,2,2026-01-24 12:00:00,C003,c003@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-24 12:00:00,USD
+O00084,1,2026-01-25 12:00:00,C004,c004@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-25 12:00:00,USD
+O00084,2,2026-01-25 12:00:00,C004,c004@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-25 12:00:00,USD
+O00085,1,2026-01-26 12:00:00,C005,c005@example.invalid,P02,Notebook,Stationery,West,3,5.00,0.1000,cancelled,2026-01-26 12:00:00,USD
+O00085,2,2026-01-26 12:00:00,C005,c005@example.invalid,P03,Headphones,Electronics,West,1,49.95,0.1000,cancelled,2026-01-26 12:00:00,USD
+O00086,1,2026-01-27 12:00:00,C006,c006@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-27 12:00:00,USD
+O00086,2,2026-01-27 12:00:00,C006,c006@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-27 12:00:00,USD
+O00087,1,2026-01-28 12:00:00,C007,c007@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-28 12:00:00,USD
+O00087,2,2026-01-28 12:00:00,C007,c007@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-28 12:00:00,USD
+O00088,1,2026-01-29 12:00:00,C008,c008@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-29 12:00:00,USD
+O00088,2,2026-01-29 12:00:00,C008,c008@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-29 12:00:00,USD
+O00089,1,2026-01-30 12:00:00,C009,c009@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-30 12:00:00,USD
+O00089,2,2026-01-30 12:00:00,C009,c009@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-30 12:00:00,USD
+O00090,1,2026-01-31 12:00:00,C010,c010@example.invalid,P03,Headphones,Electronics,North,1,49.95,0.1000,completed,2026-01-31 12:00:00,USD
+O00090,2,2026-01-31 12:00:00,C010,c010@example.invalid,P04,Travel mug,Home,North,2,12.00,0.1000,completed,2026-01-31 12:00:00,USD
+O00091,1,2026-02-01 12:00:00,C011,c011@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-01 12:00:00,USD
+O00091,2,2026-02-01 12:00:00,C011,c011@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-01 12:00:00,USD
+O00092,1,2026-02-02 12:00:00,C012,c012@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,returned,2026-02-02 12:00:00,USD
+O00092,2,2026-02-02 12:00:00,C012,c012@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,returned,2026-02-02 12:00:00,USD
+O00093,1,2026-02-03 12:00:00,C013,c013@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-03 12:00:00,USD
+O00093,2,2026-02-03 12:00:00,C013,c013@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-03 12:00:00,USD
+O00094,1,2026-02-04 12:00:00,C014,c014@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-04 12:00:00,USD
+O00094,2,2026-02-04 12:00:00,C014,c014@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-04 12:00:00,USD
+O00095,1,2026-02-05 12:00:00,C015,c015@example.invalid,P04,Travel mug,Home,South,2,12.00,0.1000,completed,2026-02-05 12:00:00,USD
+O00095,2,2026-02-05 12:00:00,C015,c015@example.invalid,P01,Desk lamp,Home,South,3,24.50,0.1000,completed,2026-02-05 12:00:00,USD
+O00096,1,2026-02-06 12:00:00,C016,c016@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-06 12:00:00,USD
+O00096,2,2026-02-06 12:00:00,C016,c016@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-06 12:00:00,USD
+O00097,1,2026-02-07 12:00:00,C017,c017@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-07 12:00:00,USD
+O00097,2,2026-02-07 12:00:00,C017,c017@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-07 12:00:00,USD
+O00098,1,2026-02-08 12:00:00,C018,c018@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-02-08 12:00:00,USD
+O00098,2,2026-02-08 12:00:00,C018,c018@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-02-08 12:00:00,USD
+O00099,1,2026-02-09 12:00:00,C019,c019@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-09 12:00:00,USD
+O00099,2,2026-02-09 12:00:00,C019,c019@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-09 12:00:00,USD
+O00100,1,2026-02-10 12:00:00,C020,c020@example.invalid,P01,Desk lamp,Home,East,3,24.50,0.1000,completed,2026-02-10 12:00:00,USD
+O00100,2,2026-02-10 12:00:00,C020,c020@example.invalid,P02,Notebook,Stationery,East,1,5.00,0.1000,completed,2026-02-10 12:00:00,USD
+O00101,1,2026-02-11 12:00:00,C021,c021@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-11 12:00:00,USD
+O00101,2,2026-02-11 12:00:00,C021,c021@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-11 12:00:00,USD
+O00102,1,2026-02-12 12:00:00,C022,c022@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,cancelled,2026-02-12 12:00:00,USD
+O00102,2,2026-02-12 12:00:00,C022,c022@example.invalid,P04,Travel mug,Home,North,2,12.00,0,cancelled,2026-02-12 12:00:00,USD
+O00103,1,2026-02-13 12:00:00,C023,c023@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-13 12:00:00,USD
+O00103,2,2026-02-13 12:00:00,C023,c023@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-13 12:00:00,USD
+O00104,1,2026-02-14 12:00:00,C024,c024@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-14 12:00:00,USD
+O00104,2,2026-02-14 12:00:00,C024,c024@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-14 12:00:00,USD
+O00105,1,2026-02-15 12:00:00,C025,c025@example.invalid,P02,Notebook,Stationery,West,1,5.00,0.1000,completed,2026-02-15 12:00:00,USD
+O00105,2,2026-02-15 12:00:00,C025,c025@example.invalid,P03,Headphones,Electronics,West,2,49.95,0.1000,completed,2026-02-15 12:00:00,USD
+O00106,1,2026-02-16 12:00:00,C026,c026@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-16 12:00:00,USD
+O00106,2,2026-02-16 12:00:00,C026,c026@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-16 12:00:00,USD
+O00107,1,2026-02-17 12:00:00,C027,c027@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-02-17 12:00:00,USD
+O00107,2,2026-02-17 12:00:00,C027,c027@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-02-17 12:00:00,USD
+O00108,1,2026-02-18 12:00:00,C028,c028@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-18 12:00:00,USD
+O00108,2,2026-02-18 12:00:00,C028,c028@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-18 12:00:00,USD
+O00109,1,2026-02-19 12:00:00,C029,c029@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-19 12:00:00,USD
+O00109,2,2026-02-19 12:00:00,C029,c029@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-19 12:00:00,USD
+O00110,1,2026-02-20 12:00:00,C030,c030@example.invalid,P03,Headphones,Electronics,North,2,49.95,0.1000,completed,2026-02-20 12:00:00,USD
+O00110,2,2026-02-20 12:00:00,C030,c030@example.invalid,P04,Travel mug,Home,North,3,12.00,0.1000,completed,2026-02-20 12:00:00,USD
+O00111,1,2026-02-21 12:00:00,C031,c031@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-21 12:00:00,USD
+O00111,2,2026-02-21 12:00:00,C031,c031@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-21 12:00:00,USD
+O00112,1,2026-02-22 12:00:00,C032,c032@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-02-22 12:00:00,USD
+O00112,2,2026-02-22 12:00:00,C032,c032@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-02-22 12:00:00,USD
+O00113,1,2026-02-23 12:00:00,C033,c033@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-23 12:00:00,USD
+O00113,2,2026-02-23 12:00:00,C033,c033@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-23 12:00:00,USD
+O00114,1,2026-02-24 12:00:00,C034,c034@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-24 12:00:00,USD
+O00114,2,2026-02-24 12:00:00,C034,c034@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-24 12:00:00,USD
+O00115,1,2026-02-25 12:00:00,C035,c035@example.invalid,P04,Travel mug,Home,South,3,12.00,0.1000,returned,2026-02-25 12:00:00,USD
+O00115,2,2026-02-25 12:00:00,C035,c035@example.invalid,P01,Desk lamp,Home,South,1,24.50,0.1000,returned,2026-02-25 12:00:00,USD
+O00116,1,2026-02-26 12:00:00,C036,c036@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-26 12:00:00,USD
+O00116,2,2026-02-26 12:00:00,C036,c036@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-26 12:00:00,USD
+O00117,1,2026-02-27 12:00:00,C037,c037@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-27 12:00:00,USD
+O00117,2,2026-02-27 12:00:00,C037,c037@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-27 12:00:00,USD
+O00118,1,2026-02-28 12:00:00,C038,c038@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-28 12:00:00,USD
+O00118,2,2026-02-28 12:00:00,C038,c038@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-28 12:00:00,USD
+O00119,1,2026-03-01 12:00:00,C039,c039@example.invalid,P04,Travel mug,Home,South,2,12.00,0,cancelled,2026-03-01 12:00:00,USD
+O00119,2,2026-03-01 12:00:00,C039,c039@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,cancelled,2026-03-01 12:00:00,USD
+O00120,1,2026-01-01 12:00:00,C040,c040@example.invalid,P01,Desk lamp,Home,East,1,24.50,0.1000,completed,2026-01-01 12:00:00,USD
+O00120,2,2026-01-01 12:00:00,C040,c040@example.invalid,P02,Notebook,Stationery,East,2,5.00,0.1000,completed,2026-01-01 12:00:00,USD
+O00121,1,2026-01-02 12:00:00,C041,c041@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-02 12:00:00,USD
+O00121,2,2026-01-02 12:00:00,C041,c041@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-02 12:00:00,USD
+O00122,1,2026-01-03 12:00:00,C042,c042@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-03 12:00:00,USD
+O00122,2,2026-01-03 12:00:00,C042,c042@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-03 12:00:00,USD
+O00123,1,2026-01-04 12:00:00,C043,c043@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-04 12:00:00,USD
+O00123,2,2026-01-04 12:00:00,C043,c043@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-04 12:00:00,USD
+O00124,1,2026-01-05 12:00:00,C044,c044@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-05 12:00:00,USD
+O00124,2,2026-01-05 12:00:00,C044,c044@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-05 12:00:00,USD
+O00125,1,2026-01-06 12:00:00,C045,c045@example.invalid,P02,Notebook,Stationery,West,2,5.00,0.1000,completed,2026-01-06 12:00:00,USD
+O00125,2,2026-01-06 12:00:00,C045,c045@example.invalid,P03,Headphones,Electronics,West,3,49.95,0.1000,completed,2026-01-06 12:00:00,USD
+O00126,1,2026-01-07 12:00:00,C046,c046@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-07 12:00:00,USD
+O00126,2,2026-01-07 12:00:00,C046,c046@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-07 12:00:00,USD
+O00127,1,2026-01-08 12:00:00,C047,c047@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-08 12:00:00,USD
+O00127,2,2026-01-08 12:00:00,C047,c047@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-08 12:00:00,USD
+O00128,1,2026-01-09 12:00:00,C048,c048@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-01-09 12:00:00,USD
+O00128,2,2026-01-09 12:00:00,C048,c048@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-01-09 12:00:00,USD
+O00129,1,2026-01-10 12:00:00,C049,c049@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-10 12:00:00,USD
+O00129,2,2026-01-10 12:00:00,C049,c049@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-10 12:00:00,USD
+O00130,1,2026-01-11 12:00:00,C050,c050@example.invalid,P03,Headphones,Electronics,North,3,49.95,0.1000,completed,2026-01-11 12:00:00,USD
+O00130,2,2026-01-11 12:00:00,C050,c050@example.invalid,P04,Travel mug,Home,North,1,12.00,0.1000,completed,2026-01-11 12:00:00,USD
+O00131,1,2026-01-12 12:00:00,C051,c051@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-12 12:00:00,USD
+O00131,2,2026-01-12 12:00:00,C051,c051@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-12 12:00:00,USD
+O00132,1,2026-01-13 12:00:00,C052,c052@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-13 12:00:00,USD
+O00132,2,2026-01-13 12:00:00,C052,c052@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-13 12:00:00,USD
+O00133,1,2026-01-14 12:00:00,C053,c053@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-14 12:00:00,USD
+O00133,2,2026-01-14 12:00:00,C053,c053@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-14 12:00:00,USD
+O00134,1,2026-01-15 12:00:00,C054,c054@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-15 12:00:00,USD
+O00134,2,2026-01-15 12:00:00,C054,c054@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-15 12:00:00,USD
+O00135,1,2026-01-16 12:00:00,C055,c055@example.invalid,P04,Travel mug,Home,South,1,12.00,0.1000,completed,2026-01-16 12:00:00,USD
+O00135,2,2026-01-16 12:00:00,C055,c055@example.invalid,P01,Desk lamp,Home,South,2,24.50,0.1000,completed,2026-01-16 12:00:00,USD
+O00136,1,2026-01-17 12:00:00,C056,c056@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,cancelled,2026-01-17 12:00:00,USD
+O00136,2,2026-01-17 12:00:00,C056,c056@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,cancelled,2026-01-17 12:00:00,USD
+O00137,1,2026-01-18 12:00:00,C057,c057@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-18 12:00:00,USD
+O00137,2,2026-01-18 12:00:00,C057,c057@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-18 12:00:00,USD
+O00138,1,2026-01-19 12:00:00,C058,c058@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,returned,2026-01-19 12:00:00,USD
+O00138,2,2026-01-19 12:00:00,C058,c058@example.invalid,P04,Travel mug,Home,North,2,12.00,0,returned,2026-01-19 12:00:00,USD
+O00139,1,2026-01-20 12:00:00,C059,c059@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-20 12:00:00,USD
+O00139,2,2026-01-20 12:00:00,C059,c059@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-20 12:00:00,USD
+O00140,1,2026-01-21 12:00:00,C060,c060@example.invalid,P01,Desk lamp,Home,East,2,24.50,0.1000,completed,2026-01-21 12:00:00,USD
+O00140,2,2026-01-21 12:00:00,C060,c060@example.invalid,P02,Notebook,Stationery,East,3,5.00,0.1000,completed,2026-01-21 12:00:00,USD
+O00141,1,2026-01-22 12:00:00,C061,c061@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-22 12:00:00,USD
+O00141,2,2026-01-22 12:00:00,C061,c061@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-22 12:00:00,USD
+O00142,1,2026-01-23 12:00:00,C062,c062@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-01-23 12:00:00,USD
+O00142,2,2026-01-23 12:00:00,C062,c062@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-01-23 12:00:00,USD
+O00143,1,2026-01-24 12:00:00,C063,c063@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-24 12:00:00,USD
+O00143,2,2026-01-24 12:00:00,C063,c063@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-24 12:00:00,USD
+O00144,1,2026-01-25 12:00:00,C064,c064@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-25 12:00:00,USD
+O00144,2,2026-01-25 12:00:00,C064,c064@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-25 12:00:00,USD
+O00145,1,2026-01-26 12:00:00,C065,c065@example.invalid,P02,Notebook,Stationery,West,3,5.00,0.1000,completed,2026-01-26 12:00:00,USD
+O00145,2,2026-01-26 12:00:00,C065,c065@example.invalid,P03,Headphones,Electronics,West,1,49.95,0.1000,completed,2026-01-26 12:00:00,USD
+O00146,1,2026-01-27 12:00:00,C066,c066@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-27 12:00:00,USD
+O00146,2,2026-01-27 12:00:00,C066,c066@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-27 12:00:00,USD
+O00147,1,2026-01-28 12:00:00,C067,c067@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-28 12:00:00,USD
+O00147,2,2026-01-28 12:00:00,C067,c067@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-28 12:00:00,USD
+O00148,1,2026-01-29 12:00:00,C068,c068@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-29 12:00:00,USD
+O00148,2,2026-01-29 12:00:00,C068,c068@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-29 12:00:00,USD
+O00149,1,2026-01-30 12:00:00,C069,c069@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-30 12:00:00,USD
+O00149,2,2026-01-30 12:00:00,C069,c069@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-30 12:00:00,USD
+O00150,1,2026-01-31 12:00:00,C070,c070@example.invalid,P03,Headphones,Electronics,North,1,49.95,0.1000,completed,2026-01-31 12:00:00,USD
+O00150,2,2026-01-31 12:00:00,C070,c070@example.invalid,P04,Travel mug,Home,North,2,12.00,0.1000,completed,2026-01-31 12:00:00,USD
+O00151,1,2026-02-01 12:00:00,C071,c071@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-01 12:00:00,USD
+O00151,2,2026-02-01 12:00:00,C071,c071@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-01 12:00:00,USD
+O00152,1,2026-02-02 12:00:00,C072,c072@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-02 12:00:00,USD
+O00152,2,2026-02-02 12:00:00,C072,c072@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-02 12:00:00,USD
+O00153,1,2026-02-03 12:00:00,C073,c073@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,cancelled,2026-02-03 12:00:00,USD
+O00153,2,2026-02-03 12:00:00,C073,c073@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,cancelled,2026-02-03 12:00:00,USD
+O00154,1,2026-02-04 12:00:00,C074,c074@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-04 12:00:00,USD
+O00154,2,2026-02-04 12:00:00,C074,c074@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-04 12:00:00,USD
+O00155,1,2026-02-05 12:00:00,C075,c075@example.invalid,P04,Travel mug,Home,South,2,12.00,0.1000,completed,2026-02-05 12:00:00,USD
+O00155,2,2026-02-05 12:00:00,C075,c075@example.invalid,P01,Desk lamp,Home,South,3,24.50,0.1000,completed,2026-02-05 12:00:00,USD
+O00156,1,2026-02-06 12:00:00,C076,c076@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-06 12:00:00,USD
+O00156,2,2026-02-06 12:00:00,C076,c076@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-06 12:00:00,USD
+O00157,1,2026-02-07 12:00:00,C077,c077@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-07 12:00:00,USD
+O00157,2,2026-02-07 12:00:00,C077,c077@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-07 12:00:00,USD
+O00158,1,2026-02-08 12:00:00,C078,c078@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-02-08 12:00:00,USD
+O00158,2,2026-02-08 12:00:00,C078,c078@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-02-08 12:00:00,USD
+O00159,1,2026-02-09 12:00:00,C079,c079@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-09 12:00:00,USD
+O00159,2,2026-02-09 12:00:00,C079,c079@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-09 12:00:00,USD
+O00160,1,2026-02-10 12:00:00,C000,c000@example.invalid,P01,Desk lamp,Home,East,3,24.50,0.1000,completed,2026-02-10 12:00:00,USD
+O00160,2,2026-02-10 12:00:00,C000,c000@example.invalid,P02,Notebook,Stationery,East,1,5.00,0.1000,completed,2026-02-10 12:00:00,USD
+O00161,1,2026-02-11 12:00:00,C001,c001@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,returned,2026-02-11 12:00:00,USD
+O00161,2,2026-02-11 12:00:00,C001,c001@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,returned,2026-02-11 12:00:00,USD
+O00162,1,2026-02-12 12:00:00,C002,c002@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-12 12:00:00,USD
+O00162,2,2026-02-12 12:00:00,C002,c002@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-12 12:00:00,USD
+O00163,1,2026-02-13 12:00:00,C003,c003@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-13 12:00:00,USD
+O00163,2,2026-02-13 12:00:00,C003,c003@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-13 12:00:00,USD
+O00164,1,2026-02-14 12:00:00,C004,c004@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-14 12:00:00,USD
+O00164,2,2026-02-14 12:00:00,C004,c004@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-14 12:00:00,USD
+O00165,1,2026-02-15 12:00:00,C005,c005@example.invalid,P02,Notebook,Stationery,West,1,5.00,0.1000,completed,2026-02-15 12:00:00,USD
+O00165,2,2026-02-15 12:00:00,C005,c005@example.invalid,P03,Headphones,Electronics,West,2,49.95,0.1000,completed,2026-02-15 12:00:00,USD
+O00166,1,2026-02-16 12:00:00,C006,c006@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-16 12:00:00,USD
+O00166,2,2026-02-16 12:00:00,C006,c006@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-16 12:00:00,USD
+O00167,1,2026-02-17 12:00:00,C007,c007@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-02-17 12:00:00,USD
+O00167,2,2026-02-17 12:00:00,C007,c007@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-02-17 12:00:00,USD
+O00168,1,2026-02-18 12:00:00,C008,c008@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-18 12:00:00,USD
+O00168,2,2026-02-18 12:00:00,C008,c008@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-18 12:00:00,USD
+O00169,1,2026-02-19 12:00:00,C009,c009@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-19 12:00:00,USD
+O00169,2,2026-02-19 12:00:00,C009,c009@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-19 12:00:00,USD
+O00170,1,2026-02-20 12:00:00,C010,c010@example.invalid,P03,Headphones,Electronics,North,2,49.95,0.1000,cancelled,2026-02-20 12:00:00,USD
+O00170,2,2026-02-20 12:00:00,C010,c010@example.invalid,P04,Travel mug,Home,North,3,12.00,0.1000,cancelled,2026-02-20 12:00:00,USD
+O00171,1,2026-02-21 12:00:00,C011,c011@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-21 12:00:00,USD
+O00171,2,2026-02-21 12:00:00,C011,c011@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-21 12:00:00,USD
+O00172,1,2026-02-22 12:00:00,C012,c012@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-02-22 12:00:00,USD
+O00172,2,2026-02-22 12:00:00,C012,c012@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-02-22 12:00:00,USD
+O00173,1,2026-02-23 12:00:00,C013,c013@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-23 12:00:00,USD
+O00173,2,2026-02-23 12:00:00,C013,c013@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-23 12:00:00,USD
+O00174,1,2026-02-24 12:00:00,C014,c014@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-24 12:00:00,USD
+O00174,2,2026-02-24 12:00:00,C014,c014@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-24 12:00:00,USD
+O00175,1,2026-02-25 12:00:00,C015,c015@example.invalid,P04,Travel mug,Home,South,3,12.00,0.1000,completed,2026-02-25 12:00:00,USD
+O00175,2,2026-02-25 12:00:00,C015,c015@example.invalid,P01,Desk lamp,Home,South,1,24.50,0.1000,completed,2026-02-25 12:00:00,USD
+O00176,1,2026-02-26 12:00:00,C016,c016@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-26 12:00:00,USD
+O00176,2,2026-02-26 12:00:00,C016,c016@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-26 12:00:00,USD
+O00177,1,2026-02-27 12:00:00,C017,c017@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-27 12:00:00,USD
+O00177,2,2026-02-27 12:00:00,C017,c017@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-27 12:00:00,USD
+O00178,1,2026-02-28 12:00:00,C018,c018@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-28 12:00:00,USD
+O00178,2,2026-02-28 12:00:00,C018,c018@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-28 12:00:00,USD
+O00179,1,2026-03-01 12:00:00,C019,c019@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-03-01 12:00:00,USD
+O00179,2,2026-03-01 12:00:00,C019,c019@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-03-01 12:00:00,USD
+O00180,1,2026-01-01 12:00:00,C020,c020@example.invalid,P01,Desk lamp,Home,East,1,24.50,0.1000,completed,2026-01-01 12:00:00,USD
+O00180,2,2026-01-01 12:00:00,C020,c020@example.invalid,P02,Notebook,Stationery,East,2,5.00,0.1000,completed,2026-01-01 12:00:00,USD
+O00181,1,2026-01-02 12:00:00,C021,c021@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-02 12:00:00,USD
+O00181,2,2026-01-02 12:00:00,C021,c021@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-02 12:00:00,USD
+O00182,1,2026-01-03 12:00:00,C022,c022@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-03 12:00:00,USD
+O00182,2,2026-01-03 12:00:00,C022,c022@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-03 12:00:00,USD
+O00183,1,2026-01-04 12:00:00,C023,c023@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-04 12:00:00,USD
+O00183,2,2026-01-04 12:00:00,C023,c023@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-04 12:00:00,USD
+O00184,1,2026-01-05 12:00:00,C024,c024@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,returned,2026-01-05 12:00:00,USD
+O00184,2,2026-01-05 12:00:00,C024,c024@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,returned,2026-01-05 12:00:00,USD
+O00185,1,2026-01-06 12:00:00,C025,c025@example.invalid,P02,Notebook,Stationery,West,2,5.00,0.1000,completed,2026-01-06 12:00:00,USD
+O00185,2,2026-01-06 12:00:00,C025,c025@example.invalid,P03,Headphones,Electronics,West,3,49.95,0.1000,completed,2026-01-06 12:00:00,USD
+O00186,1,2026-01-07 12:00:00,C026,c026@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-07 12:00:00,USD
+O00186,2,2026-01-07 12:00:00,C026,c026@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-07 12:00:00,USD
+O00187,1,2026-01-08 12:00:00,C027,c027@example.invalid,P04,Travel mug,Home,South,3,12.00,0,cancelled,2026-01-08 12:00:00,USD
+O00187,2,2026-01-08 12:00:00,C027,c027@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,cancelled,2026-01-08 12:00:00,USD
+O00188,1,2026-01-09 12:00:00,C028,c028@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-01-09 12:00:00,USD
+O00188,2,2026-01-09 12:00:00,C028,c028@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-01-09 12:00:00,USD
+O00189,1,2026-01-10 12:00:00,C029,c029@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-10 12:00:00,USD
+O00189,2,2026-01-10 12:00:00,C029,c029@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-10 12:00:00,USD
+O00190,1,2026-01-11 12:00:00,C030,c030@example.invalid,P03,Headphones,Electronics,North,3,49.95,0.1000,completed,2026-01-11 12:00:00,USD
+O00190,2,2026-01-11 12:00:00,C030,c030@example.invalid,P04,Travel mug,Home,North,1,12.00,0.1000,completed,2026-01-11 12:00:00,USD
+O00191,1,2026-01-12 12:00:00,C031,c031@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-12 12:00:00,USD
+O00191,2,2026-01-12 12:00:00,C031,c031@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-12 12:00:00,USD
+O00192,1,2026-01-13 12:00:00,C032,c032@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-13 12:00:00,USD
+O00192,2,2026-01-13 12:00:00,C032,c032@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-13 12:00:00,USD
+O00193,1,2026-01-14 12:00:00,C033,c033@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-14 12:00:00,USD
+O00193,2,2026-01-14 12:00:00,C033,c033@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-14 12:00:00,USD
+O00194,1,2026-01-15 12:00:00,C034,c034@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-15 12:00:00,USD
+O00194,2,2026-01-15 12:00:00,C034,c034@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-15 12:00:00,USD
+O00195,1,2026-01-16 12:00:00,C035,c035@example.invalid,P04,Travel mug,Home,South,1,12.00,0.1000,completed,2026-01-16 12:00:00,USD
+O00195,2,2026-01-16 12:00:00,C035,c035@example.invalid,P01,Desk lamp,Home,South,2,24.50,0.1000,completed,2026-01-16 12:00:00,USD
+O00196,1,2026-01-17 12:00:00,C036,c036@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-17 12:00:00,USD
+O00196,2,2026-01-17 12:00:00,C036,c036@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-17 12:00:00,USD
+O00197,1,2026-01-18 12:00:00,C037,c037@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-18 12:00:00,USD
+O00197,2,2026-01-18 12:00:00,C037,c037@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-18 12:00:00,USD
+O00198,1,2026-01-19 12:00:00,C038,c038@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-19 12:00:00,USD
+O00198,2,2026-01-19 12:00:00,C038,c038@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-19 12:00:00,USD
+O00199,1,2026-01-20 12:00:00,C039,c039@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-20 12:00:00,USD
+O00199,2,2026-01-20 12:00:00,C039,c039@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-20 12:00:00,USD
+O00200,1,2026-01-21 12:00:00,C040,c040@example.invalid,P01,Desk lamp,Home,East,2,24.50,0.1000,completed,2026-01-21 12:00:00,USD
+O00200,2,2026-01-21 12:00:00,C040,c040@example.invalid,P02,Notebook,Stationery,East,3,5.00,0.1000,completed,2026-01-21 12:00:00,USD
+O00201,1,2026-01-22 12:00:00,C041,c041@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-22 12:00:00,USD
+O00201,2,2026-01-22 12:00:00,C041,c041@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-22 12:00:00,USD
+O00202,1,2026-01-23 12:00:00,C042,c042@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-01-23 12:00:00,USD
+O00202,2,2026-01-23 12:00:00,C042,c042@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-01-23 12:00:00,USD
+O00203,1,2026-01-24 12:00:00,C043,c043@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-24 12:00:00,USD
+O00203,2,2026-01-24 12:00:00,C043,c043@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-24 12:00:00,USD
+O00204,1,2026-01-25 12:00:00,C044,c044@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,cancelled,2026-01-25 12:00:00,USD
+O00204,2,2026-01-25 12:00:00,C044,c044@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,cancelled,2026-01-25 12:00:00,USD
+O00205,1,2026-01-26 12:00:00,C045,c045@example.invalid,P02,Notebook,Stationery,West,3,5.00,0.1000,completed,2026-01-26 12:00:00,USD
+O00205,2,2026-01-26 12:00:00,C045,c045@example.invalid,P03,Headphones,Electronics,West,1,49.95,0.1000,completed,2026-01-26 12:00:00,USD
+O00206,1,2026-01-27 12:00:00,C046,c046@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-27 12:00:00,USD
+O00206,2,2026-01-27 12:00:00,C046,c046@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-27 12:00:00,USD
+O00207,1,2026-01-28 12:00:00,C047,c047@example.invalid,P04,Travel mug,Home,South,1,12.00,0,returned,2026-01-28 12:00:00,USD
+O00207,2,2026-01-28 12:00:00,C047,c047@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,returned,2026-01-28 12:00:00,USD
+O00208,1,2026-01-29 12:00:00,C048,c048@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-29 12:00:00,USD
+O00208,2,2026-01-29 12:00:00,C048,c048@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-29 12:00:00,USD
+O00209,1,2026-01-30 12:00:00,C049,c049@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-30 12:00:00,USD
+O00209,2,2026-01-30 12:00:00,C049,c049@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-30 12:00:00,USD
+O00210,1,2026-01-31 12:00:00,C050,c050@example.invalid,P03,Headphones,Electronics,North,1,49.95,0.1000,completed,2026-01-31 12:00:00,USD
+O00210,2,2026-01-31 12:00:00,C050,c050@example.invalid,P04,Travel mug,Home,North,2,12.00,0.1000,completed,2026-01-31 12:00:00,USD
+O00211,1,2026-02-01 12:00:00,C051,c051@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-01 12:00:00,USD
+O00211,2,2026-02-01 12:00:00,C051,c051@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-01 12:00:00,USD
+O00212,1,2026-02-02 12:00:00,C052,c052@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-02 12:00:00,USD
+O00212,2,2026-02-02 12:00:00,C052,c052@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-02 12:00:00,USD
+O00213,1,2026-02-03 12:00:00,C053,c053@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-03 12:00:00,USD
+O00213,2,2026-02-03 12:00:00,C053,c053@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-03 12:00:00,USD
+O00214,1,2026-02-04 12:00:00,C054,c054@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-04 12:00:00,USD
+O00214,2,2026-02-04 12:00:00,C054,c054@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-04 12:00:00,USD
+O00215,1,2026-02-05 12:00:00,C055,c055@example.invalid,P04,Travel mug,Home,South,2,12.00,0.1000,completed,2026-02-05 12:00:00,USD
+O00215,2,2026-02-05 12:00:00,C055,c055@example.invalid,P01,Desk lamp,Home,South,3,24.50,0.1000,completed,2026-02-05 12:00:00,USD
+O00216,1,2026-02-06 12:00:00,C056,c056@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-06 12:00:00,USD
+O00216,2,2026-02-06 12:00:00,C056,c056@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-06 12:00:00,USD
+O00217,1,2026-02-07 12:00:00,C057,c057@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-07 12:00:00,USD
+O00217,2,2026-02-07 12:00:00,C057,c057@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-07 12:00:00,USD
+O00218,1,2026-02-08 12:00:00,C058,c058@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-02-08 12:00:00,USD
+O00218,2,2026-02-08 12:00:00,C058,c058@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-02-08 12:00:00,USD
+O00219,1,2026-02-09 12:00:00,C059,c059@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-09 12:00:00,USD
+O00219,2,2026-02-09 12:00:00,C059,c059@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-09 12:00:00,USD
+O00220,1,2026-02-10 12:00:00,C060,c060@example.invalid,P01,Desk lamp,Home,East,3,24.50,0.1000,completed,2026-02-10 12:00:00,USD
+O00220,2,2026-02-10 12:00:00,C060,c060@example.invalid,P02,Notebook,Stationery,East,1,5.00,0.1000,completed,2026-02-10 12:00:00,USD
+O00221,1,2026-02-11 12:00:00,C061,c061@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,cancelled,2026-02-11 12:00:00,USD
+O00221,2,2026-02-11 12:00:00,C061,c061@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,cancelled,2026-02-11 12:00:00,USD
+O00222,1,2026-02-12 12:00:00,C062,c062@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-12 12:00:00,USD
+O00222,2,2026-02-12 12:00:00,C062,c062@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-12 12:00:00,USD
+O00223,1,2026-02-13 12:00:00,C063,c063@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-13 12:00:00,USD
+O00223,2,2026-02-13 12:00:00,C063,c063@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-13 12:00:00,USD
+O00224,1,2026-02-14 12:00:00,C064,c064@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-14 12:00:00,USD
+O00224,2,2026-02-14 12:00:00,C064,c064@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-14 12:00:00,USD
+O00225,1,2026-02-15 12:00:00,C065,c065@example.invalid,P02,Notebook,Stationery,West,1,5.00,0.1000,completed,2026-02-15 12:00:00,USD
+O00225,2,2026-02-15 12:00:00,C065,c065@example.invalid,P03,Headphones,Electronics,West,2,49.95,0.1000,completed,2026-02-15 12:00:00,USD
+O00226,1,2026-02-16 12:00:00,C066,c066@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-16 12:00:00,USD
+O00226,2,2026-02-16 12:00:00,C066,c066@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-16 12:00:00,USD
+O00227,1,2026-02-17 12:00:00,C067,c067@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-02-17 12:00:00,USD
+O00227,2,2026-02-17 12:00:00,C067,c067@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-02-17 12:00:00,USD
+O00228,1,2026-02-18 12:00:00,C068,c068@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-18 12:00:00,USD
+O00228,2,2026-02-18 12:00:00,C068,c068@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-18 12:00:00,USD
+O00229,1,2026-02-19 12:00:00,C069,c069@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-19 12:00:00,USD
+O00229,2,2026-02-19 12:00:00,C069,c069@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-19 12:00:00,USD
+O00230,1,2026-02-20 12:00:00,C070,c070@example.invalid,P03,Headphones,Electronics,North,2,49.95,0.1000,returned,2026-02-20 12:00:00,USD
+O00230,2,2026-02-20 12:00:00,C070,c070@example.invalid,P04,Travel mug,Home,North,3,12.00,0.1000,returned,2026-02-20 12:00:00,USD
+O00231,1,2026-02-21 12:00:00,C071,c071@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-21 12:00:00,USD
+O00231,2,2026-02-21 12:00:00,C071,c071@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-21 12:00:00,USD
+O00232,1,2026-02-22 12:00:00,C072,c072@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-02-22 12:00:00,USD
+O00232,2,2026-02-22 12:00:00,C072,c072@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-02-22 12:00:00,USD
+O00233,1,2026-02-23 12:00:00,C073,c073@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-23 12:00:00,USD
+O00233,2,2026-02-23 12:00:00,C073,c073@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-23 12:00:00,USD
+O00234,1,2026-02-24 12:00:00,C074,c074@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-24 12:00:00,USD
+O00234,2,2026-02-24 12:00:00,C074,c074@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-24 12:00:00,USD
+O00235,1,2026-02-25 12:00:00,C075,c075@example.invalid,P04,Travel mug,Home,South,3,12.00,0.1000,completed,2026-02-25 12:00:00,USD
+O00235,2,2026-02-25 12:00:00,C075,c075@example.invalid,P01,Desk lamp,Home,South,1,24.50,0.1000,completed,2026-02-25 12:00:00,USD
+O00236,1,2026-02-26 12:00:00,C076,c076@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-26 12:00:00,USD
+O00236,2,2026-02-26 12:00:00,C076,c076@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-26 12:00:00,USD
+O00237,1,2026-02-27 12:00:00,C077,c077@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-27 12:00:00,USD
+O00237,2,2026-02-27 12:00:00,C077,c077@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-27 12:00:00,USD
+O00238,1,2026-02-28 12:00:00,C078,c078@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,cancelled,2026-02-28 12:00:00,USD
+O00238,2,2026-02-28 12:00:00,C078,c078@example.invalid,P04,Travel mug,Home,North,1,12.00,0,cancelled,2026-02-28 12:00:00,USD
+O00239,1,2026-03-01 12:00:00,C079,c079@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-03-01 12:00:00,USD
+O00239,2,2026-03-01 12:00:00,C079,c079@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-03-01 12:00:00,USD
+O00240,1,2026-01-01 12:00:00,C000,c000@example.invalid,P01,Desk lamp,Home,East,1,24.50,0.1000,completed,2026-01-01 12:00:00,USD
+O00240,2,2026-01-01 12:00:00,C000,c000@example.invalid,P02,Notebook,Stationery,East,2,5.00,0.1000,completed,2026-01-01 12:00:00,USD
+O00241,1,2026-01-02 12:00:00,C001,c001@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-02 12:00:00,USD
+O00241,2,2026-01-02 12:00:00,C001,c001@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-02 12:00:00,USD
+O00242,1,2026-01-03 12:00:00,C002,c002@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-03 12:00:00,USD
+O00242,2,2026-01-03 12:00:00,C002,c002@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-03 12:00:00,USD
+O00243,1,2026-01-04 12:00:00,C003,c003@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-04 12:00:00,USD
+O00243,2,2026-01-04 12:00:00,C003,c003@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-04 12:00:00,USD
+O00244,1,2026-01-05 12:00:00,C004,c004@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-05 12:00:00,USD
+O00244,2,2026-01-05 12:00:00,C004,c004@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-05 12:00:00,USD
+O00245,1,2026-01-06 12:00:00,C005,c005@example.invalid,P02,Notebook,Stationery,West,2,5.00,0.1000,completed,2026-01-06 12:00:00,USD
+O00245,2,2026-01-06 12:00:00,C005,c005@example.invalid,P03,Headphones,Electronics,West,3,49.95,0.1000,completed,2026-01-06 12:00:00,USD
+O00246,1,2026-01-07 12:00:00,C006,c006@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-07 12:00:00,USD
+O00246,2,2026-01-07 12:00:00,C006,c006@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-07 12:00:00,USD
+O00247,1,2026-01-08 12:00:00,C007,c007@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-08 12:00:00,USD
+O00247,2,2026-01-08 12:00:00,C007,c007@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-08 12:00:00,USD
+O00248,1,2026-01-09 12:00:00,C008,c008@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-01-09 12:00:00,USD
+O00248,2,2026-01-09 12:00:00,C008,c008@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-01-09 12:00:00,USD
+O00249,1,2026-01-10 12:00:00,C009,c009@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-10 12:00:00,USD
+O00249,2,2026-01-10 12:00:00,C009,c009@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-10 12:00:00,USD
+O00250,1,2026-01-11 12:00:00,C010,c010@example.invalid,P03,Headphones,Electronics,North,3,49.95,0.1000,completed,2026-01-11 12:00:00,USD
+O00250,2,2026-01-11 12:00:00,C010,c010@example.invalid,P04,Travel mug,Home,North,1,12.00,0.1000,completed,2026-01-11 12:00:00,USD
+O00251,1,2026-01-12 12:00:00,C011,c011@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-12 12:00:00,USD
+O00251,2,2026-01-12 12:00:00,C011,c011@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-12 12:00:00,USD
+O00252,1,2026-01-13 12:00:00,C012,c012@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-13 12:00:00,USD
+O00252,2,2026-01-13 12:00:00,C012,c012@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-13 12:00:00,USD
+O00253,1,2026-01-14 12:00:00,C013,c013@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,returned,2026-01-14 12:00:00,USD
+O00253,2,2026-01-14 12:00:00,C013,c013@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,returned,2026-01-14 12:00:00,USD
+O00254,1,2026-01-15 12:00:00,C014,c014@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-15 12:00:00,USD
+O00254,2,2026-01-15 12:00:00,C014,c014@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-15 12:00:00,USD
+O00255,1,2026-01-16 12:00:00,C015,c015@example.invalid,P04,Travel mug,Home,South,1,12.00,0.1000,cancelled,2026-01-16 12:00:00,USD
+O00255,2,2026-01-16 12:00:00,C015,c015@example.invalid,P01,Desk lamp,Home,South,2,24.50,0.1000,cancelled,2026-01-16 12:00:00,USD
+O00256,1,2026-01-17 12:00:00,C016,c016@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-17 12:00:00,USD
+O00256,2,2026-01-17 12:00:00,C016,c016@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-17 12:00:00,USD
+O00257,1,2026-01-18 12:00:00,C017,c017@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-18 12:00:00,USD
+O00257,2,2026-01-18 12:00:00,C017,c017@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-18 12:00:00,USD
+O00258,1,2026-01-19 12:00:00,C018,c018@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-19 12:00:00,USD
+O00258,2,2026-01-19 12:00:00,C018,c018@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-19 12:00:00,USD
+O00259,1,2026-01-20 12:00:00,C019,c019@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-20 12:00:00,USD
+O00259,2,2026-01-20 12:00:00,C019,c019@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-20 12:00:00,USD
+O00260,1,2026-01-21 12:00:00,C020,c020@example.invalid,P01,Desk lamp,Home,East,2,24.50,0.1000,completed,2026-01-21 12:00:00,USD
+O00260,2,2026-01-21 12:00:00,C020,c020@example.invalid,P02,Notebook,Stationery,East,3,5.00,0.1000,completed,2026-01-21 12:00:00,USD
+O00261,1,2026-01-22 12:00:00,C021,c021@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-22 12:00:00,USD
+O00261,2,2026-01-22 12:00:00,C021,c021@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-22 12:00:00,USD
+O00262,1,2026-01-23 12:00:00,C022,c022@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-01-23 12:00:00,USD
+O00262,2,2026-01-23 12:00:00,C022,c022@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-01-23 12:00:00,USD
+O00263,1,2026-01-24 12:00:00,C023,c023@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-24 12:00:00,USD
+O00263,2,2026-01-24 12:00:00,C023,c023@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-24 12:00:00,USD
+O00264,1,2026-01-25 12:00:00,C024,c024@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-25 12:00:00,USD
+O00264,2,2026-01-25 12:00:00,C024,c024@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-25 12:00:00,USD
+O00265,1,2026-01-26 12:00:00,C025,c025@example.invalid,P02,Notebook,Stationery,West,3,5.00,0.1000,completed,2026-01-26 12:00:00,USD
+O00265,2,2026-01-26 12:00:00,C025,c025@example.invalid,P03,Headphones,Electronics,West,1,49.95,0.1000,completed,2026-01-26 12:00:00,USD
+O00266,1,2026-01-27 12:00:00,C026,c026@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-27 12:00:00,USD
+O00266,2,2026-01-27 12:00:00,C026,c026@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-27 12:00:00,USD
+O00267,1,2026-01-28 12:00:00,C027,c027@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-28 12:00:00,USD
+O00267,2,2026-01-28 12:00:00,C027,c027@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-28 12:00:00,USD
+O00268,1,2026-01-29 12:00:00,C028,c028@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-29 12:00:00,USD
+O00268,2,2026-01-29 12:00:00,C028,c028@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-29 12:00:00,USD
+O00269,1,2026-01-30 12:00:00,C029,c029@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-30 12:00:00,USD
+O00269,2,2026-01-30 12:00:00,C029,c029@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-30 12:00:00,USD
+O00270,1,2026-01-31 12:00:00,C030,c030@example.invalid,P03,Headphones,Electronics,North,1,49.95,0.1000,completed,2026-01-31 12:00:00,USD
+O00270,2,2026-01-31 12:00:00,C030,c030@example.invalid,P04,Travel mug,Home,North,2,12.00,0.1000,completed,2026-01-31 12:00:00,USD
+O00271,1,2026-02-01 12:00:00,C031,c031@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-01 12:00:00,USD
+O00271,2,2026-02-01 12:00:00,C031,c031@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-01 12:00:00,USD
+O00272,1,2026-02-02 12:00:00,C032,c032@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,cancelled,2026-02-02 12:00:00,USD
+O00272,2,2026-02-02 12:00:00,C032,c032@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,cancelled,2026-02-02 12:00:00,USD
+O00273,1,2026-02-03 12:00:00,C033,c033@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-03 12:00:00,USD
+O00273,2,2026-02-03 12:00:00,C033,c033@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-03 12:00:00,USD
+O00274,1,2026-02-04 12:00:00,C034,c034@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-04 12:00:00,USD
+O00274,2,2026-02-04 12:00:00,C034,c034@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-04 12:00:00,USD
+O00275,1,2026-02-05 12:00:00,C035,c035@example.invalid,P04,Travel mug,Home,South,2,12.00,0.1000,completed,2026-02-05 12:00:00,USD
+O00275,2,2026-02-05 12:00:00,C035,c035@example.invalid,P01,Desk lamp,Home,South,3,24.50,0.1000,completed,2026-02-05 12:00:00,USD
+O00276,1,2026-02-06 12:00:00,C036,c036@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,returned,2026-02-06 12:00:00,USD
+O00276,2,2026-02-06 12:00:00,C036,c036@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,returned,2026-02-06 12:00:00,USD
+O00277,1,2026-02-07 12:00:00,C037,c037@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-07 12:00:00,USD
+O00277,2,2026-02-07 12:00:00,C037,c037@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-07 12:00:00,USD
+O00278,1,2026-02-08 12:00:00,C038,c038@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-02-08 12:00:00,USD
+O00278,2,2026-02-08 12:00:00,C038,c038@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-02-08 12:00:00,USD
+O00279,1,2026-02-09 12:00:00,C039,c039@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-09 12:00:00,USD
+O00279,2,2026-02-09 12:00:00,C039,c039@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-09 12:00:00,USD
+O00280,1,2026-02-10 12:00:00,C040,c040@example.invalid,P01,Desk lamp,Home,East,3,24.50,0.1000,completed,2026-02-10 12:00:00,USD
+O00280,2,2026-02-10 12:00:00,C040,c040@example.invalid,P02,Notebook,Stationery,East,1,5.00,0.1000,completed,2026-02-10 12:00:00,USD
+O00281,1,2026-02-11 12:00:00,C041,c041@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-11 12:00:00,USD
+O00281,2,2026-02-11 12:00:00,C041,c041@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-11 12:00:00,USD
+O00282,1,2026-02-12 12:00:00,C042,c042@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-12 12:00:00,USD
+O00282,2,2026-02-12 12:00:00,C042,c042@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-12 12:00:00,USD
+O00283,1,2026-02-13 12:00:00,C043,c043@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-13 12:00:00,USD
+O00283,2,2026-02-13 12:00:00,C043,c043@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-13 12:00:00,USD
+O00284,1,2026-02-14 12:00:00,C044,c044@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-14 12:00:00,USD
+O00284,2,2026-02-14 12:00:00,C044,c044@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-14 12:00:00,USD
+O00285,1,2026-02-15 12:00:00,C045,c045@example.invalid,P02,Notebook,Stationery,West,1,5.00,0.1000,completed,2026-02-15 12:00:00,USD
+O00285,2,2026-02-15 12:00:00,C045,c045@example.invalid,P03,Headphones,Electronics,West,2,49.95,0.1000,completed,2026-02-15 12:00:00,USD
+O00286,1,2026-02-16 12:00:00,C046,c046@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-16 12:00:00,USD
+O00286,2,2026-02-16 12:00:00,C046,c046@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-16 12:00:00,USD
+O00287,1,2026-02-17 12:00:00,C047,c047@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-02-17 12:00:00,USD
+O00287,2,2026-02-17 12:00:00,C047,c047@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-02-17 12:00:00,USD
+O00288,1,2026-02-18 12:00:00,C048,c048@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-18 12:00:00,USD
+O00288,2,2026-02-18 12:00:00,C048,c048@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-18 12:00:00,USD
+O00289,1,2026-02-19 12:00:00,C049,c049@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,cancelled,2026-02-19 12:00:00,USD
+O00289,2,2026-02-19 12:00:00,C049,c049@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,cancelled,2026-02-19 12:00:00,USD
+O00290,1,2026-02-20 12:00:00,C050,c050@example.invalid,P03,Headphones,Electronics,North,2,49.95,0.1000,completed,2026-02-20 12:00:00,USD
+O00290,2,2026-02-20 12:00:00,C050,c050@example.invalid,P04,Travel mug,Home,North,3,12.00,0.1000,completed,2026-02-20 12:00:00,USD
+O00291,1,2026-02-21 12:00:00,C051,c051@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-21 12:00:00,USD
+O00291,2,2026-02-21 12:00:00,C051,c051@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-21 12:00:00,USD
+O00292,1,2026-02-22 12:00:00,C052,c052@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-02-22 12:00:00,USD
+O00292,2,2026-02-22 12:00:00,C052,c052@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-02-22 12:00:00,USD
+O00293,1,2026-02-23 12:00:00,C053,c053@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-23 12:00:00,USD
+O00293,2,2026-02-23 12:00:00,C053,c053@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-23 12:00:00,USD
+O00294,1,2026-02-24 12:00:00,C054,c054@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-24 12:00:00,USD
+O00294,2,2026-02-24 12:00:00,C054,c054@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-24 12:00:00,USD
+O00295,1,2026-02-25 12:00:00,C055,c055@example.invalid,P04,Travel mug,Home,South,3,12.00,0.1000,completed,2026-02-25 12:00:00,USD
+O00295,2,2026-02-25 12:00:00,C055,c055@example.invalid,P01,Desk lamp,Home,South,1,24.50,0.1000,completed,2026-02-25 12:00:00,USD
+O00296,1,2026-02-26 12:00:00,C056,c056@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-26 12:00:00,USD
+O00296,2,2026-02-26 12:00:00,C056,c056@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-26 12:00:00,USD
+O00297,1,2026-02-27 12:00:00,C057,c057@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-27 12:00:00,USD
+O00297,2,2026-02-27 12:00:00,C057,c057@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-27 12:00:00,USD
+O00298,1,2026-02-28 12:00:00,C058,c058@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-28 12:00:00,USD
+O00298,2,2026-02-28 12:00:00,C058,c058@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-28 12:00:00,USD
+O00299,1,2026-03-01 12:00:00,C059,c059@example.invalid,P04,Travel mug,Home,South,2,12.00,0,returned,2026-03-01 12:00:00,USD
+O00299,2,2026-03-01 12:00:00,C059,c059@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,returned,2026-03-01 12:00:00,USD
+O00300,1,2026-01-01 12:00:00,C060,c060@example.invalid,P01,Desk lamp,Home,East,1,24.50,0.1000,completed,2026-01-01 12:00:00,USD
+O00300,2,2026-01-01 12:00:00,C060,c060@example.invalid,P02,Notebook,Stationery,East,2,5.00,0.1000,completed,2026-01-01 12:00:00,USD
+O00301,1,2026-01-02 12:00:00,C061,c061@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-02 12:00:00,USD
+O00301,2,2026-01-02 12:00:00,C061,c061@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-02 12:00:00,USD
+O00302,1,2026-01-03 12:00:00,C062,c062@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-03 12:00:00,USD
+O00302,2,2026-01-03 12:00:00,C062,c062@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-03 12:00:00,USD
+O00303,1,2026-01-04 12:00:00,C063,c063@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-04 12:00:00,USD
+O00303,2,2026-01-04 12:00:00,C063,c063@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-04 12:00:00,USD
+O00304,1,2026-01-05 12:00:00,C064,c064@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-05 12:00:00,USD
+O00304,2,2026-01-05 12:00:00,C064,c064@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-05 12:00:00,USD
+O00305,1,2026-01-06 12:00:00,C065,c065@example.invalid,P02,Notebook,Stationery,West,2,5.00,0.1000,completed,2026-01-06 12:00:00,USD
+O00305,2,2026-01-06 12:00:00,C065,c065@example.invalid,P03,Headphones,Electronics,West,3,49.95,0.1000,completed,2026-01-06 12:00:00,USD
+O00306,1,2026-01-07 12:00:00,C066,c066@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,cancelled,2026-01-07 12:00:00,USD
+O00306,2,2026-01-07 12:00:00,C066,c066@example.invalid,P04,Travel mug,Home,North,2,12.00,0,cancelled,2026-01-07 12:00:00,USD
+O00307,1,2026-01-08 12:00:00,C067,c067@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-08 12:00:00,USD
+O00307,2,2026-01-08 12:00:00,C067,c067@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-08 12:00:00,USD
+O00308,1,2026-01-09 12:00:00,C068,c068@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-01-09 12:00:00,USD
+O00308,2,2026-01-09 12:00:00,C068,c068@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-01-09 12:00:00,USD
+O00309,1,2026-01-10 12:00:00,C069,c069@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-10 12:00:00,USD
+O00309,2,2026-01-10 12:00:00,C069,c069@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-10 12:00:00,USD
+O00310,1,2026-01-11 12:00:00,C070,c070@example.invalid,P03,Headphones,Electronics,North,3,49.95,0.1000,completed,2026-01-11 12:00:00,USD
+O00310,2,2026-01-11 12:00:00,C070,c070@example.invalid,P04,Travel mug,Home,North,1,12.00,0.1000,completed,2026-01-11 12:00:00,USD
+O00311,1,2026-01-12 12:00:00,C071,c071@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-12 12:00:00,USD
+O00311,2,2026-01-12 12:00:00,C071,c071@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-12 12:00:00,USD
+O00312,1,2026-01-13 12:00:00,C072,c072@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-13 12:00:00,USD
+O00312,2,2026-01-13 12:00:00,C072,c072@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-13 12:00:00,USD
+O00313,1,2026-01-14 12:00:00,C073,c073@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-14 12:00:00,USD
+O00313,2,2026-01-14 12:00:00,C073,c073@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-14 12:00:00,USD
+O00314,1,2026-01-15 12:00:00,C074,c074@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-15 12:00:00,USD
+O00314,2,2026-01-15 12:00:00,C074,c074@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-15 12:00:00,USD
+O00315,1,2026-01-16 12:00:00,C075,c075@example.invalid,P04,Travel mug,Home,South,1,12.00,0.1000,completed,2026-01-16 12:00:00,USD
+O00315,2,2026-01-16 12:00:00,C075,c075@example.invalid,P01,Desk lamp,Home,South,2,24.50,0.1000,completed,2026-01-16 12:00:00,USD
+O00316,1,2026-01-17 12:00:00,C076,c076@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-17 12:00:00,USD
+O00316,2,2026-01-17 12:00:00,C076,c076@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-17 12:00:00,USD
+O00317,1,2026-01-18 12:00:00,C077,c077@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-18 12:00:00,USD
+O00317,2,2026-01-18 12:00:00,C077,c077@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-18 12:00:00,USD
+O00318,1,2026-01-19 12:00:00,C078,c078@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-19 12:00:00,USD
+O00318,2,2026-01-19 12:00:00,C078,c078@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-19 12:00:00,USD
+O00319,1,2026-01-20 12:00:00,C079,c079@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-20 12:00:00,USD
+O00319,2,2026-01-20 12:00:00,C079,c079@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-20 12:00:00,USD
+O00320,1,2026-01-21 12:00:00,C000,c000@example.invalid,P01,Desk lamp,Home,East,2,24.50,0.1000,completed,2026-01-21 12:00:00,USD
+O00320,2,2026-01-21 12:00:00,C000,c000@example.invalid,P02,Notebook,Stationery,East,3,5.00,0.1000,completed,2026-01-21 12:00:00,USD
+O00321,1,2026-01-22 12:00:00,C001,c001@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-22 12:00:00,USD
+O00321,2,2026-01-22 12:00:00,C001,c001@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-22 12:00:00,USD
+O00322,1,2026-01-23 12:00:00,C002,c002@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,returned,2026-01-23 12:00:00,USD
+O00322,2,2026-01-23 12:00:00,C002,c002@example.invalid,P04,Travel mug,Home,North,1,12.00,0,returned,2026-01-23 12:00:00,USD
+O00323,1,2026-01-24 12:00:00,C003,c003@example.invalid,P04,Travel mug,Home,South,2,12.00,0,cancelled,2026-01-24 12:00:00,USD
+O00323,2,2026-01-24 12:00:00,C003,c003@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,cancelled,2026-01-24 12:00:00,USD
+O00324,1,2026-01-25 12:00:00,C004,c004@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-25 12:00:00,USD
+O00324,2,2026-01-25 12:00:00,C004,c004@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-25 12:00:00,USD
+O00325,1,2026-01-26 12:00:00,C005,c005@example.invalid,P02,Notebook,Stationery,West,3,5.00,0.1000,completed,2026-01-26 12:00:00,USD
+O00325,2,2026-01-26 12:00:00,C005,c005@example.invalid,P03,Headphones,Electronics,West,1,49.95,0.1000,completed,2026-01-26 12:00:00,USD
+O00326,1,2026-01-27 12:00:00,C006,c006@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-27 12:00:00,USD
+O00326,2,2026-01-27 12:00:00,C006,c006@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-27 12:00:00,USD
+O00327,1,2026-01-28 12:00:00,C007,c007@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-28 12:00:00,USD
+O00327,2,2026-01-28 12:00:00,C007,c007@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-28 12:00:00,USD
+O00328,1,2026-01-29 12:00:00,C008,c008@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-29 12:00:00,USD
+O00328,2,2026-01-29 12:00:00,C008,c008@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-29 12:00:00,USD
+O00329,1,2026-01-30 12:00:00,C009,c009@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-30 12:00:00,USD
+O00329,2,2026-01-30 12:00:00,C009,c009@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-30 12:00:00,USD
+O00330,1,2026-01-31 12:00:00,C010,c010@example.invalid,P03,Headphones,Electronics,North,1,49.95,0.1000,completed,2026-01-31 12:00:00,USD
+O00330,2,2026-01-31 12:00:00,C010,c010@example.invalid,P04,Travel mug,Home,North,2,12.00,0.1000,completed,2026-01-31 12:00:00,USD
+O00331,1,2026-02-01 12:00:00,C011,c011@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-01 12:00:00,USD
+O00331,2,2026-02-01 12:00:00,C011,c011@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-01 12:00:00,USD
+O00332,1,2026-02-02 12:00:00,C012,c012@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-02 12:00:00,USD
+O00332,2,2026-02-02 12:00:00,C012,c012@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-02 12:00:00,USD
+O00333,1,2026-02-03 12:00:00,C013,c013@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-03 12:00:00,USD
+O00333,2,2026-02-03 12:00:00,C013,c013@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-03 12:00:00,USD
+O00334,1,2026-02-04 12:00:00,C014,c014@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-04 12:00:00,USD
+O00334,2,2026-02-04 12:00:00,C014,c014@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-04 12:00:00,USD
+O00335,1,2026-02-05 12:00:00,C015,c015@example.invalid,P04,Travel mug,Home,South,2,12.00,0.1000,completed,2026-02-05 12:00:00,USD
+O00335,2,2026-02-05 12:00:00,C015,c015@example.invalid,P01,Desk lamp,Home,South,3,24.50,0.1000,completed,2026-02-05 12:00:00,USD
+O00336,1,2026-02-06 12:00:00,C016,c016@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-06 12:00:00,USD
+O00336,2,2026-02-06 12:00:00,C016,c016@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-06 12:00:00,USD
+O00337,1,2026-02-07 12:00:00,C017,c017@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-07 12:00:00,USD
+O00337,2,2026-02-07 12:00:00,C017,c017@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-07 12:00:00,USD
+O00338,1,2026-02-08 12:00:00,C018,c018@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-02-08 12:00:00,USD
+O00338,2,2026-02-08 12:00:00,C018,c018@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-02-08 12:00:00,USD
+O00339,1,2026-02-09 12:00:00,C019,c019@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-09 12:00:00,USD
+O00339,2,2026-02-09 12:00:00,C019,c019@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-09 12:00:00,USD
+O00340,1,2026-02-10 12:00:00,C020,c020@example.invalid,P01,Desk lamp,Home,East,3,24.50,0.1000,cancelled,2026-02-10 12:00:00,USD
+O00340,2,2026-02-10 12:00:00,C020,c020@example.invalid,P02,Notebook,Stationery,East,1,5.00,0.1000,cancelled,2026-02-10 12:00:00,USD
+O00341,1,2026-02-11 12:00:00,C021,c021@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-11 12:00:00,USD
+O00341,2,2026-02-11 12:00:00,C021,c021@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-11 12:00:00,USD
+O00342,1,2026-02-12 12:00:00,C022,c022@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-12 12:00:00,USD
+O00342,2,2026-02-12 12:00:00,C022,c022@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-12 12:00:00,USD
+O00343,1,2026-02-13 12:00:00,C023,c023@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-13 12:00:00,USD
+O00343,2,2026-02-13 12:00:00,C023,c023@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-13 12:00:00,USD
+O00344,1,2026-02-14 12:00:00,C024,c024@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-14 12:00:00,USD
+O00344,2,2026-02-14 12:00:00,C024,c024@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-14 12:00:00,USD
+O00345,1,2026-02-15 12:00:00,C025,c025@example.invalid,P02,Notebook,Stationery,West,1,5.00,0.1000,returned,2026-02-15 12:00:00,USD
+O00345,2,2026-02-15 12:00:00,C025,c025@example.invalid,P03,Headphones,Electronics,West,2,49.95,0.1000,returned,2026-02-15 12:00:00,USD
+O00346,1,2026-02-16 12:00:00,C026,c026@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-16 12:00:00,USD
+O00346,2,2026-02-16 12:00:00,C026,c026@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-16 12:00:00,USD
+O00347,1,2026-02-17 12:00:00,C027,c027@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-02-17 12:00:00,USD
+O00347,2,2026-02-17 12:00:00,C027,c027@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-02-17 12:00:00,USD
+O00348,1,2026-02-18 12:00:00,C028,c028@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-18 12:00:00,USD
+O00348,2,2026-02-18 12:00:00,C028,c028@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-18 12:00:00,USD
+O00349,1,2026-02-19 12:00:00,C029,c029@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-19 12:00:00,USD
+O00349,2,2026-02-19 12:00:00,C029,c029@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-19 12:00:00,USD
+O00350,1,2026-02-20 12:00:00,C030,c030@example.invalid,P03,Headphones,Electronics,North,2,49.95,0.1000,completed,2026-02-20 12:00:00,USD
+O00350,2,2026-02-20 12:00:00,C030,c030@example.invalid,P04,Travel mug,Home,North,3,12.00,0.1000,completed,2026-02-20 12:00:00,USD
+O00351,1,2026-02-21 12:00:00,C031,c031@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-21 12:00:00,USD
+O00351,2,2026-02-21 12:00:00,C031,c031@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-21 12:00:00,USD
+O00352,1,2026-02-22 12:00:00,C032,c032@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-02-22 12:00:00,USD
+O00352,2,2026-02-22 12:00:00,C032,c032@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-02-22 12:00:00,USD
+O00353,1,2026-02-23 12:00:00,C033,c033@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-23 12:00:00,USD
+O00353,2,2026-02-23 12:00:00,C033,c033@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-23 12:00:00,USD
+O00354,1,2026-02-24 12:00:00,C034,c034@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-24 12:00:00,USD
+O00354,2,2026-02-24 12:00:00,C034,c034@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-24 12:00:00,USD
+O00355,1,2026-02-25 12:00:00,C035,c035@example.invalid,P04,Travel mug,Home,South,3,12.00,0.1000,completed,2026-02-25 12:00:00,USD
+O00355,2,2026-02-25 12:00:00,C035,c035@example.invalid,P01,Desk lamp,Home,South,1,24.50,0.1000,completed,2026-02-25 12:00:00,USD
+O00356,1,2026-02-26 12:00:00,C036,c036@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-26 12:00:00,USD
+O00356,2,2026-02-26 12:00:00,C036,c036@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-26 12:00:00,USD
+O00357,1,2026-02-27 12:00:00,C037,c037@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,cancelled,2026-02-27 12:00:00,USD
+O00357,2,2026-02-27 12:00:00,C037,c037@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,cancelled,2026-02-27 12:00:00,USD
+O00358,1,2026-02-28 12:00:00,C038,c038@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-28 12:00:00,USD
+O00358,2,2026-02-28 12:00:00,C038,c038@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-28 12:00:00,USD
+O00359,1,2026-03-01 12:00:00,C039,c039@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-03-01 12:00:00,USD
+O00359,2,2026-03-01 12:00:00,C039,c039@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-03-01 12:00:00,USD
+O00360,1,2026-01-01 12:00:00,C040,c040@example.invalid,P01,Desk lamp,Home,East,1,24.50,0.1000,completed,2026-01-01 12:00:00,USD
+O00360,2,2026-01-01 12:00:00,C040,c040@example.invalid,P02,Notebook,Stationery,East,2,5.00,0.1000,completed,2026-01-01 12:00:00,USD
+O00361,1,2026-01-02 12:00:00,C041,c041@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-02 12:00:00,USD
+O00361,2,2026-01-02 12:00:00,C041,c041@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-02 12:00:00,USD
+O00362,1,2026-01-03 12:00:00,C042,c042@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-03 12:00:00,USD
+O00362,2,2026-01-03 12:00:00,C042,c042@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-03 12:00:00,USD
+O00363,1,2026-01-04 12:00:00,C043,c043@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-04 12:00:00,USD
+O00363,2,2026-01-04 12:00:00,C043,c043@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-04 12:00:00,USD
+O00364,1,2026-01-05 12:00:00,C044,c044@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-05 12:00:00,USD
+O00364,2,2026-01-05 12:00:00,C044,c044@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-05 12:00:00,USD
+O00365,1,2026-01-06 12:00:00,C045,c045@example.invalid,P02,Notebook,Stationery,West,2,5.00,0.1000,completed,2026-01-06 12:00:00,USD
+O00365,2,2026-01-06 12:00:00,C045,c045@example.invalid,P03,Headphones,Electronics,West,3,49.95,0.1000,completed,2026-01-06 12:00:00,USD
+O00366,1,2026-01-07 12:00:00,C046,c046@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-07 12:00:00,USD
+O00366,2,2026-01-07 12:00:00,C046,c046@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-07 12:00:00,USD
+O00367,1,2026-01-08 12:00:00,C047,c047@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-08 12:00:00,USD
+O00367,2,2026-01-08 12:00:00,C047,c047@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-08 12:00:00,USD
+O00368,1,2026-01-09 12:00:00,C048,c048@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,returned,2026-01-09 12:00:00,USD
+O00368,2,2026-01-09 12:00:00,C048,c048@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,returned,2026-01-09 12:00:00,USD
+O00369,1,2026-01-10 12:00:00,C049,c049@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-10 12:00:00,USD
+O00369,2,2026-01-10 12:00:00,C049,c049@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-10 12:00:00,USD
+O00370,1,2026-01-11 12:00:00,C050,c050@example.invalid,P03,Headphones,Electronics,North,3,49.95,0.1000,completed,2026-01-11 12:00:00,USD
+O00370,2,2026-01-11 12:00:00,C050,c050@example.invalid,P04,Travel mug,Home,North,1,12.00,0.1000,completed,2026-01-11 12:00:00,USD
+O00371,1,2026-01-12 12:00:00,C051,c051@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-12 12:00:00,USD
+O00371,2,2026-01-12 12:00:00,C051,c051@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-12 12:00:00,USD
+O00372,1,2026-01-13 12:00:00,C052,c052@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-13 12:00:00,USD
+O00372,2,2026-01-13 12:00:00,C052,c052@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-13 12:00:00,USD
+O00373,1,2026-01-14 12:00:00,C053,c053@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-14 12:00:00,USD
+O00373,2,2026-01-14 12:00:00,C053,c053@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-14 12:00:00,USD
+O00374,1,2026-01-15 12:00:00,C054,c054@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,cancelled,2026-01-15 12:00:00,USD
+O00374,2,2026-01-15 12:00:00,C054,c054@example.invalid,P04,Travel mug,Home,North,3,12.00,0,cancelled,2026-01-15 12:00:00,USD
+O00375,1,2026-01-16 12:00:00,C055,c055@example.invalid,P04,Travel mug,Home,South,1,12.00,0.1000,completed,2026-01-16 12:00:00,USD
+O00375,2,2026-01-16 12:00:00,C055,c055@example.invalid,P01,Desk lamp,Home,South,2,24.50,0.1000,completed,2026-01-16 12:00:00,USD
+O00376,1,2026-01-17 12:00:00,C056,c056@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-17 12:00:00,USD
+O00376,2,2026-01-17 12:00:00,C056,c056@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-17 12:00:00,USD
+O00377,1,2026-01-18 12:00:00,C057,c057@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-18 12:00:00,USD
+O00377,2,2026-01-18 12:00:00,C057,c057@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-18 12:00:00,USD
+O00378,1,2026-01-19 12:00:00,C058,c058@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-19 12:00:00,USD
+O00378,2,2026-01-19 12:00:00,C058,c058@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-19 12:00:00,USD
+O00379,1,2026-01-20 12:00:00,C059,c059@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-20 12:00:00,USD
+O00379,2,2026-01-20 12:00:00,C059,c059@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-20 12:00:00,USD
+O00380,1,2026-01-21 12:00:00,C060,c060@example.invalid,P01,Desk lamp,Home,East,2,24.50,0.1000,completed,2026-01-21 12:00:00,USD
+O00380,2,2026-01-21 12:00:00,C060,c060@example.invalid,P02,Notebook,Stationery,East,3,5.00,0.1000,completed,2026-01-21 12:00:00,USD
+O00381,1,2026-01-22 12:00:00,C061,c061@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-22 12:00:00,USD
+O00381,2,2026-01-22 12:00:00,C061,c061@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-22 12:00:00,USD
+O00382,1,2026-01-23 12:00:00,C062,c062@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-01-23 12:00:00,USD
+O00382,2,2026-01-23 12:00:00,C062,c062@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-01-23 12:00:00,USD
+O00383,1,2026-01-24 12:00:00,C063,c063@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-24 12:00:00,USD
+O00383,2,2026-01-24 12:00:00,C063,c063@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-24 12:00:00,USD
+O00384,1,2026-01-25 12:00:00,C064,c064@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-25 12:00:00,USD
+O00384,2,2026-01-25 12:00:00,C064,c064@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-25 12:00:00,USD
+O00385,1,2026-01-26 12:00:00,C065,c065@example.invalid,P02,Notebook,Stationery,West,3,5.00,0.1000,completed,2026-01-26 12:00:00,USD
+O00385,2,2026-01-26 12:00:00,C065,c065@example.invalid,P03,Headphones,Electronics,West,1,49.95,0.1000,completed,2026-01-26 12:00:00,USD
+O00386,1,2026-01-27 12:00:00,C066,c066@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-27 12:00:00,USD
+O00386,2,2026-01-27 12:00:00,C066,c066@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-27 12:00:00,USD
+O00387,1,2026-01-28 12:00:00,C067,c067@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-28 12:00:00,USD
+O00387,2,2026-01-28 12:00:00,C067,c067@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-28 12:00:00,USD
+O00388,1,2026-01-29 12:00:00,C068,c068@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-29 12:00:00,USD
+O00388,2,2026-01-29 12:00:00,C068,c068@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-29 12:00:00,USD
+O00389,1,2026-01-30 12:00:00,C069,c069@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-30 12:00:00,USD
+O00389,2,2026-01-30 12:00:00,C069,c069@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-30 12:00:00,USD
+O00390,1,2026-01-31 12:00:00,C070,c070@example.invalid,P03,Headphones,Electronics,North,1,49.95,0.1000,completed,2026-01-31 12:00:00,USD
+O00390,2,2026-01-31 12:00:00,C070,c070@example.invalid,P04,Travel mug,Home,North,2,12.00,0.1000,completed,2026-01-31 12:00:00,USD
+O00391,1,2026-02-01 12:00:00,C071,c071@example.invalid,P04,Travel mug,Home,South,3,12.00,0,cancelled,2026-02-01 12:00:00,USD
+O00391,2,2026-02-01 12:00:00,C071,c071@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,cancelled,2026-02-01 12:00:00,USD
+O00392,1,2026-02-02 12:00:00,C072,c072@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-02 12:00:00,USD
+O00392,2,2026-02-02 12:00:00,C072,c072@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-02 12:00:00,USD
+O00393,1,2026-02-03 12:00:00,C073,c073@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-03 12:00:00,USD
+O00393,2,2026-02-03 12:00:00,C073,c073@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-03 12:00:00,USD
+O00394,1,2026-02-04 12:00:00,C074,c074@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-04 12:00:00,USD
+O00394,2,2026-02-04 12:00:00,C074,c074@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-04 12:00:00,USD
+O00395,1,2026-02-05 12:00:00,C075,c075@example.invalid,P04,Travel mug,Home,South,2,12.00,0.1000,completed,2026-02-05 12:00:00,USD
+O00395,2,2026-02-05 12:00:00,C075,c075@example.invalid,P01,Desk lamp,Home,South,3,24.50,0.1000,completed,2026-02-05 12:00:00,USD
+O00396,1,2026-02-06 12:00:00,C076,c076@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-06 12:00:00,USD
+O00396,2,2026-02-06 12:00:00,C076,c076@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-06 12:00:00,USD
+O00397,1,2026-02-07 12:00:00,C077,c077@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-07 12:00:00,USD
+O00397,2,2026-02-07 12:00:00,C077,c077@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-07 12:00:00,USD
+O00398,1,2026-02-08 12:00:00,C078,c078@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-02-08 12:00:00,USD
+O00398,2,2026-02-08 12:00:00,C078,c078@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-02-08 12:00:00,USD
+O00399,1,2026-02-09 12:00:00,C079,c079@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-09 12:00:00,USD
+O00399,2,2026-02-09 12:00:00,C079,c079@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-09 12:00:00,USD
+O00400,1,2026-02-10 12:00:00,C000,c000@example.invalid,P01,Desk lamp,Home,East,3,24.50,0.1000,completed,2026-02-10 12:00:00,USD
+O00400,2,2026-02-10 12:00:00,C000,c000@example.invalid,P02,Notebook,Stationery,East,1,5.00,0.1000,completed,2026-02-10 12:00:00,USD
+O00401,1,2026-02-11 12:00:00,C001,c001@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-11 12:00:00,USD
+O00401,2,2026-02-11 12:00:00,C001,c001@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-11 12:00:00,USD
+O00402,1,2026-02-12 12:00:00,C002,c002@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-12 12:00:00,USD
+O00402,2,2026-02-12 12:00:00,C002,c002@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-12 12:00:00,USD
+O00403,1,2026-02-13 12:00:00,C003,c003@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-13 12:00:00,USD
+O00403,2,2026-02-13 12:00:00,C003,c003@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-13 12:00:00,USD
+O00404,1,2026-02-14 12:00:00,C004,c004@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-14 12:00:00,USD
+O00404,2,2026-02-14 12:00:00,C004,c004@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-14 12:00:00,USD
+O00405,1,2026-02-15 12:00:00,C005,c005@example.invalid,P02,Notebook,Stationery,West,1,5.00,0.1000,completed,2026-02-15 12:00:00,USD
+O00405,2,2026-02-15 12:00:00,C005,c005@example.invalid,P03,Headphones,Electronics,West,2,49.95,0.1000,completed,2026-02-15 12:00:00,USD
+O00406,1,2026-02-16 12:00:00,C006,c006@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-16 12:00:00,USD
+O00406,2,2026-02-16 12:00:00,C006,c006@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-16 12:00:00,USD
+O00407,1,2026-02-17 12:00:00,C007,c007@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-02-17 12:00:00,USD
+O00407,2,2026-02-17 12:00:00,C007,c007@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-02-17 12:00:00,USD
+O00408,1,2026-02-18 12:00:00,C008,c008@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,cancelled,2026-02-18 12:00:00,USD
+O00408,2,2026-02-18 12:00:00,C008,c008@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,cancelled,2026-02-18 12:00:00,USD
+O00409,1,2026-02-19 12:00:00,C009,c009@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-19 12:00:00,USD
+O00409,2,2026-02-19 12:00:00,C009,c009@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-19 12:00:00,USD
+O00410,1,2026-02-20 12:00:00,C010,c010@example.invalid,P03,Headphones,Electronics,North,2,49.95,0.1000,completed,2026-02-20 12:00:00,USD
+O00410,2,2026-02-20 12:00:00,C010,c010@example.invalid,P04,Travel mug,Home,North,3,12.00,0.1000,completed,2026-02-20 12:00:00,USD
+O00411,1,2026-02-21 12:00:00,C011,c011@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-21 12:00:00,USD
+O00411,2,2026-02-21 12:00:00,C011,c011@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-21 12:00:00,USD
+O00412,1,2026-02-22 12:00:00,C012,c012@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-02-22 12:00:00,USD
+O00412,2,2026-02-22 12:00:00,C012,c012@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-02-22 12:00:00,USD
+O00413,1,2026-02-23 12:00:00,C013,c013@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-23 12:00:00,USD
+O00413,2,2026-02-23 12:00:00,C013,c013@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-23 12:00:00,USD
+O00414,1,2026-02-24 12:00:00,C014,c014@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,returned,2026-02-24 12:00:00,USD
+O00414,2,2026-02-24 12:00:00,C014,c014@example.invalid,P04,Travel mug,Home,North,2,12.00,0,returned,2026-02-24 12:00:00,USD
+O00415,1,2026-02-25 12:00:00,C015,c015@example.invalid,P04,Travel mug,Home,South,3,12.00,0.1000,completed,2026-02-25 12:00:00,USD
+O00415,2,2026-02-25 12:00:00,C015,c015@example.invalid,P01,Desk lamp,Home,South,1,24.50,0.1000,completed,2026-02-25 12:00:00,USD
+O00416,1,2026-02-26 12:00:00,C016,c016@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-26 12:00:00,USD
+O00416,2,2026-02-26 12:00:00,C016,c016@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-26 12:00:00,USD
+O00417,1,2026-02-27 12:00:00,C017,c017@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-27 12:00:00,USD
+O00417,2,2026-02-27 12:00:00,C017,c017@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-27 12:00:00,USD
+O00418,1,2026-02-28 12:00:00,C018,c018@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-28 12:00:00,USD
+O00418,2,2026-02-28 12:00:00,C018,c018@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-28 12:00:00,USD
+O00419,1,2026-03-01 12:00:00,C019,c019@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-03-01 12:00:00,USD
+O00419,2,2026-03-01 12:00:00,C019,c019@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-03-01 12:00:00,USD
+O00420,1,2026-01-01 12:00:00,C020,c020@example.invalid,P01,Desk lamp,Home,East,1,24.50,0.1000,completed,2026-01-01 12:00:00,USD
+O00420,2,2026-01-01 12:00:00,C020,c020@example.invalid,P02,Notebook,Stationery,East,2,5.00,0.1000,completed,2026-01-01 12:00:00,USD
+O00421,1,2026-01-02 12:00:00,C021,c021@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-02 12:00:00,USD
+O00421,2,2026-01-02 12:00:00,C021,c021@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-02 12:00:00,USD
+O00422,1,2026-01-03 12:00:00,C022,c022@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-03 12:00:00,USD
+O00422,2,2026-01-03 12:00:00,C022,c022@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-03 12:00:00,USD
+O00423,1,2026-01-04 12:00:00,C023,c023@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-04 12:00:00,USD
+O00423,2,2026-01-04 12:00:00,C023,c023@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-04 12:00:00,USD
+O00424,1,2026-01-05 12:00:00,C024,c024@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-05 12:00:00,USD
+O00424,2,2026-01-05 12:00:00,C024,c024@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-05 12:00:00,USD
+O00425,1,2026-01-06 12:00:00,C025,c025@example.invalid,P02,Notebook,Stationery,West,2,5.00,0.1000,cancelled,2026-01-06 12:00:00,USD
+O00425,2,2026-01-06 12:00:00,C025,c025@example.invalid,P03,Headphones,Electronics,West,3,49.95,0.1000,cancelled,2026-01-06 12:00:00,USD
+O00426,1,2026-01-07 12:00:00,C026,c026@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-07 12:00:00,USD
+O00426,2,2026-01-07 12:00:00,C026,c026@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-07 12:00:00,USD
+O00427,1,2026-01-08 12:00:00,C027,c027@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-08 12:00:00,USD
+O00427,2,2026-01-08 12:00:00,C027,c027@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-08 12:00:00,USD
+O00428,1,2026-01-09 12:00:00,C028,c028@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-01-09 12:00:00,USD
+O00428,2,2026-01-09 12:00:00,C028,c028@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-01-09 12:00:00,USD
+O00429,1,2026-01-10 12:00:00,C029,c029@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-10 12:00:00,USD
+O00429,2,2026-01-10 12:00:00,C029,c029@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-10 12:00:00,USD
+O00430,1,2026-01-11 12:00:00,C030,c030@example.invalid,P03,Headphones,Electronics,North,3,49.95,0.1000,completed,2026-01-11 12:00:00,USD
+O00430,2,2026-01-11 12:00:00,C030,c030@example.invalid,P04,Travel mug,Home,North,1,12.00,0.1000,completed,2026-01-11 12:00:00,USD
+O00431,1,2026-01-12 12:00:00,C031,c031@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-12 12:00:00,USD
+O00431,2,2026-01-12 12:00:00,C031,c031@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-12 12:00:00,USD
+O00432,1,2026-01-13 12:00:00,C032,c032@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-13 12:00:00,USD
+O00432,2,2026-01-13 12:00:00,C032,c032@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-13 12:00:00,USD
+O00433,1,2026-01-14 12:00:00,C033,c033@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-14 12:00:00,USD
+O00433,2,2026-01-14 12:00:00,C033,c033@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-14 12:00:00,USD
+O00434,1,2026-01-15 12:00:00,C034,c034@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-15 12:00:00,USD
+O00434,2,2026-01-15 12:00:00,C034,c034@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-15 12:00:00,USD
+O00435,1,2026-01-16 12:00:00,C035,c035@example.invalid,P04,Travel mug,Home,South,1,12.00,0.1000,completed,2026-01-16 12:00:00,USD
+O00435,2,2026-01-16 12:00:00,C035,c035@example.invalid,P01,Desk lamp,Home,South,2,24.50,0.1000,completed,2026-01-16 12:00:00,USD
+O00436,1,2026-01-17 12:00:00,C036,c036@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-17 12:00:00,USD
+O00436,2,2026-01-17 12:00:00,C036,c036@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-17 12:00:00,USD
+O00437,1,2026-01-18 12:00:00,C037,c037@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,returned,2026-01-18 12:00:00,USD
+O00437,2,2026-01-18 12:00:00,C037,c037@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,returned,2026-01-18 12:00:00,USD
+O00438,1,2026-01-19 12:00:00,C038,c038@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-19 12:00:00,USD
+O00438,2,2026-01-19 12:00:00,C038,c038@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-19 12:00:00,USD
+O00439,1,2026-01-20 12:00:00,C039,c039@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-20 12:00:00,USD
+O00439,2,2026-01-20 12:00:00,C039,c039@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-20 12:00:00,USD
+O00440,1,2026-01-21 12:00:00,C040,c040@example.invalid,P01,Desk lamp,Home,East,2,24.50,0.1000,completed,2026-01-21 12:00:00,USD
+O00440,2,2026-01-21 12:00:00,C040,c040@example.invalid,P02,Notebook,Stationery,East,3,5.00,0.1000,completed,2026-01-21 12:00:00,USD
+O00441,1,2026-01-22 12:00:00,C041,c041@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-22 12:00:00,USD
+O00441,2,2026-01-22 12:00:00,C041,c041@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-22 12:00:00,USD
+O00442,1,2026-01-23 12:00:00,C042,c042@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,cancelled,2026-01-23 12:00:00,USD
+O00442,2,2026-01-23 12:00:00,C042,c042@example.invalid,P04,Travel mug,Home,North,1,12.00,0,cancelled,2026-01-23 12:00:00,USD
+O00443,1,2026-01-24 12:00:00,C043,c043@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-24 12:00:00,USD
+O00443,2,2026-01-24 12:00:00,C043,c043@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-24 12:00:00,USD
+O00444,1,2026-01-25 12:00:00,C044,c044@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-25 12:00:00,USD
+O00444,2,2026-01-25 12:00:00,C044,c044@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-25 12:00:00,USD
+O00445,1,2026-01-26 12:00:00,C045,c045@example.invalid,P02,Notebook,Stationery,West,3,5.00,0.1000,completed,2026-01-26 12:00:00,USD
+O00445,2,2026-01-26 12:00:00,C045,c045@example.invalid,P03,Headphones,Electronics,West,1,49.95,0.1000,completed,2026-01-26 12:00:00,USD
+O00446,1,2026-01-27 12:00:00,C046,c046@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-27 12:00:00,USD
+O00446,2,2026-01-27 12:00:00,C046,c046@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-27 12:00:00,USD
+O00447,1,2026-01-28 12:00:00,C047,c047@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-28 12:00:00,USD
+O00447,2,2026-01-28 12:00:00,C047,c047@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-28 12:00:00,USD
+O00448,1,2026-01-29 12:00:00,C048,c048@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-29 12:00:00,USD
+O00448,2,2026-01-29 12:00:00,C048,c048@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-29 12:00:00,USD
+O00449,1,2026-01-30 12:00:00,C049,c049@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-30 12:00:00,USD
+O00449,2,2026-01-30 12:00:00,C049,c049@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-30 12:00:00,USD
+O00450,1,2026-01-31 12:00:00,C050,c050@example.invalid,P03,Headphones,Electronics,North,1,49.95,0.1000,completed,2026-01-31 12:00:00,USD
+O00450,2,2026-01-31 12:00:00,C050,c050@example.invalid,P04,Travel mug,Home,North,2,12.00,0.1000,completed,2026-01-31 12:00:00,USD
+O00451,1,2026-02-01 12:00:00,C051,c051@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-01 12:00:00,USD
+O00451,2,2026-02-01 12:00:00,C051,c051@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-01 12:00:00,USD
+O00452,1,2026-02-02 12:00:00,C052,c052@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-02 12:00:00,USD
+O00452,2,2026-02-02 12:00:00,C052,c052@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-02 12:00:00,USD
+O00453,1,2026-02-03 12:00:00,C053,c053@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-03 12:00:00,USD
+O00453,2,2026-02-03 12:00:00,C053,c053@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-03 12:00:00,USD
+O00454,1,2026-02-04 12:00:00,C054,c054@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-04 12:00:00,USD
+O00454,2,2026-02-04 12:00:00,C054,c054@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-04 12:00:00,USD
+O00455,1,2026-02-05 12:00:00,C055,c055@example.invalid,P04,Travel mug,Home,South,2,12.00,0.1000,completed,2026-02-05 12:00:00,USD
+O00455,2,2026-02-05 12:00:00,C055,c055@example.invalid,P01,Desk lamp,Home,South,3,24.50,0.1000,completed,2026-02-05 12:00:00,USD
+O00456,1,2026-02-06 12:00:00,C056,c056@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-06 12:00:00,USD
+O00456,2,2026-02-06 12:00:00,C056,c056@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-06 12:00:00,USD
+O00457,1,2026-02-07 12:00:00,C057,c057@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-07 12:00:00,USD
+O00457,2,2026-02-07 12:00:00,C057,c057@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-07 12:00:00,USD
+O00458,1,2026-02-08 12:00:00,C058,c058@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-02-08 12:00:00,USD
+O00458,2,2026-02-08 12:00:00,C058,c058@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-02-08 12:00:00,USD
+O00459,1,2026-02-09 12:00:00,C059,c059@example.invalid,P04,Travel mug,Home,South,1,12.00,0,cancelled,2026-02-09 12:00:00,USD
+O00459,2,2026-02-09 12:00:00,C059,c059@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,cancelled,2026-02-09 12:00:00,USD
+O00460,1,2026-02-10 12:00:00,C060,c060@example.invalid,P01,Desk lamp,Home,East,3,24.50,0.1000,returned,2026-02-10 12:00:00,USD
+O00460,2,2026-02-10 12:00:00,C060,c060@example.invalid,P02,Notebook,Stationery,East,1,5.00,0.1000,returned,2026-02-10 12:00:00,USD
+O00461,1,2026-02-11 12:00:00,C061,c061@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-11 12:00:00,USD
+O00461,2,2026-02-11 12:00:00,C061,c061@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-11 12:00:00,USD
+O00462,1,2026-02-12 12:00:00,C062,c062@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-12 12:00:00,USD
+O00462,2,2026-02-12 12:00:00,C062,c062@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-12 12:00:00,USD
+O00463,1,2026-02-13 12:00:00,C063,c063@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-13 12:00:00,USD
+O00463,2,2026-02-13 12:00:00,C063,c063@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-13 12:00:00,USD
+O00464,1,2026-02-14 12:00:00,C064,c064@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-14 12:00:00,USD
+O00464,2,2026-02-14 12:00:00,C064,c064@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-14 12:00:00,USD
+O00465,1,2026-02-15 12:00:00,C065,c065@example.invalid,P02,Notebook,Stationery,West,1,5.00,0.1000,completed,2026-02-15 12:00:00,USD
+O00465,2,2026-02-15 12:00:00,C065,c065@example.invalid,P03,Headphones,Electronics,West,2,49.95,0.1000,completed,2026-02-15 12:00:00,USD
+O00466,1,2026-02-16 12:00:00,C066,c066@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-16 12:00:00,USD
+O00466,2,2026-02-16 12:00:00,C066,c066@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-16 12:00:00,USD
+O00467,1,2026-02-17 12:00:00,C067,c067@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-02-17 12:00:00,USD
+O00467,2,2026-02-17 12:00:00,C067,c067@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-02-17 12:00:00,USD
+O00468,1,2026-02-18 12:00:00,C068,c068@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-18 12:00:00,USD
+O00468,2,2026-02-18 12:00:00,C068,c068@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-18 12:00:00,USD
+O00469,1,2026-02-19 12:00:00,C069,c069@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-19 12:00:00,USD
+O00469,2,2026-02-19 12:00:00,C069,c069@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-19 12:00:00,USD
+O00470,1,2026-02-20 12:00:00,C070,c070@example.invalid,P03,Headphones,Electronics,North,2,49.95,0.1000,completed,2026-02-20 12:00:00,USD
+O00470,2,2026-02-20 12:00:00,C070,c070@example.invalid,P04,Travel mug,Home,North,3,12.00,0.1000,completed,2026-02-20 12:00:00,USD
+O00471,1,2026-02-21 12:00:00,C071,c071@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-21 12:00:00,USD
+O00471,2,2026-02-21 12:00:00,C071,c071@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-21 12:00:00,USD
+O00472,1,2026-02-22 12:00:00,C072,c072@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-02-22 12:00:00,USD
+O00472,2,2026-02-22 12:00:00,C072,c072@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-02-22 12:00:00,USD
+O00473,1,2026-02-23 12:00:00,C073,c073@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-23 12:00:00,USD
+O00473,2,2026-02-23 12:00:00,C073,c073@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-23 12:00:00,USD
+O00474,1,2026-02-24 12:00:00,C074,c074@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-24 12:00:00,USD
+O00474,2,2026-02-24 12:00:00,C074,c074@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-24 12:00:00,USD
+O00475,1,2026-02-25 12:00:00,C075,c075@example.invalid,P04,Travel mug,Home,South,3,12.00,0.1000,completed,2026-02-25 12:00:00,USD
+O00475,2,2026-02-25 12:00:00,C075,c075@example.invalid,P01,Desk lamp,Home,South,1,24.50,0.1000,completed,2026-02-25 12:00:00,USD
+O00476,1,2026-02-26 12:00:00,C076,c076@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,cancelled,2026-02-26 12:00:00,USD
+O00476,2,2026-02-26 12:00:00,C076,c076@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,cancelled,2026-02-26 12:00:00,USD
+O00477,1,2026-02-27 12:00:00,C077,c077@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-27 12:00:00,USD
+O00477,2,2026-02-27 12:00:00,C077,c077@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-27 12:00:00,USD
+O00478,1,2026-02-28 12:00:00,C078,c078@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-28 12:00:00,USD
+O00478,2,2026-02-28 12:00:00,C078,c078@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-28 12:00:00,USD
+O00479,1,2026-03-01 12:00:00,C079,c079@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-03-01 12:00:00,USD
+O00479,2,2026-03-01 12:00:00,C079,c079@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-03-01 12:00:00,USD
+O00480,1,2026-01-01 12:00:00,C000,c000@example.invalid,P01,Desk lamp,Home,East,1,24.50,0.1000,completed,2026-01-01 12:00:00,USD
+O00480,2,2026-01-01 12:00:00,C000,c000@example.invalid,P02,Notebook,Stationery,East,2,5.00,0.1000,completed,2026-01-01 12:00:00,USD
+O00481,1,2026-01-02 12:00:00,C001,c001@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-02 12:00:00,USD
+O00481,2,2026-01-02 12:00:00,C001,c001@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-02 12:00:00,USD
+O00482,1,2026-01-03 12:00:00,C002,c002@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-03 12:00:00,USD
+O00482,2,2026-01-03 12:00:00,C002,c002@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-03 12:00:00,USD
+O00483,1,2026-01-04 12:00:00,C003,c003@example.invalid,P04,Travel mug,Home,South,1,12.00,0,returned,2026-01-04 12:00:00,USD
+O00483,2,2026-01-04 12:00:00,C003,c003@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,returned,2026-01-04 12:00:00,USD
+O00484,1,2026-01-05 12:00:00,C004,c004@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-05 12:00:00,USD
+O00484,2,2026-01-05 12:00:00,C004,c004@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-05 12:00:00,USD
+O00485,1,2026-01-06 12:00:00,C005,c005@example.invalid,P02,Notebook,Stationery,West,2,5.00,0.1000,completed,2026-01-06 12:00:00,USD
+O00485,2,2026-01-06 12:00:00,C005,c005@example.invalid,P03,Headphones,Electronics,West,3,49.95,0.1000,completed,2026-01-06 12:00:00,USD
+O00486,1,2026-01-07 12:00:00,C006,c006@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-07 12:00:00,USD
+O00486,2,2026-01-07 12:00:00,C006,c006@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-07 12:00:00,USD
+O00487,1,2026-01-08 12:00:00,C007,c007@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-08 12:00:00,USD
+O00487,2,2026-01-08 12:00:00,C007,c007@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-08 12:00:00,USD
+O00488,1,2026-01-09 12:00:00,C008,c008@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-01-09 12:00:00,USD
+O00488,2,2026-01-09 12:00:00,C008,c008@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-01-09 12:00:00,USD
+O00489,1,2026-01-10 12:00:00,C009,c009@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-10 12:00:00,USD
+O00489,2,2026-01-10 12:00:00,C009,c009@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-10 12:00:00,USD
+O00490,1,2026-01-11 12:00:00,C010,c010@example.invalid,P03,Headphones,Electronics,North,3,49.95,0.1000,completed,2026-01-11 12:00:00,USD
+O00490,2,2026-01-11 12:00:00,C010,c010@example.invalid,P04,Travel mug,Home,North,1,12.00,0.1000,completed,2026-01-11 12:00:00,USD
+O00491,1,2026-01-12 12:00:00,C011,c011@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-12 12:00:00,USD
+O00491,2,2026-01-12 12:00:00,C011,c011@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-12 12:00:00,USD
+O00492,1,2026-01-13 12:00:00,C012,c012@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-13 12:00:00,USD
+O00492,2,2026-01-13 12:00:00,C012,c012@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-13 12:00:00,USD
+O00493,1,2026-01-14 12:00:00,C013,c013@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,cancelled,2026-01-14 12:00:00,USD
+O00493,2,2026-01-14 12:00:00,C013,c013@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,cancelled,2026-01-14 12:00:00,USD
+O00494,1,2026-01-15 12:00:00,C014,c014@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-15 12:00:00,USD
+O00494,2,2026-01-15 12:00:00,C014,c014@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-15 12:00:00,USD
+O00495,1,2026-01-16 12:00:00,C015,c015@example.invalid,P04,Travel mug,Home,South,1,12.00,0.1000,completed,2026-01-16 12:00:00,USD
+O00495,2,2026-01-16 12:00:00,C015,c015@example.invalid,P01,Desk lamp,Home,South,2,24.50,0.1000,completed,2026-01-16 12:00:00,USD
+O00496,1,2026-01-17 12:00:00,C016,c016@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-17 12:00:00,USD
+O00496,2,2026-01-17 12:00:00,C016,c016@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-17 12:00:00,USD
+O00497,1,2026-01-18 12:00:00,C017,c017@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-18 12:00:00,USD
+O00497,2,2026-01-18 12:00:00,C017,c017@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-18 12:00:00,USD
+O00498,1,2026-01-19 12:00:00,C018,c018@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-19 12:00:00,USD
+O00498,2,2026-01-19 12:00:00,C018,c018@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-19 12:00:00,USD
+O00499,1,2026-01-20 12:00:00,C019,c019@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-20 12:00:00,USD
+O00499,2,2026-01-20 12:00:00,C019,c019@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-20 12:00:00,USD
+O00500,1,2026-01-21 12:00:00,C020,c020@example.invalid,P01,Desk lamp,Home,East,2,24.50,0.1000,completed,2026-01-21 12:00:00,USD
+O00500,2,2026-01-21 12:00:00,C020,c020@example.invalid,P02,Notebook,Stationery,East,3,5.00,0.1000,completed,2026-01-21 12:00:00,USD
+O00501,1,2026-01-22 12:00:00,C021,c021@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-22 12:00:00,USD
+O00501,2,2026-01-22 12:00:00,C021,c021@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-22 12:00:00,USD
+O00502,1,2026-01-23 12:00:00,C022,c022@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-01-23 12:00:00,USD
+O00502,2,2026-01-23 12:00:00,C022,c022@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-01-23 12:00:00,USD
+O00503,1,2026-01-24 12:00:00,C023,c023@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-24 12:00:00,USD
+O00503,2,2026-01-24 12:00:00,C023,c023@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-24 12:00:00,USD
+O00504,1,2026-01-25 12:00:00,C024,c024@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-25 12:00:00,USD
+O00504,2,2026-01-25 12:00:00,C024,c024@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-25 12:00:00,USD
+O00505,1,2026-01-26 12:00:00,C025,c025@example.invalid,P02,Notebook,Stationery,West,3,5.00,0.1000,completed,2026-01-26 12:00:00,USD
+O00505,2,2026-01-26 12:00:00,C025,c025@example.invalid,P03,Headphones,Electronics,West,1,49.95,0.1000,completed,2026-01-26 12:00:00,USD
+O00506,1,2026-01-27 12:00:00,C026,c026@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,returned,2026-01-27 12:00:00,USD
+O00506,2,2026-01-27 12:00:00,C026,c026@example.invalid,P04,Travel mug,Home,North,3,12.00,0,returned,2026-01-27 12:00:00,USD
+O00507,1,2026-01-28 12:00:00,C027,c027@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-28 12:00:00,USD
+O00507,2,2026-01-28 12:00:00,C027,c027@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-28 12:00:00,USD
+O00508,1,2026-01-29 12:00:00,C028,c028@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-29 12:00:00,USD
+O00508,2,2026-01-29 12:00:00,C028,c028@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-29 12:00:00,USD
+O00509,1,2026-01-30 12:00:00,C029,c029@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-30 12:00:00,USD
+O00509,2,2026-01-30 12:00:00,C029,c029@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-30 12:00:00,USD
+O00510,1,2026-01-31 12:00:00,C030,c030@example.invalid,P03,Headphones,Electronics,North,1,49.95,0.1000,cancelled,2026-01-31 12:00:00,USD
+O00510,2,2026-01-31 12:00:00,C030,c030@example.invalid,P04,Travel mug,Home,North,2,12.00,0.1000,cancelled,2026-01-31 12:00:00,USD
+O00511,1,2026-02-01 12:00:00,C031,c031@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-01 12:00:00,USD
+O00511,2,2026-02-01 12:00:00,C031,c031@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-01 12:00:00,USD
+O00512,1,2026-02-02 12:00:00,C032,c032@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-02 12:00:00,USD
+O00512,2,2026-02-02 12:00:00,C032,c032@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-02 12:00:00,USD
+O00513,1,2026-02-03 12:00:00,C033,c033@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-03 12:00:00,USD
+O00513,2,2026-02-03 12:00:00,C033,c033@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-03 12:00:00,USD
+O00514,1,2026-02-04 12:00:00,C034,c034@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-04 12:00:00,USD
+O00514,2,2026-02-04 12:00:00,C034,c034@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-04 12:00:00,USD
+O00515,1,2026-02-05 12:00:00,C035,c035@example.invalid,P04,Travel mug,Home,South,2,12.00,0.1000,completed,2026-02-05 12:00:00,USD
+O00515,2,2026-02-05 12:00:00,C035,c035@example.invalid,P01,Desk lamp,Home,South,3,24.50,0.1000,completed,2026-02-05 12:00:00,USD
+O00516,1,2026-02-06 12:00:00,C036,c036@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-06 12:00:00,USD
+O00516,2,2026-02-06 12:00:00,C036,c036@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-06 12:00:00,USD
+O00517,1,2026-02-07 12:00:00,C037,c037@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-07 12:00:00,USD
+O00517,2,2026-02-07 12:00:00,C037,c037@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-07 12:00:00,USD
+O00518,1,2026-02-08 12:00:00,C038,c038@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-02-08 12:00:00,USD
+O00518,2,2026-02-08 12:00:00,C038,c038@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-02-08 12:00:00,USD
+O00519,1,2026-02-09 12:00:00,C039,c039@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-09 12:00:00,USD
+O00519,2,2026-02-09 12:00:00,C039,c039@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-09 12:00:00,USD
+O00520,1,2026-02-10 12:00:00,C040,c040@example.invalid,P01,Desk lamp,Home,East,3,24.50,0.1000,completed,2026-02-10 12:00:00,USD
+O00520,2,2026-02-10 12:00:00,C040,c040@example.invalid,P02,Notebook,Stationery,East,1,5.00,0.1000,completed,2026-02-10 12:00:00,USD
+O00521,1,2026-02-11 12:00:00,C041,c041@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-11 12:00:00,USD
+O00521,2,2026-02-11 12:00:00,C041,c041@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-11 12:00:00,USD
+O00522,1,2026-02-12 12:00:00,C042,c042@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-12 12:00:00,USD
+O00522,2,2026-02-12 12:00:00,C042,c042@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-12 12:00:00,USD
+O00523,1,2026-02-13 12:00:00,C043,c043@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-13 12:00:00,USD
+O00523,2,2026-02-13 12:00:00,C043,c043@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-13 12:00:00,USD
+O00524,1,2026-02-14 12:00:00,C044,c044@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-14 12:00:00,USD
+O00524,2,2026-02-14 12:00:00,C044,c044@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-14 12:00:00,USD
+O00525,1,2026-02-15 12:00:00,C045,c045@example.invalid,P02,Notebook,Stationery,West,1,5.00,0.1000,completed,2026-02-15 12:00:00,USD
+O00525,2,2026-02-15 12:00:00,C045,c045@example.invalid,P03,Headphones,Electronics,West,2,49.95,0.1000,completed,2026-02-15 12:00:00,USD
+O00526,1,2026-02-16 12:00:00,C046,c046@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-16 12:00:00,USD
+O00526,2,2026-02-16 12:00:00,C046,c046@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-16 12:00:00,USD
+O00527,1,2026-02-17 12:00:00,C047,c047@example.invalid,P04,Travel mug,Home,South,2,12.00,0,cancelled,2026-02-17 12:00:00,USD
+O00527,2,2026-02-17 12:00:00,C047,c047@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,cancelled,2026-02-17 12:00:00,USD
+O00528,1,2026-02-18 12:00:00,C048,c048@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-18 12:00:00,USD
+O00528,2,2026-02-18 12:00:00,C048,c048@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-18 12:00:00,USD
+O00529,1,2026-02-19 12:00:00,C049,c049@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,returned,2026-02-19 12:00:00,USD
+O00529,2,2026-02-19 12:00:00,C049,c049@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,returned,2026-02-19 12:00:00,USD
+O00530,1,2026-02-20 12:00:00,C050,c050@example.invalid,P03,Headphones,Electronics,North,2,49.95,0.1000,completed,2026-02-20 12:00:00,USD
+O00530,2,2026-02-20 12:00:00,C050,c050@example.invalid,P04,Travel mug,Home,North,3,12.00,0.1000,completed,2026-02-20 12:00:00,USD
+O00531,1,2026-02-21 12:00:00,C051,c051@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-21 12:00:00,USD
+O00531,2,2026-02-21 12:00:00,C051,c051@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-21 12:00:00,USD
+O00532,1,2026-02-22 12:00:00,C052,c052@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-02-22 12:00:00,USD
+O00532,2,2026-02-22 12:00:00,C052,c052@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-02-22 12:00:00,USD
+O00533,1,2026-02-23 12:00:00,C053,c053@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-23 12:00:00,USD
+O00533,2,2026-02-23 12:00:00,C053,c053@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-23 12:00:00,USD
+O00534,1,2026-02-24 12:00:00,C054,c054@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-24 12:00:00,USD
+O00534,2,2026-02-24 12:00:00,C054,c054@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-24 12:00:00,USD
+O00535,1,2026-02-25 12:00:00,C055,c055@example.invalid,P04,Travel mug,Home,South,3,12.00,0.1000,completed,2026-02-25 12:00:00,USD
+O00535,2,2026-02-25 12:00:00,C055,c055@example.invalid,P01,Desk lamp,Home,South,1,24.50,0.1000,completed,2026-02-25 12:00:00,USD
+O00536,1,2026-02-26 12:00:00,C056,c056@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-26 12:00:00,USD
+O00536,2,2026-02-26 12:00:00,C056,c056@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-26 12:00:00,USD
+O00537,1,2026-02-27 12:00:00,C057,c057@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-27 12:00:00,USD
+O00537,2,2026-02-27 12:00:00,C057,c057@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-27 12:00:00,USD
+O00538,1,2026-02-28 12:00:00,C058,c058@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-28 12:00:00,USD
+O00538,2,2026-02-28 12:00:00,C058,c058@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-28 12:00:00,USD
+O00539,1,2026-03-01 12:00:00,C059,c059@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-03-01 12:00:00,USD
+O00539,2,2026-03-01 12:00:00,C059,c059@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-03-01 12:00:00,USD
+O00540,1,2026-01-01 12:00:00,C060,c060@example.invalid,P01,Desk lamp,Home,East,1,24.50,0.1000,completed,2026-01-01 12:00:00,USD
+O00540,2,2026-01-01 12:00:00,C060,c060@example.invalid,P02,Notebook,Stationery,East,2,5.00,0.1000,completed,2026-01-01 12:00:00,USD
+O00541,1,2026-01-02 12:00:00,C061,c061@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-02 12:00:00,USD
+O00541,2,2026-01-02 12:00:00,C061,c061@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-02 12:00:00,USD
+O00542,1,2026-01-03 12:00:00,C062,c062@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-03 12:00:00,USD
+O00542,2,2026-01-03 12:00:00,C062,c062@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-03 12:00:00,USD
+O00543,1,2026-01-04 12:00:00,C063,c063@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-04 12:00:00,USD
+O00543,2,2026-01-04 12:00:00,C063,c063@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-04 12:00:00,USD
+O00544,1,2026-01-05 12:00:00,C064,c064@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,cancelled,2026-01-05 12:00:00,USD
+O00544,2,2026-01-05 12:00:00,C064,c064@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,cancelled,2026-01-05 12:00:00,USD
+O00545,1,2026-01-06 12:00:00,C065,c065@example.invalid,P02,Notebook,Stationery,West,2,5.00,0.1000,completed,2026-01-06 12:00:00,USD
+O00545,2,2026-01-06 12:00:00,C065,c065@example.invalid,P03,Headphones,Electronics,West,3,49.95,0.1000,completed,2026-01-06 12:00:00,USD
+O00546,1,2026-01-07 12:00:00,C066,c066@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-07 12:00:00,USD
+O00546,2,2026-01-07 12:00:00,C066,c066@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-07 12:00:00,USD
+O00547,1,2026-01-08 12:00:00,C067,c067@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-08 12:00:00,USD
+O00547,2,2026-01-08 12:00:00,C067,c067@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-08 12:00:00,USD
+O00548,1,2026-01-09 12:00:00,C068,c068@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-01-09 12:00:00,USD
+O00548,2,2026-01-09 12:00:00,C068,c068@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-01-09 12:00:00,USD
+O00549,1,2026-01-10 12:00:00,C069,c069@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-01-10 12:00:00,USD
+O00549,2,2026-01-10 12:00:00,C069,c069@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-01-10 12:00:00,USD
+O00550,1,2026-01-11 12:00:00,C070,c070@example.invalid,P03,Headphones,Electronics,North,3,49.95,0.1000,completed,2026-01-11 12:00:00,USD
+O00550,2,2026-01-11 12:00:00,C070,c070@example.invalid,P04,Travel mug,Home,North,1,12.00,0.1000,completed,2026-01-11 12:00:00,USD
+O00551,1,2026-01-12 12:00:00,C071,c071@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-12 12:00:00,USD
+O00551,2,2026-01-12 12:00:00,C071,c071@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-12 12:00:00,USD
+O00552,1,2026-01-13 12:00:00,C072,c072@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,returned,2026-01-13 12:00:00,USD
+O00552,2,2026-01-13 12:00:00,C072,c072@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,returned,2026-01-13 12:00:00,USD
+O00553,1,2026-01-14 12:00:00,C073,c073@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-01-14 12:00:00,USD
+O00553,2,2026-01-14 12:00:00,C073,c073@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-01-14 12:00:00,USD
+O00554,1,2026-01-15 12:00:00,C074,c074@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-15 12:00:00,USD
+O00554,2,2026-01-15 12:00:00,C074,c074@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-15 12:00:00,USD
+O00555,1,2026-01-16 12:00:00,C075,c075@example.invalid,P04,Travel mug,Home,South,1,12.00,0.1000,completed,2026-01-16 12:00:00,USD
+O00555,2,2026-01-16 12:00:00,C075,c075@example.invalid,P01,Desk lamp,Home,South,2,24.50,0.1000,completed,2026-01-16 12:00:00,USD
+O00556,1,2026-01-17 12:00:00,C076,c076@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-17 12:00:00,USD
+O00556,2,2026-01-17 12:00:00,C076,c076@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-17 12:00:00,USD
+O00557,1,2026-01-18 12:00:00,C077,c077@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-18 12:00:00,USD
+O00557,2,2026-01-18 12:00:00,C077,c077@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-18 12:00:00,USD
+O00558,1,2026-01-19 12:00:00,C078,c078@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-01-19 12:00:00,USD
+O00558,2,2026-01-19 12:00:00,C078,c078@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-01-19 12:00:00,USD
+O00559,1,2026-01-20 12:00:00,C079,c079@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-20 12:00:00,USD
+O00559,2,2026-01-20 12:00:00,C079,c079@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-01-20 12:00:00,USD
+O00560,1,2026-01-21 12:00:00,C000,c000@example.invalid,P01,Desk lamp,Home,East,2,24.50,0.1000,completed,2026-01-21 12:00:00,USD
+O00560,2,2026-01-21 12:00:00,C000,c000@example.invalid,P02,Notebook,Stationery,East,3,5.00,0.1000,completed,2026-01-21 12:00:00,USD
+O00561,1,2026-01-22 12:00:00,C001,c001@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,cancelled,2026-01-22 12:00:00,USD
+O00561,2,2026-01-22 12:00:00,C001,c001@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,cancelled,2026-01-22 12:00:00,USD
+O00562,1,2026-01-23 12:00:00,C002,c002@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-01-23 12:00:00,USD
+O00562,2,2026-01-23 12:00:00,C002,c002@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-01-23 12:00:00,USD
+O00563,1,2026-01-24 12:00:00,C003,c003@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-01-24 12:00:00,USD
+O00563,2,2026-01-24 12:00:00,C003,c003@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-01-24 12:00:00,USD
+O00564,1,2026-01-25 12:00:00,C004,c004@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-01-25 12:00:00,USD
+O00564,2,2026-01-25 12:00:00,C004,c004@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-01-25 12:00:00,USD
+O00565,1,2026-01-26 12:00:00,C005,c005@example.invalid,P02,Notebook,Stationery,West,3,5.00,0.1000,completed,2026-01-26 12:00:00,USD
+O00565,2,2026-01-26 12:00:00,C005,c005@example.invalid,P03,Headphones,Electronics,West,1,49.95,0.1000,completed,2026-01-26 12:00:00,USD
+O00566,1,2026-01-27 12:00:00,C006,c006@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,completed,2026-01-27 12:00:00,USD
+O00566,2,2026-01-27 12:00:00,C006,c006@example.invalid,P04,Travel mug,Home,North,3,12.00,0,completed,2026-01-27 12:00:00,USD
+O00567,1,2026-01-28 12:00:00,C007,c007@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-01-28 12:00:00,USD
+O00567,2,2026-01-28 12:00:00,C007,c007@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-01-28 12:00:00,USD
+O00568,1,2026-01-29 12:00:00,C008,c008@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-01-29 12:00:00,USD
+O00568,2,2026-01-29 12:00:00,C008,c008@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-01-29 12:00:00,USD
+O00569,1,2026-01-30 12:00:00,C009,c009@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-01-30 12:00:00,USD
+O00569,2,2026-01-30 12:00:00,C009,c009@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-01-30 12:00:00,USD
+O00570,1,2026-01-31 12:00:00,C010,c010@example.invalid,P03,Headphones,Electronics,North,1,49.95,0.1000,completed,2026-01-31 12:00:00,USD
+O00570,2,2026-01-31 12:00:00,C010,c010@example.invalid,P04,Travel mug,Home,North,2,12.00,0.1000,completed,2026-01-31 12:00:00,USD
+O00571,1,2026-02-01 12:00:00,C011,c011@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-01 12:00:00,USD
+O00571,2,2026-02-01 12:00:00,C011,c011@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-01 12:00:00,USD
+O00572,1,2026-02-02 12:00:00,C012,c012@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-02 12:00:00,USD
+O00572,2,2026-02-02 12:00:00,C012,c012@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-02 12:00:00,USD
+O00573,1,2026-02-03 12:00:00,C013,c013@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-03 12:00:00,USD
+O00573,2,2026-02-03 12:00:00,C013,c013@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-03 12:00:00,USD
+O00574,1,2026-02-04 12:00:00,C014,c014@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-04 12:00:00,USD
+O00574,2,2026-02-04 12:00:00,C014,c014@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-04 12:00:00,USD
+O00575,1,2026-02-05 12:00:00,C015,c015@example.invalid,P04,Travel mug,Home,South,2,12.00,0.1000,returned,2026-02-05 12:00:00,USD
+O00575,2,2026-02-05 12:00:00,C015,c015@example.invalid,P01,Desk lamp,Home,South,3,24.50,0.1000,returned,2026-02-05 12:00:00,USD
+O00576,1,2026-02-06 12:00:00,C016,c016@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-06 12:00:00,USD
+O00576,2,2026-02-06 12:00:00,C016,c016@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-06 12:00:00,USD
+O00577,1,2026-02-07 12:00:00,C017,c017@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-07 12:00:00,USD
+O00577,2,2026-02-07 12:00:00,C017,c017@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-07 12:00:00,USD
+O00578,1,2026-02-08 12:00:00,C018,c018@example.invalid,P03,Headphones,Electronics,North,2,49.95,0,cancelled,2026-02-08 12:00:00,USD
+O00578,2,2026-02-08 12:00:00,C018,c018@example.invalid,P04,Travel mug,Home,North,3,12.00,0,cancelled,2026-02-08 12:00:00,USD
+O00579,1,2026-02-09 12:00:00,C019,c019@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-09 12:00:00,USD
+O00579,2,2026-02-09 12:00:00,C019,c019@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-09 12:00:00,USD
+O00580,1,2026-02-10 12:00:00,C020,c020@example.invalid,P01,Desk lamp,Home,East,3,24.50,0.1000,completed,2026-02-10 12:00:00,USD
+O00580,2,2026-02-10 12:00:00,C020,c020@example.invalid,P02,Notebook,Stationery,East,1,5.00,0.1000,completed,2026-02-10 12:00:00,USD
+O00581,1,2026-02-11 12:00:00,C021,c021@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-11 12:00:00,USD
+O00581,2,2026-02-11 12:00:00,C021,c021@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-11 12:00:00,USD
+O00582,1,2026-02-12 12:00:00,C022,c022@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-12 12:00:00,USD
+O00582,2,2026-02-12 12:00:00,C022,c022@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-12 12:00:00,USD
+O00583,1,2026-02-13 12:00:00,C023,c023@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-02-13 12:00:00,USD
+O00583,2,2026-02-13 12:00:00,C023,c023@example.invalid,P01,Desk lamp,Home,South,1,24.50,0,completed,2026-02-13 12:00:00,USD
+O00584,1,2026-02-14 12:00:00,C024,c024@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-14 12:00:00,USD
+O00584,2,2026-02-14 12:00:00,C024,c024@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-14 12:00:00,USD
+O00585,1,2026-02-15 12:00:00,C025,c025@example.invalid,P02,Notebook,Stationery,West,1,5.00,0.1000,completed,2026-02-15 12:00:00,USD
+O00585,2,2026-02-15 12:00:00,C025,c025@example.invalid,P03,Headphones,Electronics,West,2,49.95,0.1000,completed,2026-02-15 12:00:00,USD
+O00586,1,2026-02-16 12:00:00,C026,c026@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,completed,2026-02-16 12:00:00,USD
+O00586,2,2026-02-16 12:00:00,C026,c026@example.invalid,P04,Travel mug,Home,North,1,12.00,0,completed,2026-02-16 12:00:00,USD
+O00587,1,2026-02-17 12:00:00,C027,c027@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-02-17 12:00:00,USD
+O00587,2,2026-02-17 12:00:00,C027,c027@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-02-17 12:00:00,USD
+O00588,1,2026-02-18 12:00:00,C028,c028@example.invalid,P01,Desk lamp,Home,East,1,24.50,0,completed,2026-02-18 12:00:00,USD
+O00588,2,2026-02-18 12:00:00,C028,c028@example.invalid,P02,Notebook,Stationery,East,2,5.00,0,completed,2026-02-18 12:00:00,USD
+O00589,1,2026-02-19 12:00:00,C029,c029@example.invalid,P02,Notebook,Stationery,West,3,5.00,0,completed,2026-02-19 12:00:00,USD
+O00589,2,2026-02-19 12:00:00,C029,c029@example.invalid,P03,Headphones,Electronics,West,1,49.95,0,completed,2026-02-19 12:00:00,USD
+O00590,1,2026-02-20 12:00:00,C030,c030@example.invalid,P03,Headphones,Electronics,North,2,49.95,0.1000,completed,2026-02-20 12:00:00,USD
+O00590,2,2026-02-20 12:00:00,C030,c030@example.invalid,P04,Travel mug,Home,North,3,12.00,0.1000,completed,2026-02-20 12:00:00,USD
+O00591,1,2026-02-21 12:00:00,C031,c031@example.invalid,P04,Travel mug,Home,South,1,12.00,0,completed,2026-02-21 12:00:00,USD
+O00591,2,2026-02-21 12:00:00,C031,c031@example.invalid,P01,Desk lamp,Home,South,2,24.50,0,completed,2026-02-21 12:00:00,USD
+O00592,1,2026-02-22 12:00:00,C032,c032@example.invalid,P01,Desk lamp,Home,East,3,24.50,0,completed,2026-02-22 12:00:00,USD
+O00592,2,2026-02-22 12:00:00,C032,c032@example.invalid,P02,Notebook,Stationery,East,1,5.00,0,completed,2026-02-22 12:00:00,USD
+O00593,1,2026-02-23 12:00:00,C033,c033@example.invalid,P02,Notebook,Stationery,West,2,5.00,0,completed,2026-02-23 12:00:00,USD
+O00593,2,2026-02-23 12:00:00,C033,c033@example.invalid,P03,Headphones,Electronics,West,3,49.95,0,completed,2026-02-23 12:00:00,USD
+O00594,1,2026-02-24 12:00:00,C034,c034@example.invalid,P03,Headphones,Electronics,North,1,49.95,0,completed,2026-02-24 12:00:00,USD
+O00594,2,2026-02-24 12:00:00,C034,c034@example.invalid,P04,Travel mug,Home,North,2,12.00,0,completed,2026-02-24 12:00:00,USD
+O00595,1,2026-02-25 12:00:00,C035,c035@example.invalid,P04,Travel mug,Home,South,3,12.00,0.1000,cancelled,2026-02-25 12:00:00,USD
+O00595,2,2026-02-25 12:00:00,C035,c035@example.invalid,P01,Desk lamp,Home,South,1,24.50,0.1000,cancelled,2026-02-25 12:00:00,USD
+O00596,1,2026-02-26 12:00:00,C036,c036@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-02-26 12:00:00,USD
+O00596,2,2026-02-26 12:00:00,C036,c036@example.invalid,P02,Notebook,Stationery,East,3,5.00,0,completed,2026-02-26 12:00:00,USD
+O00597,1,2026-02-27 12:00:00,C037,c037@example.invalid,P02,Notebook,Stationery,West,1,5.00,0,completed,2026-02-27 12:00:00,USD
+O00597,2,2026-02-27 12:00:00,C037,c037@example.invalid,P03,Headphones,Electronics,West,2,49.95,0,completed,2026-02-27 12:00:00,USD
+O00598,1,2026-02-28 12:00:00,C038,c038@example.invalid,P03,Headphones,Electronics,North,3,49.95,0,returned,2026-02-28 12:00:00,USD
+O00598,2,2026-02-28 12:00:00,C038,c038@example.invalid,P04,Travel mug,Home,North,1,12.00,0,returned,2026-02-28 12:00:00,USD
+O00599,1,2026-03-01 12:00:00,C039,c039@example.invalid,P04,Travel mug,Home,South,2,12.00,0,completed,2026-03-01 12:00:00,USD
+O00599,2,2026-03-01 12:00:00,C039,c039@example.invalid,P01,Desk lamp,Home,South,3,24.50,0,completed,2026-03-01 12:00:00,USD
+O00000,1,2026-01-01 12:00:00,C000,c000@example.invalid,P01,Desk lamp,Home,East,1,24.50,0.1000,cancelled,2026-01-01 12:00:00,USD
+O00000,2,2026-01-01 12:00:00,C000,c000@example.invalid,P02,Notebook,Stationery,East,4,5.00,0.1000,cancelled,2026-04-01 12:00:00,USD
+O00001,1,2026-01-02 12:00:00,C001,c001@example.invalid,P02,Notebook,Stationery,West,oops,5.00,0,completed,2026-04-02 12:00:00,USD
+BAD0,1,2026-01-06 12:00:00,C005,c005@example.invalid,P02,Notebook,Stationery,West,oops,5.00,0.1000,completed,2026-01-06 12:00:00,USD
+BAD1,2,bad-date,C005,c005@example.invalid,P03,Headphones,Electronics,West,3,49.95,0.1000,completed,2026-01-06 12:00:00,USD
+BAD2,1,2026-01-07 12:00:00,C006,c006@example.invalid,P03,Headphones,Electronics,North,-1,49.95,0,completed,2026-01-07 12:00:00,USD
+BAD3,2,2026-01-07 12:00:00,C006,c006@example.invalid,P04,Travel mug,Home,North,2,12.00,1.5,completed,2026-01-07 12:00:00,USD
+BAD4,1,2026-01-08 12:00:00,C007,c007@example.invalid,P04,Travel mug,Home,South,3,12.00,0,completed,2026-01-08 12:00:00,EUR
+BAD5,2,2026-01-08 12:00:00,C007,c007@example.invalid,P01,Desk lamp,Home,South,1.5,24.50,0,completed,2026-01-08 12:00:00,USD
+BAD6,1,2026-01-09 12:00:00,,c008@example.invalid,P01,Desk lamp,Home,East,2,24.50,0,completed,2026-01-09 12:00:00,USD
+BAD7,2,2026-01-09 12:00:00,C008,c008@example.invalid,P02,Notebook,Stationery,East,3,-2,0,completed,2026-01-09 12:00:00,USD
