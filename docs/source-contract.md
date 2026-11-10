@@ -1,95 +1,119 @@
-# Source contract and sharing decision tree
+# Source fields and metric definitions
 
-Checked against official documentation on 2026-11-10. A source must represent
-order **lines**, with a stable `(order_id, line_id)` key and USD prices.
-Do not substitute a demographics, clickstream, or weather listing merely to
-claim Delta Sharing: it cannot support these retail metrics.
+The pipeline expects one record per order line, identified by `(order_id, line_id)`,
+with prices in USD. The configured Marketplace adapter turns nested purchase
+orders into that format. Its mapping is in [provider-adapter.md](provider-adapter.md).
 
-The first path succeeded in this workspace: Databricks' Simulated Retail Customer
-Data was installed as `retail_provider`. The `dev` target selects `marketplace` mode;
-its explicit nested-order adapter is documented in [provider-adapter.md](provider-adapter.md).
-The remaining paths below are implemented fallbacks, not claims of additional runs.
+## Available sources
 
-## Try in this order
-
-1. In Marketplace, filter for **Free** and **Instantly available** retail/order
-   listings. Record provider, listing URL, license, access result, and column list.
-   Free samples may be incomplete. Marketplace normally installs a separate,
-   read-only catalog; it is not a schema inside `retail_demo`. Use `source_mode=table`
-   and its full `catalog.schema.table`. No particular listing is guaranteed here.
-2. For a provider credential, use Catalog Explorer → Sharing/OpenSharing/Delta Sharing
-   → Shared with me → Import provider (labels vary). Select the provider share and
-   create a catalog; read it with the same `table` mode. This requires provider/catalog
-   privileges and may be unavailable in a particular Free workspace.
-3. If import is unavailable, add `delta-sharing` to the ingest notebook's Environment
-   dependencies, upload the profile to the **credentials** Volume, and select
-   `open_sharing`. Set `profile_path` and `share_table=share.schema.table`.
-   The code reads at most `max_rows+1` rows with `load_as_pandas`; a larger source
-   is rejected rather than reporting misleading partial totals. This path is a small
-   demo workaround, still dependent on network access and package availability.
-   `load_as_spark` needs the Spark connector as well as the Python package; installing
-   a connector JAR is not a supported general serverless customization.
-4. If egress, permissions, or source suitability block sharing, upload a licensed
-   CSV to `/Volumes/retail_demo/raw_share/landing/` and choose `csv`, or use the
-   included fictional `sample`. Record that it **simulates** a provider. Neither CSV
-   nor sample mode demonstrates an actual Delta Sharing transfer. No Kaggle dataset
-   has been downloaded, licensed, or verified by this project.
-
-The schema `raw_share` owns landing and credential Volumes. Shared catalogs remain
-separate. Bronze stores the canonical fields plus `source_payload` (original columns
-as JSON), `source_kind`, `source_ref`, `ingest_ts`, and a deterministic row hash.
-Keep credential files out of Git and landing datasets. No profile content is printed.
-
-## Column mapping
-
-`column_mapping` is a JSON object of **canonical name → existing source column name**.
-For example `{"order_id":"Order ID","unit_price":"Price"}`. It accepts names,
-not SQL expressions. Missing required fields cause ingestion to fail before writes.
-If a provider has a different grain, timestamp format, status vocabulary, currency,
-or a discount percentage expressed as 10 instead of 0.10, prepare an explicit adapter
-table first. Do not invent missing customer/order IDs or fabricate order lines.
-
-| Field | Required/default | Meaning |
+| Mode | Input | Setup |
 | --- | --- | --- |
-| order_id, line_id | required | Stable line-level business key |
-| order_ts | required | ISO timestamp; source uses UTC |
-| customer_id | required | Provider identifier; restricted data |
-| customer_email | null | Optional PII; sample uses example.invalid |
-| product_id | required | Product identifier |
-| product_name, category, region | Unknown | Descriptive attributes |
-| quantity | required | Positive integral units, at most 1,000,000 |
-| unit_price | required | Nonnegative USD amount, cents precision, at most 1,000,000 |
-| discount_pct | 0 | Fraction in [0,1] |
-| status | completed | completed, cancelled, or returned |
-| updated_at | order_ts | Source update timestamp, UTC |
-| currency | required | USD; other currencies quarantined |
+| `marketplace` | Installed Databricks retail share | Install the listing as `retail_provider` |
+| `table` | Any compatible Unity Catalog table or view | Set `source_table=catalog.schema.table` |
+| `sample` | Included fictional CSV | No external source needed |
+| `csv` | Uploaded CSV | Put it in the demo's landing Volume and set `source_path` |
+| `open_sharing` | Provider credential file | Add `delta-sharing` to the notebook Environment and set the profile/share widgets |
 
-## Semantics
+Marketplace succeeded in the original workspace, so the other sharing paths were
+not needed. A listing normally appears as its own read-only catalog, separate from
+`retail_demo`. The `raw_share` schema holds local landing files, credentials, and
+the adapter view.
 
-- Bronze is the latest **complete, bounded snapshot**, not an incremental CDC feed
-  or an append-only audit log. Each successful ingest atomically overwrites it.
-- Casts use `TRY_CAST` under ANSI mode. Blank dimensions become `Unknown`; missing
-  customer/product IDs quarantine the latest line. Invalid emails are retained in
-  restricted data; the demo does not implement email validation.
-- Deduplication chooses latest `updated_at`, then descending content hash as a stable
-  tie-breaker. Conflicting payloads with identical timestamps have no business ordering;
-  obtain a provider sequence number for a production CDC design.
-- Deduplication precedes quality filtering. A newer invalid correction quarantines
-  that key instead of resurrecting its older valid state. Invalid update timestamps
-  fall back to order time; preserve a reliable source timestamp in real adapters.
-- Revenue = `round(quantity * unit_price * (1-discount_pct), 2)` per accepted completed
-  line, summed in fixed decimal arithmetic. Cancelled and returned lines remain in
-  silver but contribute no revenue. This is completed-sales revenue, not accounting
-  net revenue after refunds. No tax, freight, FX conversion, or returns ledger.
-- AOV = revenue / distinct completed orders, never mean of daily AOV. Customer metrics
-  use source customer IDs internally; public view hashes them. Hashes remain linkable
-  pseudonymous identifiers, not a guarantee of anonymization.
-- Counts at product/category/region grains are not necessarily additive across groups.
-  The sample has order-consistent dates/regions/customers. External sources must too;
-  order totals summed over days assume each order has one order date.
+For another provider, try installing its Marketplace listing or importing its
+credential through Catalog Explorer's sharing page first. Once the shared catalog
+is available, use `table` mode. Check that the source actually contains order data
+at the right grain before adapting it.
 
-Sources: [Marketplace consumer workflow](https://docs.databricks.com/aws/en/marketplace/get-started-consumer),
-[sharing recipients](https://docs.databricks.com/aws/en/opensharing/recipient),
-[bearer-token reads](https://docs.databricks.com/aws/en/opensharing/read-data-open),
-[official connector](https://github.com/delta-io/delta-sharing),
-[serverless restrictions](https://docs.databricks.com/aws/en/compute/serverless/limitations).
+The direct `open_sharing` option uses `load_as_pandas` with a row limit. It avoids
+installing a Spark connector JAR, but still needs network access to the provider.
+Store its profile in `/Volumes/<catalog>/raw_share/credentials/`; credential content
+is not printed or written into table metadata. The bundled job does not include
+this optional dependency or the profile parameters by default.
+
+If sharing is unavailable, a licensed CSV or the included fixture can stand in for
+the source. Label that run as a simulated provider. No Kaggle dataset is included.
+
+## Mapping external columns
+
+`column_mapping` maps each expected field to a source column name. For example:
+
+```json
+{"order_id": "Order ID", "unit_price": "Price"}
+```
+
+Values are column names, not SQL expressions. Ingestion stops before writing if a
+required field is missing. For different date formats, currencies, status values,
+or discount conventions, prepare an adapter table or view first. A discount of
+10% must arrive as `0.10`, not `10`.
+
+| Field | Required or default | Meaning |
+| --- | --- | --- |
+| `order_id`, `line_id` | Required | Order-line key |
+| `order_ts` | Required | ISO timestamp, interpreted as UTC |
+| `customer_id` | Required | Source customer identifier; kept restricted |
+| `customer_email` | NULL | Optional email |
+| `product_id` | Required | Source product identifier |
+| `product_name`, `category`, `region` | `Unknown` | Descriptive fields |
+| `quantity` | Required | Whole number from 1 to 1,000,000 |
+| `unit_price` | Required | Nonnegative USD amount, cents precision, at most 1,000,000 |
+| `discount_pct` | `0` | Discount fraction between 0 and 1 |
+| `status` | `completed` | `completed`, `cancelled`, or `returned` |
+| `updated_at` | `order_ts` | Source update time, UTC |
+| `currency` | Required | USD; other currencies go to quarantine |
+
+Bronze keeps these fields plus the original input columns as `source_payload`
+JSON, `source_kind`, `source_ref`, `ingest_ts`, and a deterministic row hash.
+
+## Cleaning and deduplication
+
+Each ingest replaces bronze with a complete source snapshot. This makes a rerun
+easy to reason about, but it is not an append-only audit log or a CDC process.
+Inputs must contain between 1 and 50,000 rows; larger inputs are rejected rather
+than silently sampled.
+
+Silver uses `TRY_CAST` for typed values. Blank descriptions become `Unknown`;
+missing keys, invalid quantities, invalid discounts, and non-USD rows fail the
+quality checks. Email format is not validated.
+
+For each order-line key, the latest `updated_at` wins. A content hash breaks ties
+consistently when timestamps match. An invalid update timestamp falls back to
+order time. A production CDC source would need a reliable timestamp or sequence
+number to give conflicting updates a business ordering.
+
+Deduplication happens **before** quality filtering. If the newest correction is
+bad, that key goes to quarantine; the pipeline does not quietly restore its older
+valid version. The local fixture includes this case.
+
+## Revenue and customer metrics
+
+Revenue for each accepted completed line is:
+
+```text
+round(quantity × unit_price × (1 − discount_pct), 2)
+```
+
+Amounts use fixed decimal arithmetic and are rounded before aggregation.
+Cancelled and returned lines remain in silver but do not contribute revenue.
+Taxes, shipping, currency conversion, and a refund ledger are not modeled.
+The Marketplace adapter assumes purchase orders are completed because that source
+has no status field.
+
+Average order value is revenue divided by distinct completed orders. For a period,
+use `SUM(revenue) / SUM(order_count)` from daily_revenue, not the average of daily
+AOV. This assumes each order has one order date.
+
+Customer metrics use the source customer ID internally. The reporting view hashes
+that ID and masks email unless the querying user belongs to the configured PII
+group. The hash is still a linkable pseudonymous identifier.
+
+Order counts by product, category, or region may overlap and should not be added
+across groups without checking the grain. Daily active-customer counts cannot be
+summed to get a period's distinct customers.
+
+## References
+
+- [Marketplace consumer workflow](https://docs.databricks.com/aws/en/marketplace/get-started-consumer)
+- [Sharing recipients](https://docs.databricks.com/aws/en/opensharing/recipient)
+- [Reading bearer-token shares](https://docs.databricks.com/aws/en/opensharing/read-data-open)
+- [Delta Sharing connector](https://github.com/delta-io/delta-sharing)
+- [Serverless restrictions](https://docs.databricks.com/aws/en/compute/serverless/limitations)

@@ -1,4 +1,4 @@
-"""Execute shared SQL in DuckDB; Databricks acceptance checks are separate."""
+"""Check the shared retail queries locally with DuckDB."""
 import csv
 import hashlib
 import importlib.util
@@ -25,7 +25,7 @@ def connect(rows):
         raw = [row.get(n) for n in COLUMNS]
         digest = hashlib.sha256(str(raw).encode()).hexdigest()
         values.append(raw + ["2026-04-10 00:00:00", "sample", "fixture", digest])
-    # Fixture literals avoid optional pandas/numpy discovery during Python binding.
+    # SQL literals avoid optional pandas/NumPy imports during parameter binding.
     def fixture_literal(value):
         return 'NULL' if value is None else "'" + value.replace("'", "''") + "'"
     db.execute('INSERT INTO retail_demo.bronze.orders_raw VALUES ' + ','.join(
@@ -68,7 +68,7 @@ class ModelTests(unittest.TestCase):
         db = connect(list(reversed(self.rows)) + self.rows)
         try:
             for name in ('silver.orders', 'gold.daily_revenue'):
-                # Ingestion metadata is fixed in fixtures; raw duplicates cannot inflate metrics.
+                # Replays should leave both the accepted rows and revenue unchanged.
                 expected = self.db.execute(f'SELECT * FROM retail_demo.{name} ORDER BY ALL').fetchall()
                 self.assertEqual(db.execute(f'SELECT * FROM retail_demo.{name} ORDER BY ALL').fetchall(), expected)
         finally:
@@ -86,7 +86,7 @@ class ModelTests(unittest.TestCase):
             db.close()
 
     def test_masking_defaults_and_account_group(self):
-        # Only function dialect substitutions; the CASE, joins, and columns are unchanged.
+        # Swap only the engine-specific functions; keep the masking query itself intact.
         query = masked_view_sql('retail_demo').replace('SHA2(m.customer_id, 256)', 'sha256(m.customer_id)')
         emails = self.db.execute(query).fetchall()
         self.assertTrue(emails)

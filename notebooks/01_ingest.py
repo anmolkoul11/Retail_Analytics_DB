@@ -1,8 +1,9 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # Ingest one bounded source snapshot
-# MAGIC Modes: `marketplace`, `sample`, `csv`, `table`, `open_sharing`. Raw source columns are retained.
-# MAGIC Configure a column-name mapping for external sources; see docs/source-contract.md.
+# MAGIC # Load a source snapshot
+# MAGIC Choose `marketplace`, `sample`, `csv`, `table`, or `open_sharing` with the source_mode widget.
+# MAGIC The job supplies the settings automatically. For a manual run, set project_root to the workspace project folder.
+# MAGIC Original input columns are kept in source_payload. See docs/source-contract.md for column mapping.
 
 # COMMAND ----------
 from pathlib import Path
@@ -43,7 +44,7 @@ if mode == "marketplace":
     spark.sql(f"CREATE OR REPLACE VIEW {source_ref} AS {provider_adapter_sql(provider)}")
     raw = spark.read.table(source_ref)
 elif mode == "sample":
-    # Copy repository sample to the landing Volume so the demo demonstrates Volume ingestion.
+    # Send the fixture through the landing Volume, just like an uploaded CSV.
     import shutil
     landing = Path(f"/Volumes/{catalog}/raw_share/landing/sample_orders.csv")
     shutil.copyfile(root / "data" / "sample_orders.csv", landing)
@@ -58,14 +59,14 @@ elif mode == "table":
     source_ref = table(p["source_table"])
     raw = spark.read.table(source_ref)
 elif mode == "open_sharing":
-    # Add delta-sharing to the notebook Environment before selecting this optional mode.
-    # Pandas avoids reliance on installing a Spark connector JAR on serverless.
+    # This mode needs delta-sharing in the notebook Environment.
+    # A small pandas read avoids installing a Spark connector JAR on serverless.
     import delta_sharing
     profile = p["profile_path"]
     if not profile.startswith(f"/Volumes/{catalog}/raw_share/credentials/"):
         raise ValueError("Store the profile in the private credentials Volume")
     shared = table(p["share_table"])
-    # Keep profile paths and tokens out of table metadata / displayed exceptions.
+    # Record the share name without exposing the credential path or token.
     source_ref = shared
     try:
         pdf = delta_sharing.load_as_pandas(profile + "#" + shared, limit=limit + 1)
@@ -74,7 +75,7 @@ elif mode == "open_sharing":
     if len(pdf) == 0:
         raise ValueError("Source is empty")
     records = json.loads(pdf.to_json(orient="records", date_format="iso"))
-    # Explicit string schema also handles columns containing only NULL.
+    # An explicit schema lets all-NULL columns load without type inference errors.
     from pyspark.sql.types import StructType, StructField, StringType
     source_schema = StructType([StructField(str(k), StringType(), True) for k in pdf.columns])
     raw = spark.createDataFrame([
@@ -84,14 +85,14 @@ elif mode == "open_sharing":
 else:
     raise ValueError("source_mode must be marketplace, sample, csv, table, or open_sharing")
 
-# Check before writes. Do not silently take an arbitrary sample from larger sources.
+# Reject oversized inputs so the reported totals never come from a truncated snapshot.
 count = raw.limit(limit + 1).count()
 if count == 0 or count > limit:
     raise ValueError(f"Source must contain 1..{limit} rows. Select a small provider table or prepare a bounded export.")
 if len(raw.columns) != len(set(n.lower() for n in raw.columns)):
     raise ValueError("Source has duplicate or case-colliding column names")
 
-# Preserve original payload before mapping; no untrusted SQL expressions are evaluated.
+# Keep the original columns alongside the mapped fields for troubleshooting.
 payload = F.to_json(F.struct(*[F.col("`" + k.replace("`", "``") + "`") for k in raw.columns]))
 canonical = []
 for name in COLUMNS:
@@ -111,8 +112,7 @@ ingest_ts = datetime.now(timezone.utc).replace(tzinfo=None)
 frame = (frame.withColumn("ingest_ts", F.lit(ingest_ts))
     .withColumn("source_kind", F.lit(mode)).withColumn("source_ref", F.lit(source_ref)))
 
-# Complete snapshot replacement: reruns do not accumulate duplicates.
-# Solely owns this demo table; provider data remains read-only.
+# Replace the local snapshot on reruns. The shared provider table is never written to.
 frame.write.format("delta").mode("overwrite").option("overwriteSchema", "true").saveAsTable(
     f"{catalog}.bronze.orders_raw")
 print(f"Ingested {count} rows from {mode}; source snapshot replaced")

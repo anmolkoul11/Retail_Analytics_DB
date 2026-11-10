@@ -1,8 +1,8 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # Publish the dynamic customer view and explicit reader grants
-# MAGIC `reader_principal`: account group or user's email. Empty means current user only.
-# MAGIC `pii_group`: verified account group; empty means mask all readers, including owner.
+# MAGIC # Set up reporting access
+# MAGIC Set reader_principal to an account group or user email. Leave it blank to use the current user.
+# MAGIC Set pii_group to the account group allowed to see email. Leaving it blank masks email for everyone.
 
 # COMMAND ----------
 from pathlib import Path
@@ -27,6 +27,6 @@ spark.sql(f"GRANT USE SCHEMA ON SCHEMA {catalog}.gold TO {principal}")
 for name in PUBLIC_GOLD:
     spark.sql(f"GRANT SELECT ON VIEW {catalog}.gold.{name} TO {principal}" if name.endswith("_masked")
               else f"GRANT SELECT ON TABLE {catalog}.gold.{name} TO {principal}")
-print("Granted access to four aggregates and the masked view only.")
-print("Raw customer_metrics remains restricted; do not grant SELECT on the entire gold schema.")
+print("Reader access is set for the four aggregates and the masked customer view.")
+print("Keep customer_metrics restricted; a schema-wide SELECT grant would expose the backing table.")
 display(spark.sql(f"SHOW GRANTS ON CATALOG {catalog}"))

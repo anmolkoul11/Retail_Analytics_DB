@@ -18,6 +18,7 @@ $cacheDir = Join-Path $projectRoot '.cache'
 New-Item -ItemType Directory -Force -Path $cacheDir | Out-Null
 $bodyPath = Join-Path $cacheDir 'bootstrap-statement.json'
 $statements = @("CREATE CATALOG IF NOT EXISTS $Catalog")
+# The catalog must exist before bundle deployment can create the pipeline.
 foreach ($schema in @('raw_share', 'bronze', 'silver', 'gold')) {
     $statements += "CREATE SCHEMA IF NOT EXISTS $Catalog.$schema"
 }
@@ -27,6 +28,7 @@ foreach ($sql in $statements) {
     $response = (& $cli api post /api/2.0/sql/statements --json "@$bodyPath" -p $Profile -o json) | ConvertFrom-Json
     if ($LASTEXITCODE -ne 0) { throw "SQL request failed: $sql" }
     $deadline = [DateTime]::UtcNow.AddMinutes(5)
+    # Warehouse startup may take longer than the initial SQL request waits.
     while ($response.status.state -in @('PENDING','RUNNING')) {
         if ([DateTime]::UtcNow -ge $deadline) { throw "SQL timed out; inspect statement $($response.statement_id)" }
         Start-Sleep -Seconds 2

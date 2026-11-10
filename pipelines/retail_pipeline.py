@@ -1,4 +1,4 @@
-"""Lakeflow source: declarative definitions only; never perform writes here."""
+"""Register the shared retail queries as Lakeflow materialized views."""
 import sys
 from pyspark import pipelines as dp
 
@@ -9,10 +9,11 @@ catalog = identifier(spark.conf.get("retail.catalog"))
 
 
 def register(target, query):
+    """Bind each query before registering it with the pipeline."""
     def dataset():
         return spark.sql(query)
     dataset.__name__ = target.replace(".", "_")
-    # In addition to the quarantine branch, fail publication if invariants regress.
+    # Stop publication if a future change lets bad rows into accepted silver data.
     if target == "silver.orders":
         dataset = dp.expect_all_or_fail({
             "positive_quantity": "quantity > 0",

@@ -1,1 +1,1 @@
-"""SQL transformations shared by notebook and Lakeflow execution paths."""
+"""Shared queries for the retail notebooks and Lakeflow pipeline."""

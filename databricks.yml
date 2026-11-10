@@ -20,10 +20,10 @@ variables:
   column_mapping:
     default: "{}"
   reader_principal:
-    description: Account group or user email; blank grants current user only.
+    description: Account group or user email for reports. Leave blank to use the current user.
     default: ""
   pii_group:
-    description: Verified account group allowed to see email; blank masks everyone.
+    description: Account group allowed to see email. Leave blank to mask email for everyone.
     default: ""
 
 sync:

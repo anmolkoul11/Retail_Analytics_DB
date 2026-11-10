@@ -1,4 +1,4 @@
-"""Generate deterministic fictional order lines with deliberate quality problems."""
+"""Create a repeatable retail fixture with duplicates and a few bad records."""
 import csv
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -28,10 +28,10 @@ def rows():
             "cancelled" if order % 17 == 0 else "returned" if order % 23 == 0 else "completed",
             timestamp.isoformat(" "), "USD",
         ])))
-    # Exact replay and a later correction (latest wins).
+    # Replay one line, then correct another with a later timestamp.
     result.append(result[0].copy())
     result.append({**result[1], "quantity": "4", "updated_at": "2026-04-01 12:00:00"})
-    # A newer invalid update must quarantine the key, never resurrect stale data.
+    # This broken correction should quarantine the key, not restore its older value.
     result.append({**result[2], "quantity": "oops", "updated_at": "2026-04-02 12:00:00"})
     for n, changes in enumerate([
         {"quantity": "oops"}, {"order_ts": "bad-date"}, {"quantity": "-1"},

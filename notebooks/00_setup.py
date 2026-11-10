@@ -1,7 +1,7 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # Retail demo — Unity Catalog setup
-# MAGIC Run once, then run ingestion. Use a new catalog dedicated to this demo.
+# MAGIC # Create the catalog and Volumes
+# MAGIC Run this before ingestion. A separate demo catalog makes its objects and grants easier to manage.
 
 # COMMAND ----------
 import re
@@ -16,5 +16,5 @@ for schema in ("raw_share", "bronze", "silver", "gold"):
     spark.sql(f"CREATE SCHEMA IF NOT EXISTS {catalog}.{schema}")
 spark.sql(f"CREATE VOLUME IF NOT EXISTS {catalog}.raw_share.landing")
 spark.sql(f"CREATE VOLUME IF NOT EXISTS {catalog}.raw_share.credentials")
-print(f"Landing: /Volumes/{catalog}/raw_share/landing")
-print("Setup grants no reader access. Audit existing inherited privileges before using an existing catalog.")
+print(f"Landing files: /Volumes/{catalog}/raw_share/landing")
+print("Reader grants are set up later. If this catalog already existed, check its inherited permissions.")

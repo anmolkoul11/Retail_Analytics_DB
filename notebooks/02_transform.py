@@ -1,7 +1,8 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # Notebook fallback — same SQL as the Lakeflow pipeline
-# MAGIC Use a separate catalog from pipeline-owned materialized views (default `retail_demo_notebooks`).
+# MAGIC # Run the transformations without a pipeline
+# MAGIC This uses the same SQL as Lakeflow, writing Delta tables to `retail_demo_notebooks`.
+# MAGIC Keep that catalog separate from the pipeline's materialized views.
 
 # COMMAND ----------
 from pathlib import Path

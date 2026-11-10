@@ -1,4 +1,4 @@
-"""Pure SQL builders; no Spark session or writes at import time."""
+"""Build the silver, gold, and masking queries used by both execution paths."""
 import re
 
 COLUMNS = (
@@ -27,7 +27,7 @@ def table(value):
 
 
 def literal(value):
-    # Reject escape/control characters: same literal semantics across SQL engines.
+    # Keep quoted values consistent in Spark SQL and the local DuckDB tests.
     if any(ord(c) < 32 or c == "\\" for c in value):
         raise ValueError("Control characters and backslashes are not allowed")
     return "'" + value.replace("'", "''") + "'"
@@ -68,6 +68,7 @@ def typed_sql(catalog):
 
 
 def ranked_sql(catalog):
+    """Rank updates before filtering so a bad correction cannot revive stale data."""
     c = identifier(catalog)
     return f"""SELECT *, ROW_NUMBER() OVER (
       PARTITION BY order_id, line_id ORDER BY updated_at DESC NULLS LAST,
@@ -86,6 +87,7 @@ def orders_sql(catalog):
 
 
 def model_queries(catalog):
+    """Return the silver and gold queries in dependency order."""
     c = identifier(catalog)
     sales = f"{c}.silver.orders"
     return {
@@ -118,6 +120,7 @@ def model_queries(catalog):
 
 
 def masked_view_sql(catalog, pii_group=""):
+    """Mask email unless the querying user belongs to the configured account group."""
     c = identifier(catalog)
     allowed = f"is_account_group_member({literal(pii_group)})" if pii_group else "FALSE"
     return f"""WITH emails AS (
@@ -133,5 +136,6 @@ def masked_view_sql(catalog, pii_group=""):
       ON m.customer_id = e.customer_id AND e.rn = 1"""
 
 
+# The raw customer table stays out of reader grants, even though it lives in gold.
 PUBLIC_GOLD = ("daily_revenue", "product_metrics", "category_revenue",
                "regional_revenue", "customer_metrics_masked")

@@ -1,82 +1,99 @@
-# Dashboard, Genie, and presentation script
+# Dashboard and Genie
 
-The dashboard and Genie space have already been created in your project folder;
-use the links in [implementation-status.md](implementation-status.md). This guide
-also describes rebuilding them. Native definitions are in `reporting/*.json` and
-can be regenerated with `tools/build_reporting.py --warehouse-id <id>`.
-Use update/import on existing resources rather than creating duplicate dashboards
-or spaces. The current source caption identifies actual Marketplace sharing and
-fictional records; its dates are August–November 2019.
+The dashboard and Genie space are already saved in the original workspace folder.
+Their links are in the [run results](implementation-status.md). This guide covers
+the layout, metric choices, and steps for rebuilding them elsewhere.
 
-## AI/BI dashboard
+## Sales Pulse dashboard
 
-After the job passes validation, create an AI/BI dashboard named **Retail Orders —
-Sales Pulse** on the existing serverless SQL warehouse. Add each statement in
-`reporting/dashboard_queries.sql` as a separate dataset. For notebook fallback,
-replace `retail_demo` with `retail_demo_notebooks` throughout the queries.
+The dashboard uses four gold aggregate datasets on the existing serverless SQL
+warehouse. Its layout is deliberately simple:
 
-Use a clean one-page layout:
+1. Total revenue, completed order count, and average order value at the top.
+2. A daily revenue trend across the page.
+3. Category and region comparisons side by side.
+4. An all-time top-products table at the bottom.
 
-1. Top row: total revenue (USD), completed order count, weighted AOV.
-2. Full-width line chart: daily completed-sales revenue, chronological x-axis.
-3. Two half-width horizontal bar charts: top categories and regions.
-4. Bottom: top ten products, with revenue and units.
+The caption identifies the Marketplace source, fictional records, and USD values.
+The original shared-source run covers August–November 2019. If using the local
+fixture, update the caption to describe the sample and its January–March 2026
+date range.
 
-Add a caption: **Fictional sample • USD • completed sales only • Jan–Mar 2026**
-when running sample mode. Use the actual source/date range for other modes. Use
-a dashboard-level date filter bound to dated datasets if desired; product totals
-are all-time, so label that widget accordingly or add a dated product dataset first.
+`reporting/dashboard_queries.sql` has standalone queries for the chart datasets.
+For the notebook fallback, replace `retail_demo` with `retail_demo_notebooks`.
 
-Publishing with embedded publisher credentials can change the effective data access
-for viewers. For the governance demo, use viewer credentials where available and
-verify with a reader identity. The default single-user owner is not a proof of
-multi-user security. No automatic dashboard refresh is configured: it would spend
-quota beyond the ingestion schedule.
+AOV comes from total revenue divided by completed orders, rather than an average
+of daily AOV. Product totals are all-time. If adding a date filter, either keep
+that label or build a dated product dataset so the filter applies consistently.
 
-## Genie space
+The published dashboard uses viewer credentials. Keep that setting when testing
+reader permissions; embedding publisher credentials would change the access
+being demonstrated. There is no automatic dashboard refresh schedule, which
+helps conserve Free Edition quota.
 
-Create **Retail Orders Analyst**, select the same warehouse, and add only:
+## Retail Orders Analyst in Genie
+
+The space uses these four tables:
 
 - `retail_demo.gold.daily_revenue`
 - `retail_demo.gold.product_metrics`
 - `retail_demo.gold.category_revenue`
 - `retail_demo.gold.regional_revenue`
 
-Optionally add `gold.customer_metrics_masked` after reviewing privacy and confirming
-the view is supported in your space. Do not add bronze, silver, or raw customer metrics.
+Its instructions define revenue, AOV, table grain, and the source assumptions.
+Genie should use the table that fits the question, since joining aggregates on
+date alone can multiply revenue. It also needs to know that daily active
+customers cannot be summed into period-level distinct customers.
 
-Paste these instructions into the space:
+The provider has no order status, so its purchase orders are assumed completed.
+Region means latest-known customer region; category comes from a name lookup.
+Those qualifications belong with the metrics rather than being left to inference.
 
-> Revenue means completed-sales revenue in USD after discounts, rounded per order
-> line. Cancelled and returned orders are excluded; refunds, taxes and shipping are
-> not modeled. daily_revenue is one row per date and currency; category_revenue and
-> regional_revenue add their respective dimension. product_metrics is all-time per
-> product/name/category/currency. Never join these aggregate tables on date alone:
-> doing so multiplies revenue. Use the single table whose grain answers the question.
-> AOV equals SUM(revenue)/SUM(order_count) from daily_revenue. Active customer counts
-> cannot be summed across days to get distinct customers for a period. Counts by
-> product/category are not additive. Explain unavailable metrics instead of inventing
-> a join or field. The included sample contains fictional customers and transactions.
+Three benchmark questions are saved with reference SQL:
 
-Save benchmark questions and compare answers to `reporting/genie_benchmarks.sql`:
-total completed-sales revenue, top three products, and the leading region. Also ask "How much
-shipping did we collect?"; Genie should explain that shipping is not modeled.
-Keep SQL/answer screenshots as evidence rather than assuming a fluent answer is right.
+- What is total completed-sales revenue?
+- Which three products generated the most revenue?
+- Which region had the most revenue?
 
-## Five-minute demo
+Use `reporting/genie_benchmarks.sql` to compare answers against the same data
+snapshot. The total-revenue question was tested successfully. A separate shipping
+question also confirmed that Genie explained the missing metric instead of
+inventing a value. The other two questions are saved for later checks.
 
-1. Show source provenance and state whether the run used an actual share or simulated provider.
-2. In Catalog Explorer show four schemas, the landing Volume, and bronze metadata.
-3. Show the job/pipeline graph, silver quarantine, and the invalid latest correction.
-4. Show gold lineage in Catalog Explorer → a gold object → Lineage, expand upstream,
-   and save a real screenshot. File ingestion starts lineage at bronze or the Volume
-   as supported; shared-table reads may expose a provider-table edge. Do not claim
-   cross-provider lineage unless it is actually shown.
-5. Show the masked view and its explicit grants. Explain that owner/admin access to
-   underlying data bypasses this view; verify a separate reader if the account permits.
-6. Show the dashboard, then ask Genie a benchmark and the unsupported shipping question.
-7. Finish with paused scheduling, quota choices, and an honest feature-attempt log.
+Only add `customer_metrics_masked` if customer analysis is needed and the view is
+supported in the space. Keep bronze, silver, and the backing customer table out
+of the reporting space.
 
-Sources: [AI/BI dashboards](https://docs.databricks.com/aws/en/dashboards/),
-[Genie](https://docs.databricks.com/aws/en/genie/),
-[Unity Catalog lineage](https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-lineage).
+## Rebuild the definitions
+
+The dashboard and Genie definitions are checked in as `reporting/*.json`.
+Regenerate them with:
+
+```powershell
+uv run python tools/build_reporting.py --warehouse-id YOUR_WAREHOUSE_ID
+```
+
+The script also writes API request bodies into `.cache`; it does not deploy them.
+Update the existing dashboard or space when reusing a workspace, so repeated
+imports do not create duplicates. Review the source caption if changing modes.
+
+## A short walkthrough
+
+Start with the shared source and show how it reaches bronze. Open quarantine to
+explain a line-count mismatch, then follow the accepted lines into a gold revenue
+table. Show the pipeline graph and its expectations before opening the dashboard.
+
+In Catalog Explorer, open a gold object, choose Lineage, and expand upstream.
+Capture the graph that the workspace actually shows. Shared-table reads can add
+provider edges; file-based runs may begin at bronze or a Volume. A Catalog
+Explorer screenshot is still a manual evidence item for this project.
+
+Finish with the masked view and its object-level grants, then ask Genie for total
+revenue and for shipping revenue. Explain the paused schedule and the remaining
+access tests so the walkthrough reflects what has been tested.
+
+## References
+
+- [AI/BI dashboards](https://docs.databricks.com/aws/en/dashboards/)
+- [Genie](https://docs.databricks.com/aws/en/genie/)
+- [Unity Catalog lineage](https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-lineage)

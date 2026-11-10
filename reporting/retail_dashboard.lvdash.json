@@ -41,9 +41,9 @@
             "name": "intro",
             "multilineTextboxSpec": {
               "lines": [
-                "# Retail Orders | Sales Pulse\n",
-                "Databricks Marketplace | Fictional retail records | Real Delta Sharing | USD\n",
-                "Cancelled and returned lines excluded. Shipping, tax and refund accounting are not modeled.\n"
+                "# Retail Orders: Sales Pulse\n",
+                "Fictional retail data from Databricks Marketplace, accessed through Delta Sharing. All amounts are in USD.\n",
+                "Revenue includes completed sales after discounts. Shipping, tax and refund accounting are outside this demo.\n"
               ]
             }
           },
@@ -82,7 +82,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Completed-sales revenue (USD)"
+                "title": "Sales revenue (USD)"
               }
             }
           },
@@ -198,7 +198,7 @@
               "widgetType": "line",
               "frame": {
                 "showTitle": true,
-                "title": "Daily completed-sales revenue"
+                "title": "Daily sales revenue"
               },
               "encodings": {
                 "x": {

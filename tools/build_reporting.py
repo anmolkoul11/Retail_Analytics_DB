@@ -1,4 +1,4 @@
-"""Build importable native AI/BI and Genie definitions; no remote mutations."""
+"""Generate the dashboard and Genie JSON files for this project."""
 import argparse
 import json
 from pathlib import Path
@@ -10,6 +10,7 @@ from retail.model import identifier
 
 
 def chart(name, dataset, title, kind, x, y, position, temporal=False):
+    """Build a chart using the same layout and query structure as the other widgets."""
     return {
         "widget": {
             "name": name,
@@ -31,6 +32,7 @@ def chart(name, dataset, title, kind, x, y, position, temporal=False):
 
 
 def build(catalog):
+    """Return the dashboard layout and Genie setup for a catalog."""
     c = identifier(catalog)
     datasets = [
         {"name": "daily", "displayName": "Daily sales", "queryLines": [f"SELECT * FROM {c}.gold.daily_revenue"]},
@@ -39,12 +41,12 @@ def build(catalog):
         {"name": "products", "displayName": "Product sales", "queryLines": [f"SELECT product_id, product_name, category, revenue, units FROM {c}.gold.product_metrics ORDER BY revenue DESC, product_id LIMIT 10"]},
     ]
     layout = [{"widget": {"name": "intro", "multilineTextboxSpec": {"lines": [
-        "# Retail Orders | Sales Pulse\n",
-        "Databricks Marketplace | Fictional retail records | Real Delta Sharing | USD\n",
-        "Cancelled and returned lines excluded. Shipping, tax and refund accounting are not modeled.\n",
+        "# Retail Orders: Sales Pulse\n",
+        "Fictional retail data from Databricks Marketplace, accessed through Delta Sharing. All amounts are in USD.\n",
+        "Revenue includes completed sales after discounts. Shipping, tax and refund accounting are outside this demo.\n",
     ]}}, "position": {"x": 0, "y": 0, "width": 12, "height": 3}}]
     for idx, (name, expression, title) in enumerate([
-        ("revenue", "SUM(`revenue`)", "Completed-sales revenue (USD)"),
+        ("revenue", "SUM(`revenue`)", "Sales revenue (USD)"),
         ("orders", "SUM(`order_count`)", "Completed orders"),
         ("aov", "SUM(`revenue`)/NULLIF(SUM(`order_count`),0)", "Average order value (USD)"),
     ]):
@@ -56,7 +58,7 @@ def build(catalog):
                 "frame": {"showTitle": True, "title": title}}},
             "position": {"x": idx * 4, "y": 3, "width": 4, "height": 3}})
     layout.extend([
-        chart("trend", "daily", "Daily completed-sales revenue", "line", "order_date", "revenue", (0, 6, 12, 6), True),
+        chart("trend", "daily", "Daily sales revenue", "line", "order_date", "revenue", (0, 6, 12, 6), True),
         chart("category", "categories", "Revenue by category", "bar", "category", "revenue", (0, 12, 6, 6)),
         chart("region", "regions", "Revenue by region", "bar", "region", "revenue", (6, 12, 6, 6)),
     ])
@@ -76,18 +78,19 @@ def build(catalog):
         ("Which region had the most revenue?", f"SELECT region, SUM(revenue) AS revenue FROM {c}.gold.regional_revenue GROUP BY region ORDER BY revenue DESC, region LIMIT 1"),
     ]
     instructions = (
-        "Revenue means completed-sales revenue in USD after discounts and rounding per line. "
-        "Cancelled and returned lines are excluded; tax, shipping and refund accounting are not modeled. "
-        "daily_revenue is daily; category_revenue and regional_revenue add their respective dimension. "
-        "product_metrics is all-time per product/name/category/currency. "
-        "Never join these aggregate tables on date alone: this multiplies revenue. Use one suitable table. "
-        "AOV is SUM(revenue)/SUM(order_count) from daily_revenue, not AVG(average_order_value). "
-        "Active customers cannot be summed across days as period distinct customers. "
-        "Product and region order counts may not be additive. Explain unavailable metrics instead of inventing fields. "
-        "All records are fictional data from the Databricks Marketplace Simulated Retail Customer Data listing. "
-        "The adapter assumes source purchase orders are completed because no order status is supplied. "
-        "Region is latest-known customer region. Category uses provider sales.product_category mapped by product name; "
-        "unmatched names are Unknown. Orders whose declared line count disagrees with their JSON array are quarantined."
+        "Revenue is the value of completed sales in USD, after discounts and rounding each line. "
+        "Exclude cancelled and returned lines. Shipping, tax and refund accounting are not part of this model.\n\n"
+        "Use the table that fits the question: daily_revenue has daily totals; category_revenue and "
+        "regional_revenue break those totals down by category or region. product_metrics has all-time totals "
+        "per product, name, category and currency. Do not join these aggregates on date alone, since that "
+        "would multiply revenue. Calculate AOV as SUM(revenue)/SUM(order_count) from daily_revenue. "
+        "Do not average daily AOV or add daily active customers to get distinct customers for a period. "
+        "Product and region order counts can overlap. If a metric is missing, explain that it is unavailable.\n\n"
+        "The records are fictional and come from the Simulated Retail Customer Data listing on Databricks "
+        "Marketplace. Purchase orders are assumed completed because the source has no status field. "
+        "Region is the latest-known customer region. Category comes from sales.product_category, matched "
+        "by product name; unmatched names become Unknown. Orders with a declared line count that differs "
+        "from their product array go to quarantine."
     )
     genie = {"version": 2,
         "config": {"sample_questions": [{"id": f"{i+1:032x}", "question": [q]} for i,(q,_) in enumerate(questions)]},
@@ -116,9 +119,9 @@ if __name__ == '__main__':
             'warehouse_id': args.warehouse_id, 'parent_path': args.parent_path,
             'serialized_dashboard': json.dumps(dashboard)},
         'create-genie.json': {'title': 'Retail Orders Analyst', 'warehouse_id': args.warehouse_id,
-            'parent_path': args.parent_path, 'description': 'Fictional retail completed-sales analytics, USD, governed gold aggregates.',
+            'parent_path': args.parent_path, 'description': 'Ask questions about fictional retail sales using the gold reporting tables.',
             'serialized_space': json.dumps(genie)},
     }
     for name, obj in requests.items():
         (ROOT / '.cache' / name).write_text(json.dumps(obj), encoding='utf-8')
-    print('Built native dashboard and Genie definitions plus API request files in .cache')
+    print('Saved dashboard and Genie definitions to reporting/; API request files are in .cache/.')

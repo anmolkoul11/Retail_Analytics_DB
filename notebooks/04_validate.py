@@ -1,6 +1,7 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # Acceptance checks — run after governance
+# MAGIC # Check the finished tables
+# MAGIC Run after governance to check keys, quality rules, revenue totals, and quarantine counts.
 
 # COMMAND ----------
 import re

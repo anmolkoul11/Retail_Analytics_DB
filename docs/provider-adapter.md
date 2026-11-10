@@ -1,59 +1,89 @@
-# Installed Marketplace source
+# Adapting the Marketplace data
 
-Provider: **Databricks**. Listing: **Simulated Retail Customer Data**.
-Listing ID: `a82597f6-5ada-49d5-b934-d6c9dece16a1`.
-Share: `dbacademy_dataset_retail`; installed as read-only catalog `retail_provider`.
-The user explicitly approved installation and its terms on 2026-11-10.
+The source is Databricks' **Simulated Retail Customer Data** listing, installed as
+the read-only catalog `retail_provider`. Its records are fictional; access to the
+catalog uses a real Delta Sharing connection.
 
-License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-Attribution: Simulated Retail Customer Data, provided by Databricks through
-Databricks Marketplace. The adapter transforms nested orders into line/price-tier
-records, adds lookup dimensions, and excludes inconsistent orders from analytics.
-No provider dataset is redistributed in this Git repository. Records are fictional;
-the actual provider catalog and Delta Sharing connection are real.
+| Source detail | Value |
+| --- | --- |
+| Provider | Databricks |
+| Listing ID | `a82597f6-5ada-49d5-b934-d6c9dece16a1` |
+| Share | `dbacademy_dataset_retail` |
+| Catalog | `retail_provider` |
+| License | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 
-The installation API requires `accepted_consumer_terms.version="2023-01"`, matching
-the listing's linked [Marketplace consumer terms](https://cms.databricks.com/sites/default/files/2023-01/marketplace-consumer-terms_0.pdf).
-The API rejected a missing version and `1.0`; the `2023-01` installation succeeded.
-Do not automatically accept these terms on another user's behalf; each user should
-review the listing and agree before installation.
+Attribution: **Simulated Retail Customer Data, provided by Databricks through
+Databricks Marketplace.** This project's adapter expands nested orders, adds
+lookup dimensions, separates promotion quantities, and flags inconsistent orders.
+The provider's dataset is not redistributed in this repository.
 
-## Mapping
+## How the adapter works
 
-`retail/provider.py` defines a local **view** in `retail_demo.raw_share` over three
-shared tables. It does not modify the provider catalog.
+`retail/provider.py` builds a view called `raw_share.provider_order_lines` in the
+demo catalog. It reads three shared tables without changing them.
 
-- `v01.sales_orders`: 4,074 orders in the inspected snapshot. `ordered_products` is
-  a JSON array, expanded with its zero-based position. Epoch-second `order_datetime`
-  becomes a UTC timestamp. Structural keys combine provider order number, array
-  position, and `regular`/`promo` price tier; they support a full snapshot, not CDC.
-- Product `id`, `name`, `price`, `qty`, and `curr` come from each nested line.
-  `promotion_info.promo_disc` is a discount fraction applying to `promo_qty` units.
-  A partial promotion becomes two price tiers so the discount is not applied to
-  unpromoted units. The inspected snapshot has one such partial promotion.
-- A purchase order has no supplied status; the adapter explicitly assumes
-  `completed`. Revenue is therefore a modeled purchase-order value, not independently
-  verified settlement revenue. No emails are supplied: `customer_email` stays NULL.
-  The separate included sample demonstrates masking with fictional email values.
-- `v01.customers`: one latest-known region per customer, chosen by `valid_from`
-  descending. This is **not** an as-of region join. No names, tax IDs, addresses,
-  or coordinates are copied from this dimension into canonical columns.
-- `v01.sales`: product categories are looked up by **product_name**. The embedded
-  `sales.product` JSON does not reliably correspond to the row's product name, so
-  it is not used as a product-ID lookup. Conflicting name/category mappings yield
-  `Unknown`; there were zero conflicts in the inspected snapshot. Missing mappings
-  yield `Unknown`. Provider category labels are brand-like values and retain their
-  original business meaning.
-- `number_of_line_items` must equal the actual JSON array size. In the inspected
-  source, 147 orders (273 expanded source lines) disagree. Their canonical quantity
-  is NULL so the latest lines enter quarantine. `source_payload` retains the
-  original ordered-products JSON, declared/actual count, and quality reason.
+### Orders and product lines
 
-The initial source contains 8,137 nested product lines; the category lookup matches
-4,697 of them. The adapter adds a price tier for the single partial promotion.
-See [implementation-status.md](implementation-status.md) for actual final acceptance
-counts after the shared-source job runs.
+`v01.sales_orders` contained 4,074 orders in the inspected snapshot. Each row has
+an `ordered_products` JSON array. The adapter expands that array and takes each
+product's ID, name, price, quantity, and currency directly from its fields.
+`order_datetime` is an epoch-second value converted to a UTC timestamp.
 
-Use `source_mode=marketplace` and `provider_catalog=retail_provider`. The configured
-`dev` target now selects this mode. To replay the small deliberate-error fixture,
-deploy with `--var source_mode=sample`; the 1,211-row CSV remains available.
+Line IDs combine the array position with a `regular` or `promo` suffix. Together
+with the provider order number, this gives each price tier a key within the full
+snapshot. These structural keys are not intended for tracking CDC changes.
+
+`promotion_info` supplies a discount fraction and the number of units it applies
+to. If only some units are discounted, the adapter creates separate regular-price
+and discounted records. The source had one partial promotion, so 8,137 nested
+product lines became 8,138 bronze records.
+
+The source has no order-status field. The adapter treats purchase orders as
+completed, so the revenue represents modeled purchase-order value rather than
+verified settlement revenue. There is also no email field; `customer_email`
+remains NULL. The separate local fixture contains fictional emails for testing
+the masking logic.
+
+### Region and category lookups
+
+Customer region comes from `v01.customers`. The adapter takes one latest record
+per customer using `valid_from`. This is a latest-known-region lookup, not an
+as-of join at order time. Names, tax IDs, addresses, and coordinates from that
+table are not copied into the output.
+
+Categories come from `v01.sales`, joined by `product_name`. The JSON in
+`sales.product` did not consistently describe the product named on that same row,
+so using it as an ID lookup would assign the wrong categories.
+
+The name lookup matched 4,697 source lines. Missing or conflicting name/category
+matches become `Unknown`; no conflicting mappings were found in the inspected
+snapshot. The source's category labels often look like brand names and are kept
+as supplied.
+
+### Quality checks
+
+An order's declared `number_of_line_items` must match the length of its products
+array. The source had 147 orders with a mismatch, covering 273 expanded lines
+before deduplication. The adapter leaves their quantity NULL so silver sends them
+to quarantine.
+
+Bronze preserves the original product JSON, both line counts, and a provider
+quality reason in `source_payload`. The usual key, quantity, price, discount, and
+currency checks still apply afterward. Final counts are in the
+[run results](implementation-status.md).
+
+## Installation and reuse
+
+The `dev` target uses `source_mode=marketplace` and
+`provider_catalog=retail_provider`. Install the listing under that catalog name
+before running in another workspace, or change the provider_catalog variable.
+Review the listing's license and terms during installation.
+
+For the original installation, the API required consumer terms version
+`2023-01`, matching the linked
+[Marketplace consumer terms](https://cms.databricks.com/sites/default/files/2023-01/marketplace-consumer-terms_0.pdf).
+Requests without a version, or with `1.0`, were rejected. That version records
+what worked on November 10, 2026; check the current listing when installing again.
+
+To use the small local fixture instead, deploy with `--var source_mode=sample`.
+The sharing connection is then replaced by a CSV-based source for that run.

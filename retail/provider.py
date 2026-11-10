@@ -1,12 +1,13 @@
-"""Adapter for Databricks' CC BY 4.0 Simulated Retail Customer Data listing.
+"""Flatten Databricks' CC BY 4.0 retail sample into order lines.
 
-Reference catalog remains read-only. The view preserves source JSON alongside
-canonical fields, and expands partially promoted lines into two price tiers.
+Keep the original order JSON and split partial promotions into two price tiers
+so regular-price units do not receive the discount.
 """
 from retail.model import identifier
 
 
 def provider_adapter_sql(provider_catalog="retail_provider"):
+    """Build the adapter view over the shared orders and lookup tables."""
     p = identifier(provider_catalog)
     line_schema = 'ARRAY<STRUCT<curr:STRING,id:STRING,name:STRING,price:STRING,qty:STRING,promotion_info:STRUCT<promo_disc:STRING,promo_qty:STRING>>>'
     return f"""

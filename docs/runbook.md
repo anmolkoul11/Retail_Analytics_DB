@@ -1,103 +1,131 @@
-# Setup and operational runbook
+# Running and troubleshooting the demo
 
-## Bundle route
+## Deploy with a bundle
 
-1. Authenticate with the official CLI through OAuth. `RETAIL_DEMO` is a new profile
-   name. The local CLI uses normal Databricks authentication; browser session cookies
-   are not reused or extracted.
-2. Run `tools/bootstrap.ps1 -Profile RETAIL_DEMO` to create the catalog and schemas
-   through SQL on the existing serverless warehouse. The pipeline requires its catalog
-   to exist at deployment time. Then run `bundle validate --strict`, `bundle deploy`, and `bundle run retail_demo`
-   with `-t dev -p RETAIL_DEMO`. Deployment creates one pipeline and two jobs, but only
-   running a job starts processing. Do not run both jobs simultaneously for a demo.
-3. Confirm the five tasks succeed. Inspect `silver.orders_quarantine`, gold totals,
-   the pipeline graph and expectations, and the validation task output.
-4. Choose real sharing using [source-contract.md](source-contract.md). For a catalog
-   source, redeploy with `--var source_mode=table --var source_table=CATALOG.SCHEMA.TABLE`.
-   Use `BUNDLE_VAR_column_mapping` for JSON that needs shell quoting. For CSV set
-   `source_mode=csv` and the absolute Volume `source_path` after setup created the Volume.
-5. Configure dashboard and Genie using [reporting.md](reporting.md). Capture lineage
-   and the actual run output; record URLs and feature results in the status log.
+The original deployment uses a `RETAIL_DEMO` CLI profile and the `dev` target.
+For a new workspace, update the host in `databricks.yml` first and install the
+retail listing as `retail_provider`, or choose `source_mode=sample`.
 
-Changing `catalog` requires redeployment so both the pipeline configuration and job
-parameters agree. Do not override just the job `catalog` parameter on the pipeline
-job. Use `fallback_catalog` for the notebook-only job.
+1. Sign in with `databricks auth login --host <workspace-url> --profile RETAIL_DEMO`.
+2. Run `.\tools\bootstrap.ps1 -Profile RETAIL_DEMO`. It uses an existing SQL
+   warehouse to create the catalog and schemas before the pipeline is deployed.
+3. Run `databricks bundle validate -t dev -p RETAIL_DEMO --strict`.
+4. Deploy with `databricks bundle deploy -t dev -p RETAIL_DEMO`.
+5. Start the job with `databricks bundle run retail_demo -t dev -p RETAIL_DEMO`.
 
-`open_sharing` is deliberately a manual notebook option: add its Python dependency
-in the Environment panel and run `01_ingest.py` with the credential widgets, then
-refresh the pipeline and run governance/validation. The default bundled ingest task
-does not include that optional package or credential path. To schedule this mode,
-configure a supported job Environment and its profile/share parameters first. Never
-commit a profile or install a Spark connector JAR into serverless compute.
+Deployment creates one pipeline and two jobs. A job run starts processing; the
+daily schedule remains paused. Check that all five tasks succeed, then inspect
+the quarantine, gold totals, and pipeline expectations.
 
-## Git-folder / manual route
+If the CLI is installed under `.tools`, use `.\.tools\databricks.exe` in place of
+`databricks`. OAuth credentials are stored by the CLI, outside the repository.
 
-The existing workspace folder is
-`/Workspace/Users/anmolkoul11@gmail.com/Databricks_Demo`. It started empty.
-To use a Git folder, push this local repository to your own remote and clone it in
-Databricks with the Git folders UI. A normal workspace folder does not become a Git
-folder merely because a local repository exists. No remote URL has been supplied.
+Changing `catalog` requires redeployment so the pipeline and job use the same
+name. Overriding just the job parameter leaves the pipeline pointing at its old
+catalog. The notebook-only job has a separate `fallback_catalog` setting.
 
-Alternatively import the source files preserving directory structure. Keep `retail`
-as Python modules, `data` as files, `pipelines` as pipeline source, and `notebooks`
-as Databricks source-format notebooks. Set each notebook's `project_root` widget
-to the **absolute** `/Workspace/...` folder containing `retail/model.py`.
+## Choose a source
 
-For the pipeline path:
+The installed retail share uses `source_mode=marketplace`. For a different source
+that already has compatible columns, redeploy with:
 
-1. Run `00_setup`, then `01_ingest`, both with `catalog=retail_demo`.
-2. Create one serverless, triggered Lakeflow Declarative Pipeline. Use the default
-   publishing mode (no legacy LIVE target), catalog `retail_demo`, schema `silver`,
-   and Advanced edition for expectations. Add `pipelines/retail_pipeline.py`.
-3. Add configuration `retail.catalog=retail_demo` and
-   `retail.project_root=/Workspace/.../Databricks_Demo`, then run one update.
-4. Run `03_governance` and `04_validate`. Defaults grant only the current user and
-   mask every email. A named reader user/group can be passed separately.
-5. Create sequential job tasks with the same paths/parameters as the YAML. Use
-   serverless notebook tasks, pipeline update task in the middle, max concurrent
-   runs 1, no automatic retries, and a paused daily schedule at 08:00 New York time.
+```powershell
+databricks bundle deploy -t dev -p RETAIL_DEMO --var source_mode=table --var source_table=CATALOG.SCHEMA.TABLE
+```
 
-For notebooks only: run `00`, `01`, `02`, `03`, `04` in that order, all with
-`catalog=retail_demo_notebooks`. Do not create a second active pipeline.
+Use `column_mapping` for renamed fields; `BUNDLE_VAR_column_mapping` is useful for
+passing JSON through a shell. The [source contract](source-contract.md) explains
+which fields are required and when a separate adapter is needed.
 
-## Governance checks
+For an uploaded CSV, run setup first, upload the file into the landing Volume,
+and set `source_mode=csv` with its absolute Volume path in `source_path`.
 
-Use a new demo catalog. Setup creates no general reader grants, but it does not
-remove privileges already inherited from the metastore/catalog. Inspect effective
-grants in Catalog Explorer and `SHOW GRANTS` on catalog, schemas, tables and view.
+For `open_sharing`, add `delta-sharing` to the ingest notebook's Environment,
+store the provider profile in the credentials Volume, and set `profile_path` and
+`share_table`. Run ingestion, refresh the pipeline, then run governance and
+validation. Scheduling that option needs a job Environment with the dependency
+and those parameters; they are not part of the default job configuration.
 
-Test a separate reader, if available:
+## Run through a Git folder or notebooks
 
-- SELECT on four gold aggregate objects and `customer_metrics_masked` succeeds.
-- Masked view returns `***MASKED***` unless the session belongs to the configured
-  account PII group. The view uses the **querying** user's membership.
-- SELECT on `bronze.orders_raw`, `silver.orders`, `gold.customer_metrics`, and both
-  raw_share Volumes fails for that reader. USE privileges on parents are also needed.
-- Querying as the owner/admin cannot prove isolation: owners retain underlying
-  access. Free Edition may not offer the account/group administration needed to
-  demonstrate multiple roles. Record the limitation rather than creating a fictitious
-  group or claiming a successful test.
+The original project is in
+`/Workspace/Users/anmolkoul11@gmail.com/Databricks_Demo`, a regular workspace folder.
+The GitHub remote is `https://github.com/anmolkoul11/Retail_Analytics_DB.git`.
+To work from a Databricks Git folder, clone that repository through the Git folders
+UI. Pushing local changes alone does not sync the existing workspace folder.
 
-Dynamic views protect the view interface only. Do not grant a reader SELECT at the
-catalog/gold schema level, ownership of the view/backing objects, or unrelated broad
-data privileges. Do not set `pii_group=account users`; that would reveal email to
-every account member. Customer hashes remain pseudonymous data.
+For manual file import, keep the directory structure: `retail` contains Python
+modules, `data` contains files, `pipelines` contains pipeline source, and
+`notebooks` contains Databricks source-format notebooks. Set `project_root` to
+the absolute `/Workspace/...` folder containing `retail/model.py`.
 
-## Stretch: outbound share
+To use the pipeline:
 
-**Verified in this workspace:** the share was created, and `daily_revenue` was added
-successfully using the sharing API's `data_object_type=MATERIALIZED_VIEW`. No external
-recipient access was granted. The TABLE type was rejected for this object. Inspect
-the existing share instead of recreating or adding the asset again.
+1. Run `00_setup`, then `01_ingest`, with `catalog=retail_demo`. Set source_mode
+   explicitly when running ingestion by hand; its notebook default is `sample`.
+2. Create a triggered serverless Lakeflow Declarative Pipeline with catalog
+   `retail_demo`, schema `silver`, and Advanced edition for expectations. Add
+   `pipelines/retail_pipeline.py` as a source file and use default publishing mode.
+3. Set `retail.catalog=retail_demo` and
+   `retail.project_root=/Workspace/.../Databricks_Demo` in pipeline configuration.
+4. Run an update, followed by `03_governance` and `04_validate`.
 
-Inspect provider/share permissions first. The optional SQL in
-`governance/outbound_share.sql` creates a share and attempts to add the aggregate;
-it does **not** create recipients or grant external access. Execute statement by
-statement and log the exact success/error without tokens or activation links.
+For notebooks only, run `00`, `01`, `02`, `03`, and `04` in order with
+`catalog=retail_demo_notebooks`. The separate catalog keeps notebook writes away
+from pipeline-owned materialized views. Run one path at a time to save quota.
 
-Pipeline outputs are materialized views; use their actual type in the API. If a
-different workspace rejects sharing that type,
-make an explicit Delta export (only when ready to test):
+## Check access
+
+Use a fresh demo catalog where possible. Setup does not remove grants inherited
+from an existing catalog or metastore. Check effective permissions in Catalog
+Explorer and with `SHOW GRANTS` before adding readers.
+
+The governance notebook defaults to the current user, with every email masked.
+For a separate reader identity, check that:
+
+- The four gold aggregates and `customer_metrics_masked` are readable.
+- The view returns `***MASKED***` unless that identity belongs to the configured
+  account PII group.
+- Bronze, silver, the raw customer metrics table, and both raw_share Volumes are
+  not accessible through the reader's grants.
+
+Readers need USE privileges on the parent catalog and schema as well as SELECT
+on the reporting objects. Use an account group or individual user, since the
+workspace-local `users` and `admins` groups cannot receive Unity Catalog grants.
+
+Granting SELECT on the whole gold schema would expose the backing customer table.
+Keep grants at the reporting-object level. The view evaluates the querying user's
+membership, but owners still have access to the underlying data. An owner-only
+test cannot demonstrate reader isolation. Free Edition may limit the available
+identities and account-group setup.
+
+## Outbound sharing
+
+The original workspace has `retail_demo_gold_share`, with daily_revenue added as
+an active materialized view. No recipients have been granted access. Inspect the
+existing share before adding the same asset again.
+
+For the pipeline output, the sharing API request uses its actual object type:
+
+```json
+{
+  "updates": [{
+    "action": "ADD",
+    "data_object": {
+      "name": "retail_demo.gold.daily_revenue",
+      "data_object_type": "MATERIALIZED_VIEW"
+    }
+  }]
+}
+```
+
+Save that request to a file and pass it to `databricks shares update
+retail_demo_gold_share --json '@request.json' -p RETAIL_DEMO`. The optional SQL in
+`governance/outbound_share.sql` creates and describes the share; adding a recipient
+is a separate step.
+
+If another workspace cannot share materialized views, a managed Delta export is
+an alternative:
 
 ```sql
 CREATE OR REPLACE TABLE retail_demo.gold.daily_revenue_export USING DELTA AS
@@ -107,35 +135,30 @@ ALTER SHARE retail_demo_gold_share ADD TABLE retail_demo.gold.daily_revenue_expo
 DESCRIBE SHARE retail_demo_gold_share;
 ```
 
-The export is a snapshot requiring manual refresh. Adding an asset to an existing
-share may duplicate an earlier successful attempt; inspect `SHOW ALL IN SHARE`
-before rerunning. If blocked, record the actual feature/privilege error. Creating a
-share is not proof that a recipient could consume it. No external recipient or
-credential is provisioned by this repo. Free Edition's Marketplace-provider ban is
-not evidence that direct share creation is categorically unavailable.
+That export needs its own refresh. Creating a share and adding an asset confirm
+provider setup; a recipient read is still needed to test consumption.
 
-## Recovery and quota
+## Common issues
 
-- Quota exhaustion: pause schedules, keep code, wait for compute reset. Avoid repeated
-  retries or full refreshes. Sample ingestion makes no external network requests.
-- Pipeline failure: inspect the event log/graph first; use notebook fallback in its
-  separate catalog if needed. Do not overwrite pipeline-managed objects.
-- Catalog creation denied: check CREATE CATALOG and managed storage availability.
-  If only an existing catalog is writable, use it deliberately, inspect inherited
-  access first, and redeploy with that catalog variable.
-- Source mapping errors: inspect source schema, adapt fields explicitly, rerun ingest.
-  No source error silently switches data provenance to a fictional sample.
-- Invalid casts: inspect quarantine and source payload in bronze. Dedupe occurs
-  before filtering; latest invalid corrections intentionally remove stale silver rows.
-- Timestamp handling: sample and adapters assume UTC. Serverless defaults to UTC;
-  set `spark.sql.session.timeZone=UTC` explicitly if you change session settings.
-- Notebook runs replace outputs independently; neither execution path is an atomic
-  transaction across the whole medallion. Readers should wait for successful job
-  completion to avoid mixing intermediate snapshots.
-- To stop: pause both job schedules, stop any active update, and stop warehouse
-  usage. No continuous pipeline is configured. Do not run `bundle destroy` casually:
-  it can remove managed resources/data. Catalog removal is a separate deliberate step.
+| Issue | What to check |
+| --- | --- |
+| Catalog missing during deployment | Run bootstrap before creating the pipeline |
+| Catalog creation asks for a storage root | Use SQL `CREATE CATALOG` on serverless compute for Free Edition default storage |
+| Source column missing | Check the source schema and column_mapping before retrying |
+| Unexpected quarantine rows | Compare silver values with source_payload in bronze; the newest bad correction stays quarantined |
+| Pipeline failure | Inspect its graph and event log, then use the separate notebook catalog if needed |
+| Compute quota reached | Leave schedules paused and wait for the quota reset rather than retrying repeatedly |
+| Dates shift | Confirm the session uses UTC; set `spark.sql.session.timeZone=UTC` if it was changed |
 
-References: [bundle examples](https://docs.databricks.com/aws/en/dev-tools/bundles/examples),
-[multi-schema pipelines](https://docs.databricks.com/aws/en/ldp/target-schema),
-[materialized views](https://docs.databricks.com/aws/en/ldp/developer/ldp-python-ref-materialized-view).
+Writes across the whole medallion are not one transaction. Wait for a successful
+job before comparing reports across layers, especially on the notebook path.
+
+Between demos, keep schedules paused and stop active updates or warehouse use.
+`bundle destroy` can remove managed resources and data; it is not the same as
+stopping compute.
+
+## References
+
+- [Bundle examples](https://docs.databricks.com/aws/en/dev-tools/bundles/examples)
+- [Publishing to multiple schemas](https://docs.databricks.com/aws/en/ldp/target-schema)
+- [Materialized views](https://docs.databricks.com/aws/en/ldp/developer/ldp-python-ref-materialized-view)

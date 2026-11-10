@@ -1,4 +1,4 @@
--- Expected SQL for three Genie benchmark questions. Compare using the same snapshot.
+-- Reference answers for the three Genie benchmarks. Run against the same snapshot.
 
 -- What is total completed-sales revenue?
 SELECT SUM(revenue) AS revenue FROM retail_demo.gold.daily_revenue;
